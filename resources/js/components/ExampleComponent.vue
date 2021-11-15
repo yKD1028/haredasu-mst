@@ -7,6 +7,8 @@
 
                     <div class="card-body">
                         I'm an example component.
+                        余白をどうするか
+                        余白要素？margin?padding?
                     </div>
                 </div>
             </div>

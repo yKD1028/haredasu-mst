@@ -2174,6 +2174,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -37736,7 +37738,7 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
               _vm._v(
-                "\n                    I'm an example component.\n                "
+                "\n                    I'm an example component.\n                    余白をどうするか\n                    余白要素？margin?padding?\n                "
               ),
             ]),
           ]),
@@ -37774,7 +37776,25 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [_c("p", [_vm._v("ホゲホゲほ")])])
+    return _c("div", { staticClass: "header-wrap" }, [
+      _c("header", [
+        _c("h1", [
+          _c("a", { attrs: { href: "/" } }, [_vm._v("超かっこいいロゴimg")]),
+        ]),
+        _vm._v(" "),
+        _c("nav", { staticClass: "pc-nav" }, [
+          _c("ul", [
+            _c("li", { staticClass: "header-register" }, [
+              _c("a", { attrs: { href: "#" } }, [_vm._v("新規登録")]),
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "header-login" }, [
+              _c("a", { attrs: { href: "#" } }, [_vm._v("ログイン")]),
+            ]),
+          ]),
+        ]),
+      ]),
+    ])
   },
 ]
 render._withStripped = true
