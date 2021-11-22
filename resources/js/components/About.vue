@@ -1,25 +1,16 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Example Component</div>
-
-                    <div class="card-body">
-                        I'm an example component.
-                        余白をどうするか
-                        余白要素？margin?padding?
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div>
+        <Header></Header>
+        <h1>Yano about max</h1>
     </div>
+
 </template>
 
 <script>
-    export default {
-        mounted() {
-            console.log('Component mounted.')
+    import Header from "./Header.vue"
+    export default{
+        components:{
+            Header
         }
     }
 </script>
