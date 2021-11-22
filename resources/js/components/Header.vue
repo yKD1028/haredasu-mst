@@ -6,6 +6,8 @@
             </h1>
             <nav class="pc-nav">
                 <ul>
+                    <li class="header-login"><a href="/">home</a></li>
+                    <li class="header-login"><a href="/about">about</a></li>
                     <li class="header-register"><a href="#">新規登録</a></li>
                     <li class="header-login"><a href="#">ログイン</a></li>
                 </ul>

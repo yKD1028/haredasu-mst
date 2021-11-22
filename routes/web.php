@@ -20,11 +20,14 @@ Route::get('/', function () {
 Route::get('/vue', function(){
     return view('app');
 });*/
-
+Route::get('/', function () {
+    return view('welcome');
+});
+/*
 Route::get('/{any}', function(){
     return view('app');
 })->where('any', '.*');
 
-/*Auth::routes();
+Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');*/

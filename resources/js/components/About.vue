@@ -7,6 +7,8 @@
 
                     <div class="card-body">
                         I'm an example component.
+                        余白をどうするか
+                        余白要素？margin?padding?
                     </div>
                 </div>
             </div>
@@ -15,7 +17,6 @@
 </template>
 
 <script>
-    import Header from "./Header.vue";
     export default {
         mounted() {
             console.log('Component mounted.')
