@@ -41,10 +41,11 @@ $color-white : #fff;
 }
 
 .form_title{
+    display: inline-block;
     position: relative;
-    bottom: -10px;
+    left: 100px;
+    top: -24px;
     background-color: $color-white;
-    width: auto;
 }
 
 .form_black::placeholder{
