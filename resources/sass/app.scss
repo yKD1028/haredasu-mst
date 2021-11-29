@@ -38,17 +38,21 @@ $color-white : #fff;
     box-sizing: border-box;
     width: 400px;
     height: 64px;
+    margin-bottom: 50px;
 }
 
 .form_title{
     display: inline-block;
     position: relative;
-    left: 100px;
-    top: -24px;
+    padding: 0 4px;
+    left: -384px;
+    top: -55px;
     background-color: $color-white;
 }
 
 .form_black::placeholder{
-    width: 120px;
-    text-align: center;
+    padding-left: 20px;
+}
+.test{
+    margin-bottom: 50px;
 }

@@ -2231,8 +2231,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  components: {}
+  props: {
+    value: {
+      type: String,
+      required: true
+    },
+    type: {
+      type: String,
+      required: true
+    },
+    name: {
+      type: String,
+      required: true
+    },
+    placeholder: {
+      type: String,
+      required: false
+    },
+    form_title: {
+      type: String
+    }
+  }
 });
 
 /***/ }),
@@ -2251,7 +2272,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Header_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Header.vue */ "./resources/js/components/Header.vue");
 /* harmony import */ var _button_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./button.vue */ "./resources/js/components/button.vue");
 /* harmony import */ var _Form_black_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Form_black.vue */ "./resources/js/components/Form_black.vue");
-//
 //
 //
 //
@@ -2292,7 +2312,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  setup: function setup() {}
+  name: "OrabgeButton",
+  props: {
+    button_name: {
+      type: String
+    }
+  }
 });
 
 /***/ }),
@@ -38238,23 +38263,18 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("input", {
+      staticClass: "form_black",
+      attrs: { type: _vm.type, name: _vm.name, placeholder: _vm.placeholder },
+      domProps: { value: _vm.value },
+      on: { input: _vm.updateValue },
+    }),
+    _vm._v(" "),
+    _c("p", { staticClass: "form_title" }, [_vm._v(_vm._s(_vm.form_title))]),
+  ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("p", { staticClass: "form_title" }, [_vm._v("form title")]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form_black",
-        attrs: { type: "text", placeholder: "PCフォーム" },
-      }),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -38356,9 +38376,24 @@ var render = function () {
     [
       _c("Header"),
       _vm._v(" "),
-      _c("h1", [_vm._v("Yano home max")]),
+      _c("h1", { staticClass: "test" }, [_vm._v("Yano home max")]),
       _vm._v(" "),
-      _c("form", [_c("FormBlack"), _vm._v(" "), _c("OrangeButton")], 1),
+      _c(
+        "form",
+        [
+          _c("FormBlack", {
+            attrs: {
+              placeholder: "変更",
+              name: "sample-input",
+              type: "text",
+              form_title: "タイトルテスト",
+            },
+          }),
+          _vm._v(" "),
+          _c("OrangeButton", { attrs: { button_name: "ボタンだよ" } }),
+        ],
+        1
+      ),
     ],
     1
   )
@@ -38387,7 +38422,7 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("button", { staticClass: "button_orange" }, [
-    _vm._v("button components"),
+    _vm._v(_vm._s(_vm.button_name)),
   ])
 }
 var staticRenderFns = []

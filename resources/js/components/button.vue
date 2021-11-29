@@ -1,11 +1,12 @@
 <template>
-    <button class="button_orange">button components</button>
+    <button class="button_orange">{{button_name}}</button>
 </template>
 
 <script>
 export default {
-    setup() {
-
-    },
+    name: "OrabgeButton",
+    props: {
+    button_name: { type: String },
+  },
 }
 </script>

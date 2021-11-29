@@ -1,13 +1,12 @@
 <template>
     <div>
         <Header></Header>
-        <h1>Yano home max</h1>
+        <h1 class="test">Yano home max</h1>
         <form>
-            <FormBlack></FormBlack>
-            <OrangeButton></OrangeButton>
+            <FormBlack placeholder="変更" name="sample-input" type="text" form_title="タイトルテスト"></FormBlack>
+            <OrangeButton button_name="ボタンだよ"></OrangeButton>
         </form>
     </div>
-
 </template>
 
 <script>
