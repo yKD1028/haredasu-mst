@@ -10,9 +10,9 @@
 </template>
 
 <script>
-    import Header from "./Header.vue"
-    import OrangeButton from "./button.vue"
-    import FormPc from "./Form_pc.vue"
+    import Header from "../components/Header.vue"
+    import OrangeButton from "../components/button.vue"
+    import FormPc from "../components/Form_pc.vue"
     export default{
         components:{
             Header,
