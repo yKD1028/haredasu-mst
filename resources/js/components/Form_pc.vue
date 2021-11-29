@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="form_wrap">
         <!--<input type="text" placeholder={{form_placeholder}} class="form_black">-->
-        <input class="form_black" :type="type" :name="name" :value="value" :placeholder="placeholder" @input="updateValue" />
+        <input class="form_pc" :type="type" :name="name" :value="value" :placeholder="placeholder" @input="updateValue" />
         <p class="form_title">{{form_title}}</p>
     </div>
 </template>

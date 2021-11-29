@@ -3,7 +3,7 @@
         <Header></Header>
         <h1 class="test">Yano home max</h1>
         <form>
-            <FormBlack placeholder="変更" name="sample-input" type="text" form_title="タイトルテスト"></FormBlack>
+            <FormPc placeholder="プレースホルダー" name="sample-input" type="text" form_title="タイトルテスト"></FormPc>
             <OrangeButton button_name="ボタンだよ"></OrangeButton>
         </form>
     </div>
@@ -12,12 +12,12 @@
 <script>
     import Header from "./Header.vue"
     import OrangeButton from "./button.vue"
-    import FormBlack from "./Form_pc.vue"
+    import FormPc from "./Form_pc.vue"
     export default{
         components:{
             Header,
             OrangeButton,
-            FormBlack
+            FormPc
         }
     }
 </script>

@@ -2290,7 +2290,7 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     Header: _Header_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     OrangeButton: _button_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    FormBlack: _Form_pc_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+    FormPc: _Form_pc_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   }
 });
 
@@ -38263,9 +38263,9 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "form_wrap" }, [
     _c("input", {
-      staticClass: "form_black",
+      staticClass: "form_pc",
       attrs: { type: _vm.type, name: _vm.name, placeholder: _vm.placeholder },
       domProps: { value: _vm.value },
       on: { input: _vm.updateValue },
@@ -38381,9 +38381,9 @@ var render = function () {
       _c(
         "form",
         [
-          _c("FormBlack", {
+          _c("FormPc", {
             attrs: {
-              placeholder: "変更",
+              placeholder: "プレースホルダー",
               name: "sample-input",
               type: "text",
               form_title: "タイトルテスト",
@@ -38422,7 +38422,9 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("button", { staticClass: "button_orange" }, [
-    _vm._v(_vm._s(_vm.button_name)),
+    _c("span", { staticClass: "button_chara" }, [
+      _vm._v(_vm._s(_vm.button_name)),
+    ]),
   ])
 }
 var staticRenderFns = []

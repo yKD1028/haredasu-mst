@@ -32,15 +32,27 @@ $color-white : #fff;
     line-height: 26px;
 }
 
-.form_black{
+.button_orange:hover{
+    filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.25));
+}
+
+.button_orange:active{
+    .button_chara{
+        opacity: 0.55;
+    }
+}
+
+
+.form_pc{
     border-radius: 11px;
     border: 4px solid $color-gray;
     box-sizing: border-box;
     width: 400px;
     height: 64px;
     margin-bottom: 50px;
+    outline: none;
+    padding: 10px 20px;
 }
-
 .form_title{
     display: inline-block;
     position: relative;
@@ -48,11 +60,27 @@ $color-white : #fff;
     left: -384px;
     top: -55px;
     background-color: $color-white;
+    outline: none;
+    color: $color-gray;
 }
 
-.form_black::placeholder{
-    padding-left: 20px;
+.form_pc:focus{
+    outline: none;
+    border: 4px solid $color-orange;
+    color: $color-orange;
+    .form_title{
+        color: $color-orange;
+    }
 }
+
+.form_pc:focus::placeholder{
+    color:transparent;
+}
+
+.form_pc:valid{
+    color: $color-gray;
+}
+
 .test{
     margin-bottom: 50px;
 }
