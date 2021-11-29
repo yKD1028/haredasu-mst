@@ -12,7 +12,7 @@
 <script>
     import Header from "./Header.vue"
     import OrangeButton from "./button.vue"
-    import FormBlack from "./Form_black.vue"
+    import FormBlack from "./Form_pc.vue"
     export default{
         components:{
             Header,
