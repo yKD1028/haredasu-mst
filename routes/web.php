@@ -12,22 +12,18 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-/*
+
+// Route::get('/vue', function () {
+//   return view('app');
+// });
 Route::get('/', function () {
-    return view('welcome');
+  return view('auth.register');
 });
 
-Route::get('/vue', function(){
-    return view('app');
-});
-Route::get('/', function () {
-    return view('welcome');
-});*/
-
-Route::get('/{any}', function () {
-  return view('welcome');
-})->where('any', '.*');
+// Route::get('/{any}', function () {
+//   return view('welcome');
+// })->where('any', '.*');
 
 Auth::routes(['verify' => true]);
 
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
