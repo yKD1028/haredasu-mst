@@ -24,4 +24,7 @@ Route::get('/', function () {
 //   return view('welcome');
 // })->where('any', '.*');
 Auth::routes(['verify' => true]);
+// middlewareで遷移先の制限
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
+Route::get('/user_info', 'UsersController@user_info')->name('user_info');
+Route::post('/regist_user_info', 'UsersController@regist_user_info');
