@@ -28,8 +28,8 @@ class UsersController extends Controller
 
       'first_name' => ['required', 'string', 'max:20'],
       'last_name' => ['required', 'string', 'max:20'],
-      'first_name_kana' => ['required', 'string', 'max:20'],
-      'last_name_kana' => ['required', 'string', 'max:20'],
+      'first_name_kana' => ['required', 'kana', 'max:20'],
+      'last_name_kana' => ['required', 'kana', 'max:20'],
       'tell' => ['required', 'string', 'max:12'],
       'zip' => ['required', 'digits_between:1,8'],
       'address' => ['required', 'string',  'max:255'],
