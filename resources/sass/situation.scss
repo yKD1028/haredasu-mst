@@ -1,0 +1,38 @@
+.situation_wrap{
+    width: 80%;
+    height: 1401px;
+    /*後でpxから別のものに変更する*/
+    background-color: $color-white;
+    .situation_flex{
+        display: flex;
+        justify-content: space-between;
+    }
+    .situation_group1{
+        width: 317px;
+        height: 300px;
+        h3{
+            font-size: 24px;
+        }
+        p{
+            width: 317px;
+            font-size: 18px;
+        }
+    }
+    .situation_group2{
+        width: 317px;
+        height: 300px;
+        h3{
+            font-size: 24px;
+        }
+        p{
+            width: 317px;
+            font-size: 18px;
+        }
+    }
+    .situation_image1{
+        margin-right: 220px;
+    }
+    .situation_image2{
+        margin-right: 220px;
+    }
+}

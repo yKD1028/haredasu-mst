@@ -424,8 +424,9 @@ th {
   font-weight: bold;
 }
 
+@charset "UTF-8";
 .header-wrap {
-  margin-bottom: 100px;
+  margin-bottom: 80px;
 }
 .header-wrap header {
   padding: 30px 4% 10px;
@@ -539,6 +540,45 @@ th {
 
 .form_pc:valid {
   color: #767676;
+}
+
+.situation_wrap {
+  width: 80%;
+  height: 1401px;
+  /*後でpxから別のものに変更する*/
+  background-color: #fff;
+}
+.situation_wrap .situation_flex {
+  display: flex;
+  justify-content: space-between;
+}
+.situation_wrap .situation_group1 {
+  width: 317px;
+  height: 300px;
+}
+.situation_wrap .situation_group1 h3 {
+  font-size: 24px;
+}
+.situation_wrap .situation_group1 p {
+  width: 317px;
+  font-size: 18px;
+}
+.situation_wrap .situation_group2 {
+  width: 317px;
+  height: 300px;
+}
+.situation_wrap .situation_group2 h3 {
+  font-size: 24px;
+}
+.situation_wrap .situation_group2 p {
+  width: 317px;
+  font-size: 18px;
+}
+.situation_wrap .situation_image1 {
+  margin-right: 220px;
+}
+.situation_wrap .situation_image2 {
+  margin-right: 220px;
 }
 
 .test {
