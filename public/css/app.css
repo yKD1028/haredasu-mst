@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
+@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+JP);
 /*! destyle.css v3.0.0 | MIT License | https://github.com/nicolas-cusan/destyle.css */
 
 /* Reset box-model and set borders */
@@ -542,43 +543,88 @@ th {
   color: #767676;
 }
 
+.home_wrap {
+  width: 100%;
+  background-color: #FFF2D8;
+}
+
 .situation_wrap {
+  font-family: "Noto Sans JP", sans-serif;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 100px;
   width: 80%;
-  height: 1401px;
+  color: #4D4D4D;
   /*後でpxから別のものに変更する*/
   background-color: #fff;
 }
+.situation_wrap .situation_title {
+  text-align: center;
+  padding-top: 100px;
+  margin-bottom: 120px;
+}
+.situation_wrap .situation_title p {
+  font-size: 2.5vh;
+  color: #EB8E4B;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+}
+.situation_wrap .situation_title h2 {
+  font-size: 4vh;
+  font-weight: 700;
+  color: #4D4D4D;
+}
 .situation_wrap .situation_flex {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.situation_wrap .flex_group1, .situation_wrap .flex_group2 {
+  flex-wrap: wrap;
+  justify-content: space-around;
+  display: flex;
+  width: 90%;
+  margin-bottom: 100px;
+}
+.situation_wrap .flex_group1 {
+  margin-bottom: 100px;
+}
+.situation_wrap .situation_group1, .situation_wrap .situation_group2 {
+  margin-top: 70px;
+}
+.situation_wrap .situation_group1 h3, .situation_wrap .situation_group2 h3 {
+  font-size: 2.5vh;
+  margin-bottom: 32px;
+  color: #EB8E4B;
+  font-weight: 700;
+}
+.situation_wrap .situation_group1 p, .situation_wrap .situation_group2 p {
+  width: 317px;
+  font-size: 2vh;
+  letter-spacing: 0.01em;
+  line-height: 30px;
+}
+.situation_wrap .situation_group1_1, .situation_wrap .situation_group2_1 {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+  width: 310px;
+  text-align: center;
+  margin-top: 30px;
 }
-.situation_wrap .situation_group1 {
-  width: 317px;
-  height: 300px;
+.situation_wrap .situation_group1_1 p, .situation_wrap .situation_group2_1 p {
+  width: 90px;
+  background-color: #EB8E4B;
+  border-radius: 40px;
+  color: #fff;
+  padding: 0 15px;
+  margin-left: 5px;
+  font-size: 2vh;
+  font-weight: 400;
 }
-.situation_wrap .situation_group1 h3 {
-  font-size: 24px;
-}
-.situation_wrap .situation_group1 p {
-  width: 317px;
-  font-size: 18px;
-}
-.situation_wrap .situation_group2 {
-  width: 317px;
-  height: 300px;
-}
-.situation_wrap .situation_group2 h3 {
-  font-size: 24px;
-}
-.situation_wrap .situation_group2 p {
-  width: 317px;
-  font-size: 18px;
-}
-.situation_wrap .situation_image1 {
-  margin-right: 220px;
-}
-.situation_wrap .situation_image2 {
-  margin-right: 220px;
+.situation_wrap .situation_image1, .situation_wrap .situation_image2 {
+  width: 55vh;
 }
 
 .test {

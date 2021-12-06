@@ -2381,6 +2381,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   setup: function setup() {}
 });
@@ -2510,6 +2518,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _components_Header_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/Header.vue */ "./resources/js/components/components/Header.vue");
 /* harmony import */ var _components_situation_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/situation.vue */ "./resources/js/components/components/situation.vue");
+//
+//
 //
 //
 //
@@ -38895,55 +38905,31 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "header-wrap" }, [
-    _c("header", [
-      _vm._m(0),
-      _vm._v(" "),
-      _c("nav", { staticClass: "pc-nav" }, [
-        _c("ul", [
-          _c(
-            "li",
-            [_c("router-link", { attrs: { to: "/" } }, [_vm._v("Home")])],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "li",
-            [_c("router-link", { attrs: { to: "about" } }, [_vm._v("About")])],
-            1
-          ),
-          _vm._v(" "),
-          _vm._m(1),
-          _vm._v(" "),
-          _vm._m(2),
-        ]),
-      ]),
-    ]),
-  ])
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("h1", [
-      _c("a", { attrs: { href: "/" } }, [_vm._v("超かっこいいロゴimg")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "header-register" }, [
-      _c("a", { attrs: { href: "#" } }, [_vm._v("新規登録")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "header-login" }, [
-      _c("a", { attrs: { href: "#" } }, [_vm._v("ログイン")]),
+    return _c("div", { staticClass: "header-wrap" }, [
+      _c("header", [
+        _c("h1", [
+          _c("a", { attrs: { href: "/" } }, [_vm._v("超かっこいいロゴimg")]),
+        ]),
+        _vm._v(" "),
+        _c("nav", { staticClass: "pc-nav" }, [
+          _c("ul", [
+            _c("li", { staticClass: "header-register" }, [
+              _c("a", { attrs: { href: "#" } }, [_vm._v("新規登録")]),
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "header-login" }, [
+              _c("a", { attrs: { href: "#" } }, [_vm._v("ログイン")]),
+            ]),
+          ]),
+        ]),
+      ]),
     ])
   },
 ]
@@ -39116,28 +39102,40 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "situation_wrap" }, [
-    _c("p", [_vm._v("Situation")]),
-    _vm._v(" "),
-    _c("h2", [_vm._v("こんなときに")]),
+    _vm._m(0),
     _vm._v(" "),
     _c("div", { staticClass: "situation_flex" }, [
-      _c("img", {
-        staticClass: "situation_image1",
-        attrs: { src: "/images/situation01.svg", alt: "" },
-      }),
+      _c("div", { staticClass: "flex_group1" }, [
+        _c("img", {
+          staticClass: "situation_image1",
+          attrs: { src: "/images/situation01.svg", alt: "" },
+        }),
+        _vm._v(" "),
+        _vm._m(1),
+      ]),
       _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _vm._m(1),
-      _vm._v(" "),
-      _c("img", {
-        staticClass: "situation_image2",
-        attrs: { src: "/images/situation02.svg", alt: "" },
-      }),
+      _c("div", { staticClass: "flex_group2" }, [
+        _vm._m(2),
+        _vm._v(" "),
+        _c("img", {
+          staticClass: "situation_image2",
+          attrs: { src: "/images/situation02.svg", alt: "" },
+        }),
+      ]),
     ]),
   ])
 }
 var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "situation_title" }, [
+      _c("p", [_vm._v("Situation")]),
+      _vm._v(" "),
+      _c("h2", [_vm._v("こんなときに")]),
+    ])
+  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
@@ -39171,22 +39169,26 @@ var staticRenderFns = [
     return _c("div", { staticClass: "situation_group2" }, [
       _c("h3", [_vm._v("イベント、行事")]),
       _vm._v(" "),
+      _c("p", [_vm._v("野外イベント、催し物")]),
+      _vm._v(" "),
       _c("p", [
         _vm._v(
-          "デート、結婚式、おでかけ色々なシチュエーションで晴れを楽しみましょう。"
+          "ハレダスにあなたのイベントを成功させるお手伝いをさせてください。"
         ),
       ]),
       _vm._v(" "),
       _c("p", [
-        _vm._v("直前の予約でも大丈夫、あなたに合わせて晴れをお届けします。"),
+        _vm._v("事業者さま向けの"),
+        _c("a", { attrs: { href: "#" } }, [_vm._v("プラン")]),
+        _vm._v("もございます"),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "situation_group2_1" }, [
-        _c("p", [_vm._v("デート")]),
+        _c("p", [_vm._v("運動会")]),
         _vm._v(" "),
-        _c("p", [_vm._v("結婚式")]),
+        _c("p", [_vm._v("フェス")]),
         _vm._v(" "),
-        _c("p", [_vm._v("レジャー")]),
+        _c("p", [_vm._v("BBQ")]),
       ]),
     ])
   },
@@ -39381,12 +39383,9 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "home_wrap" },
-    [_c("Header"), _vm._v(" "), _c("Situation")],
-    1
-  )
+  return _c("div", { staticClass: "home_wrap" }, [
+    _c("div", { staticClass: "home_wrap" }, [_c("Situation")], 1),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

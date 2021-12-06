@@ -1,7 +1,9 @@
 <template>
     <div class="home_wrap">
-        <Header></Header>
-        <Situation></Situation>
+        <div class="home_wrap">
+            <!--<Header></Header>-->
+            <Situation></Situation>
+        </div>
     </div>
 </template>
 

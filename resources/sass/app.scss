@@ -1,6 +1,6 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
-
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP');
 // Variables
 @import 'variables';
 
@@ -14,11 +14,13 @@ $color-gray2 : #FAFAFA;
 $color-blue : #84A6F4;
 $color-red : #F48484;
 $color-black : #252525;
+$color-black1 : #4D4D4D;
 $color-white : #fff;
 
 @import './header.scss';
 @import './button.scss';
 @import './form.scss';
+@import './home.scss';
 @import './situation.scss';
 
 .test{
