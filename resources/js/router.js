@@ -1,6 +1,9 @@
 import Router from 'vue-router'
-import Home from './components/Home.vue'
-import About from './components/About.vue'
+import Home from './components/pages/Home.vue'
+import About from './components/pages/About.vue'
+import Regist from './components/pages/Regist.vue'
+import Form_sample from './components/form_sample.vue'
+import test_page from './components/pages/test.vue'
 
 export default new Router({
   mode: 'history',
@@ -14,6 +17,21 @@ export default new Router({
         path: '/about',
         name: 'about',
         component: About
+    },
+    {
+        path: '/regist',
+        name: '新規登録',
+        component: Regist
+    },
+    {
+        path: '/form_sample',
+        name: 'form_sample',
+        component: Form_sample
+    },
+    {
+        path: '/test',
+        name: 'test',
+        component: test_page
     },
   ]
 });

@@ -1,25 +1,16 @@
-$color-orange : #EB8E4B;
-$color-gray : #767676;
-$color-gray2 : #FAFAFA;
-$color-blue : #84A6F4;
-$color-red : #F48484;
-$color-black : #252525;
-$color-white : #fff;
-
-
 .header-wrap{
     header{
         padding: 30px 4% 10px;
         position: fixed;
         top: 0;
         width: 100%;
-        background-color: #fff;
+        background-color: $color-white;
         display: flex;
         align-items: center;
     }
     a{
         text-decoration: none;
-        color: #4b4b4b;
+        color: $color-black;
     }
      nav{
         margin: 0 0 0 auto;
@@ -43,5 +34,5 @@ $color-white : #fff;
             color: $color-white;
         }
     }
-    margin-bottom: 100px;
+    margin-bottom: 80px;
 }
