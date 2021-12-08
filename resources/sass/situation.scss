@@ -10,7 +10,7 @@
     .situation_title{
         text-align: center;
         p{
-            font-size: 2.5vh;
+            font-size: 2.7vh;
             color: $color-orange;
             font-weight: 700;
             letter-spacing: 0.1em;
@@ -22,7 +22,7 @@
             color: $color-black1;
         }
         padding-top: 100px;
-        margin-bottom: 120px;
+        margin-bottom: 110px;
     }
     .situation_flex{
         display: flex;
@@ -53,6 +53,11 @@
             letter-spacing: 0.01em;
             line-height: 30px;
         }
+        a{
+            color: $color-blue;
+            text-decoration: underline;
+
+        }
     }
     .situation_group1_1, .situation_group2_1{
         display: flex;
@@ -67,9 +72,10 @@
             border-radius: 40px;
             color: $color-white;
             padding: 0 15px;
-            margin-left: 5px;
+            margin-right: 5px;
             font-size: 2vh;
             font-weight: 400;
+            letter-spacing: 00.01em;
         }
     }
     .situation_image1, .situation_image2{

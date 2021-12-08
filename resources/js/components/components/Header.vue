@@ -2,7 +2,7 @@
     <div class="header-wrap">
         <header>
             <h1>
-                <a href="/">超かっこいいロゴimg</a>
+                <a href="/"><img :src="'/images/haredasu_logo.svg'" alt="logo" class="header_logo"></a>
             </h1>
             <nav class="pc-nav">
                 <ul>

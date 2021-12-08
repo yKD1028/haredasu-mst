@@ -38905,29 +38905,34 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "header-wrap" }, [
+    _c("header", [
+      _c("h1", [
+        _c("a", { attrs: { href: "/" } }, [
+          _c("img", {
+            staticClass: "header_logo",
+            attrs: { src: "/images/haredasu_logo.svg", alt: "logo" },
+          }),
+        ]),
+      ]),
+      _vm._v(" "),
+      _vm._m(0),
+    ]),
+  ])
 }
 var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "header-wrap" }, [
-      _c("header", [
-        _c("h1", [
-          _c("a", { attrs: { href: "/" } }, [_vm._v("超かっこいいロゴimg")]),
+    return _c("nav", { staticClass: "pc-nav" }, [
+      _c("ul", [
+        _c("li", { staticClass: "header-register" }, [
+          _c("a", { attrs: { href: "#" } }, [_vm._v("新規登録")]),
         ]),
         _vm._v(" "),
-        _c("nav", { staticClass: "pc-nav" }, [
-          _c("ul", [
-            _c("li", { staticClass: "header-register" }, [
-              _c("a", { attrs: { href: "#" } }, [_vm._v("新規登録")]),
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "header-login" }, [
-              _c("a", { attrs: { href: "#" } }, [_vm._v("ログイン")]),
-            ]),
-          ]),
+        _c("li", { staticClass: "header-login" }, [
+          _c("a", { attrs: { href: "#" } }, [_vm._v("ログイン")]),
         ]),
       ]),
     ])
@@ -39384,7 +39389,12 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "home_wrap" }, [
-    _c("div", { staticClass: "home_wrap" }, [_c("Situation")], 1),
+    _c(
+      "div",
+      { staticClass: "home_wrap" },
+      [_c("Header"), _vm._v(" "), _c("Situation")],
+      1
+    ),
   ])
 }
 var staticRenderFns = []
