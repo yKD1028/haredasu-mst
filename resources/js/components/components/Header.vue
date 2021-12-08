@@ -6,7 +6,7 @@
             </h1>
             <nav class="pc-nav">
                 <ul>
-                    <li class="header-register"><a href="#">新規登録</a></li>
+                    <li class="header-register"><a href="/mail_auth">新規登録</a></li>
                     <li class="header-login"><a href="#">ログイン</a></li>
                 </ul>
             </nav>
