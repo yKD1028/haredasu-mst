@@ -426,6 +426,11 @@ th {
 }
 
 @charset "UTF-8";
+/*共通部分?*/
+body {
+  letter-spacing: 0.01em;
+}
+
 .header-wrap {
   z-index: 99;
   margin-bottom: 8.5vh;
@@ -641,8 +646,4 @@ th {
 }
 .situation_wrap .situation_image1, .situation_wrap .situation_image2 {
   width: 55vh;
-}
-
-.test {
-  margin-bottom: 50px;
 }

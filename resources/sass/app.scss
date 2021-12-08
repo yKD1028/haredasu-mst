@@ -17,12 +17,15 @@ $color-black : #252525;
 $color-black1 : #4D4D4D;
 $color-white : #fff;
 
+/*共通部分?*/
+
+body{
+    letter-spacing: 0.01em;
+}
+
+
 @import './header.scss';
 @import './button.scss';
 @import './form.scss';
 @import './home.scss';
 @import './situation.scss';
-
-.test{
-    margin-bottom: 50px;
-}
