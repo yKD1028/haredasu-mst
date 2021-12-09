@@ -8,11 +8,27 @@
     <title>予約画面</title>
 </head>
 <body>
-<h1>TOPnav予定地</h1>
-<div id="reserve">
-    <reserve-page></reserve-page>
-</div>
+    <h1>TOPnav予定地</h1>
+        <div id="reserve">
+            <reserve-page></reserve-page>
+        </div>
+    </div>
 
 <script src="{{ asset('/js/app.js') }}" defer></script>
 </body>
 </html>
+
+<style>
+
+    h1{
+        background-color: #ccc;
+        height: 80px;
+    }
+    body{
+        background-color: #F2F7F5;
+    }
+    * {
+        margin: 0;
+        padding: 0;
+    }
+</style>

@@ -18,9 +18,10 @@ Route::get('/', function () {
 });
 
 Route::get('/Reserve', function () {
-    return view('reservepage');
+    return view('Reservepage');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/api', 'GooglemapController@index');
