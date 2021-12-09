@@ -24,13 +24,16 @@ export default {
         }
     },
     watch: {
-        //form_phoneと同じ、未着手
         email(email) {
-        if (!email || !!email.match(/^[0-9\-]+$/)) {
-            this.$delete(this.errors, 'email')
-        } else {
-            this.$set(this.errors, "email", 'メールアドレスは○○の形式で入力してください')
-        }
+            var pattern = /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}$/;
+            if(!email) {
+                this.$set(this.errors, "email", 'メールアドレスを入力してください')
+            } else if(!email.match(pattern)){
+            // }else if(!email.match(/^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}$/)) {
+                this.$set(this.errors, "email", 'メールアドレスは半角英数、「XX@XX.XX」の形式で入力してください')
+            } else {
+                this.$delete(this.errors, 'email')
+            }
         },
     }
 }

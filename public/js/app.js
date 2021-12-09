@@ -2272,12 +2272,16 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   watch: {
-    //form_phoneと同じ、未着手
     email: function email(_email) {
-      if (!_email || !!_email.match(/^[0-9\-]+$/)) {
-        this.$delete(this.errors, 'email');
+      var pattern = /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}$/;
+
+      if (!_email) {
+        this.$set(this.errors, "email", 'メールアドレスを入力してください');
+      } else if (!_email.match(pattern)) {
+        // }else if(!email.match(/^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}$/)) {
+        this.$set(this.errors, "email", 'メールアドレスは半角英数、「XX@XX.XX」の形式で入力してください');
       } else {
-        this.$set(this.errors, "email", 'メールアドレスは○○の形式で入力してください');
+        this.$delete(this.errors, 'email');
       }
     }
   }
