@@ -4,6 +4,7 @@ import About from './components/pages/About.vue'
 import MailAuth from './components/pages/MailAuth.vue'
 import Regist from './components/pages/Regist.vue'
 import Login from './components/pages/Login.vue'
+import ChangePass from './components/pages/ChangePassword.vue'
 import Form_sample from './components/form_sample.vue'
 import test_page from './components/pages/test.vue'
 
@@ -34,6 +35,11 @@ export default new Router({
         path: '/login',
         name: 'ログイン',
         component: Login
+    },
+    {
+        path: '/change_pass',
+        name: 'パスワード変更',
+        component: ChangePass
     },
     {
         path: '/form_sample',

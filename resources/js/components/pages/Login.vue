@@ -10,7 +10,7 @@
             <div class="remenber_check">
                 <input type="checkbox" id="remenber" name="remenber" v-model="formCheck">
                 <label for="remenber">ログイン状態を保持する</label>
-                <span><a href="/pass_change">パスワードを忘れた？</a></span>
+                <span><a href="/change_pass">パスワードを忘れた？</a></span>
             </div>
             <OrangeButton button_name="ログイン"></OrangeButton>
             <p>または</p>

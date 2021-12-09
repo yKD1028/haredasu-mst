@@ -26,7 +26,7 @@ export default {
     watch: {
         //form_phoneと同じ、未着手
         password(passsword) {
-        if (!email || !!email.match(/^[0-9\-]+$/)) {
+        if (!password || !!password.match(/^[0-9\-]+$/)) {
             this.$delete(this.errors, 'password')
         } else {
             this.$set(this.errors, "password", 'パスワードは○○の形式で入力してください')
