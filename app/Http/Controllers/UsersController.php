@@ -31,7 +31,7 @@ class UsersController extends Controller
       'first_name_kana' => ['required', 'kana', 'max:20'],
       'last_name_kana' => ['required', 'kana', 'max:20'],
       'tell' => ['required', 'string', 'max:12'],
-      'zip' => ['required', 'digits_between:1,8'],
+      'zip' => ['required', 'digits:7'],
       'address' => ['required', 'string',  'max:255'],
     ]);
     $user_info = $post->all();

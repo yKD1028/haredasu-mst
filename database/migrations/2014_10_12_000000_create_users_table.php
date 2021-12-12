@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
       $table->string('tell', 12)->nullable();
       $table->integer('zip')->nullable();
       $table->string('address')->nullable();
+      $table->string('payjp_customer_id')->nullable();
       $table->rememberToken();
       $table->timestamps();
       $table->softDeletes();

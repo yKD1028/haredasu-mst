@@ -35,7 +35,7 @@ return [
   'date_equals'          => ':attributeには、:dateと同じ日付けを指定してください。',
   'date_format'          => ':attributeは:format形式で指定してください。',
   'different'            => ':attributeと:otherには、異なった内容を指定してください。',
-  'digits'               => ':attributeは:digits桁で指定してください。',
+  'digits'               => ':attributeは:digits桁の数字で指定してください。',
   'digits_between'       => ':attributeは:min桁から:max桁の間で指定してください。',
   'dimensions'           => ':attributeの図形サイズが正しくありません。',
   'distinct'             => ':attributeには異なった値を指定してください。',
@@ -150,6 +150,12 @@ return [
     "email" => "メールアドレス",
     "password" => "パスワード",
     "password_confirmation" => "パスワード(確認用)",
+    "first_name" => "苗字",
+    "last_name" => "名前",
+    "kana" => "カナ",
+    "tell" => "電話番号",
+    "zip" => "郵便番号",
+    "address" => "住所",
   ],
 
 ];
