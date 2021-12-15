@@ -1,13 +1,13 @@
 <template>
     <div class="form_wrap">
         <div>
-            <input class="form_pc" type="password" name="password" v-model="password" v-on:blur="onBlur" :placeholder="'パスワード'" :form_title="'パスワード'">
-            <label for="form_pc" class="form_title">{{form_title}}</label>
+            <input class="form_pc" type="password" name="password" v-model="password" v-on:blur="onBlur" :placeholder="'パスワード'">
+            <label for="form_pc" class="form_title">パスワード</label>
             <span class="form_error">{{errors.password}}</span>
         </div>
         <div>
-            <input class="form_pc" type="password" name="passwordCheck" v-model="passwordCheck" v-on:blur="onBlur" :placeholder="'パスワード確認'" :form_title="'パスワード確認'">
-            <label for="form_pc" class="form_title">{{form_title}}</label>
+            <input class="form_pc" type="password" name="passwordCheck" v-model="passwordCheck" v-on:blur="onBlur" :placeholder="'パスワード確認'">
+            <label for="form_pc" class="form_title">パスワード確認</label>
             <span class="form_error">{{errors.passwordCheck}}</span>
         </div>
     </div>
@@ -43,15 +43,6 @@ export default {
 
     watch: {
         password(password) {
-            //半角英字数字それぞれ1字以上、計8字以上一括判定
-            // var pattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-            // if(!password) {
-            //     this.$set(this.errors, 'password', 'パスワードを入力してください。')
-            // } else if(!password.match(pattern)) {
-            //     this.$set(this.errors, 'password','パスワードは半角英数含め、8字以上で入力してください。')
-            // } else {
-            //     this.$delete(this.errors, 'password')
-            // }
             var pattern1 = /^[A-Za-z0-9]*$/;
             var pattern2 = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,20}$/;
             var pattern3 = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{2,}$/
