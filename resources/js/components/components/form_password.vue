@@ -1,6 +1,6 @@
 <template>
     <div class="form_wrap">
-        <input class="form_pc"  v-model="password" v-on:blur="onBlur" :placeholder="placeholder">
+        <input class="form_pc" type="password" v-model="password" v-on:blur="onBlur" :placeholder="placeholder">
         <label for="form_pc" class="form_title">{{form_title}}</label>
         <span class="form_error">{{errors.password}}</span>
     </div>
