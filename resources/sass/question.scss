@@ -1,0 +1,16 @@
+.home_question{
+    font-family: 'Noto Sans JP', sans-serif;
+    margin: 0 auto;
+    background-color: $color-white;
+    border-radius: 100px;
+    width: 80%;
+    color: $color-black1;
+    background-color: $color-white;
+    h2{
+        text-align: center;
+    }
+    .questions{
+        width: 70vh;
+        margin: 0 auto;
+    }
+}

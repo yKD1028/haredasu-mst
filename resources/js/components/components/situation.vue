@@ -34,7 +34,6 @@
             </div>
         </div>
     </div>
-    <!-- p tag flex 左揃え　letter-spasing-->
 </template>
 
 <script>
