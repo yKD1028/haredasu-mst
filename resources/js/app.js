@@ -35,8 +35,8 @@ Vue.component('confirmation-page', require('./components/ConfirmationPage.vue').
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
- window.Vue = Vue;
- Vue.use(VueRouter);
+window.Vue = Vue;
+Vue.use(VueRouter);
 
 // const app = new Vue({
 //     el: '#app',
@@ -46,8 +46,8 @@ Vue.component('confirmation-page', require('./components/ConfirmationPage.vue').
 const reserve = new Vue({
     el: '#reserve',
 });
-const app = new Vue({
-    el: '#app',
-    router
-});
+// const app = new Vue({
+//     el: '#app',
+//     router
+// });
 

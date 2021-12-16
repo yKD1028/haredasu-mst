@@ -197,6 +197,7 @@ export default {
                 lat:Number(e.latLng.lat()),
                 lng:Number(e.latLng.lng())
             }
+            console.log("aaa");
             axios.post('/api',data).then((response) => {
                 if(response.data.results[0].formatted_address.substr( 13 ).length >=22){
                     this.addressName=response.data.results[0].formatted_address.substring(12,35)+"...";;

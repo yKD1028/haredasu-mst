@@ -135,7 +135,7 @@ return [
     */
   "map_api" => env("map_api"),
 
-  'providers' => [
+'providers' => [
 
     /*
          * Laravel Framework Service Providers...
