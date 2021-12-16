@@ -12,16 +12,7 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Route::get('/{any}', function () {
-//   return view('welcome');
-// })->where('any', '.*');
 
-// Route::get('/vue', function () {
-//   return view('app');
-// });
-// Route::get('/', function () {
-//   return view('auth.register');
-// });
 
 Auth::routes(['verify' => true]);
 // middlewareで遷移先の制限
@@ -35,17 +26,15 @@ Route::group(['middleware' => 'auth'], function () {
   });
 });
 
-Route::get('/vue', function () {
-  return view('app');
-});
-Route::get('/', function () {
-  return view('welcome');
-});
-Auth::routes();
-
-Route::get('/{any}', function () {
-  return view('welcome');
-})->where('any', '.*');
+// Route::get('/vue', function () {
+//   return view('app');
+// });
+// Route::get('/', function () {
+//   return view('welcome');
+// });
+// Route::get('/{any}', function () {
+//   return view('welcome');
+// })->where('any', '.*');
 
 Route::get('/Reserve', function () {
   return view('Reservepage');
