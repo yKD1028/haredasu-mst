@@ -21,6 +21,9 @@ class ReserveController extends Controller
     //本日の日付の取得
     //日付に応じたデータの取得
     //returnで返す
+
+    $reserves = Reserve::all();
+    return  $reserves;
   }
   //日付選択時に予約取得
   public function reserve_date(Request $date)

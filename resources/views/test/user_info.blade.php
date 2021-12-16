@@ -156,3 +156,25 @@
   @if (session('error-message'))
   <p>{{ session('error-message') }}</p>
   @endif
+
+  <div>
+
+  </div>
+  <!-- <script>
+    $(function() {
+      reserve_page();
+    });
+
+    function reserve_page() {
+      $.ajax({
+        url: "reserve_page",
+        dataType: "json",
+        success: data => {
+          console.log(data);
+        },
+        error: () => {
+          alert("ajax Error");
+        }
+      });
+    }
+  </script> -->
