@@ -133,7 +133,7 @@ return [
     | this array to grant expanded functionality to your applications.
     |
     */
-  "map_api" => env("map_api"),
+  "MIX_GOOGLE_MAPS_API" => env("MIX_GOOGLE_MAPS_API"),
 
 'providers' => [
 

@@ -2439,6 +2439,47 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2452,7 +2493,7 @@ vue__WEBPACK_IMPORTED_MODULE_4__["default"].use((v_calendar__WEBPACK_IMPORTED_MO
       dates: {
         start: new Date()
       },
-      mode: 'single',
+      mode: "single",
       selectedDate: new Date(),
       google: null,
       mapConfig: {
@@ -2499,7 +2540,7 @@ vue__WEBPACK_IMPORTED_MODULE_4__["default"].use((v_calendar__WEBPACK_IMPORTED_MO
             case 0:
               _context.next = 2;
               return google_maps_api_loader__WEBPACK_IMPORTED_MODULE_1___default()({
-                apiKey: 'AIzaSyCbr524Eht2tpaHaFLvBShbHBy1m1uqBy4'
+                apiKey: "AIzaSyCbr524Eht2tpaHaFLvBShbHBy1m1uqBy4"
               });
 
             case 2:
@@ -2530,20 +2571,19 @@ vue__WEBPACK_IMPORTED_MODULE_4__["default"].use((v_calendar__WEBPACK_IMPORTED_MO
         center: new this.google.maps.LatLng(this.mapConfig.center),
         map: this.Map,
         radius: 150,
-        strokeColor: '#eaf07900',
-        fillColor: '#A58888'
+        strokeColor: "#eaf07900",
+        fillColor: "#A58888"
       }); //初期住所の名前取得
 
-      axios__WEBPACK_IMPORTED_MODULE_3___default().post('/api', this.mapConfig.center).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_3___default().post("/api", this.mapConfig.center).then(function (response) {
         if (response.data.results[0].formatted_address.substr(13).length >= 22) {
           _this2.addressName = response.data.results[0].formatted_address.substring(12, 35) + "...";
-          ;
         } else {
           _this2.addressName = response.data.results[0].formatted_address.substr(-13);
         }
       }); //Mapがクリックされた時のハンドラ
 
-      this.Map.addListener('click', function (e) {
+      this.Map.addListener("click", function (e) {
         _this2.getMap(e);
       }); //Mapのドラックされた時のハンドラ
 
@@ -2564,8 +2604,8 @@ vue__WEBPACK_IMPORTED_MODULE_4__["default"].use((v_calendar__WEBPACK_IMPORTED_MO
           center: new _this2.google.maps.LatLng(data),
           map: _this2.Map,
           radius: Number(document.getElementById("range").value),
-          strokeColor: '#A5888800',
-          fillColor: '#A58888'
+          strokeColor: "#A5888800",
+          fillColor: "#A58888"
         });
 
         _this2.marker.setMap(null);
@@ -2617,13 +2657,13 @@ vue__WEBPACK_IMPORTED_MODULE_4__["default"].use((v_calendar__WEBPACK_IMPORTED_MO
     //日付データのフォーマット
     formatDate: function formatDate(date) {
       if (!date) return null;
-      var day = (0,date_fns__WEBPACK_IMPORTED_MODULE_5__["default"])(date, 'yyyy-MM-dd');
+      var day = (0,date_fns__WEBPACK_IMPORTED_MODULE_5__["default"])(date, "yyyy-MM-dd");
       var str = day;
-      var result = day.replace('-', '/');
+      var result = day.replace("-", "/");
 
       while (result !== str) {
-        str = str.replace('-', '/');
-        result = result.replace('-', '/');
+        str = str.replace("-", "/");
+        result = result.replace("-", "/");
       }
 
       this.text = result;
@@ -2636,8 +2676,8 @@ vue__WEBPACK_IMPORTED_MODULE_4__["default"].use((v_calendar__WEBPACK_IMPORTED_MO
         center: new this.google.maps.LatLng(this.totalFee.latlng),
         map: this.Map,
         radius: Number(document.getElementById("range").value),
-        strokeColor: '#A5888800',
-        fillColor: '#A58888'
+        strokeColor: "#A5888800",
+        fillColor: "#A58888"
       });
       this.totalFee.radiusIndex = Number(document.getElementById("range").selectedIndex + 1);
       this.Calculation();
@@ -2670,8 +2710,8 @@ vue__WEBPACK_IMPORTED_MODULE_4__["default"].use((v_calendar__WEBPACK_IMPORTED_MO
         center: new this.google.maps.LatLng(this.mapConfig.center),
         map: this.Map,
         radius: Number(document.getElementById("range").value),
-        strokeColor: '#A5888800',
-        fillColor: '#A58888'
+        strokeColor: "#A5888800",
+        fillColor: "#A58888"
       });
       this.marker.setMap(null);
       this.marker = new this.google.maps.Marker({
@@ -8107,7 +8147,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".reservePage_main {\n  display: flex;\n  height: calc(100vh - 80px - 64px);\n  padding: 32px 0 32px 32px;\n}\n.reservePage_main .map {\n  position: relative;\n  width: 70%;\n  height: 100%;\n}\n.reservePage_main .map #map {\n  width: 100%;\n  height: 100%;\n}\n.reservePage_main .map .mapimg {\n  position: absolute;\n  right: 0px;\n  bottom: 0px;\n}\n.reservePage_main .map .trigger {\n  position: absolute;\n  bottom: calc(50% - 50px);\n  right: calc(50% - 26px);\n  font-size: 5em;\n  opacity: 0.5;\n  font-weight: 100;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n.reservePage_main .reservePage_inputform {\n  position: relative;\n  width: 480px;\n  height: 100%;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  height: 64px;\n  width: 420px;\n  padding: 0 30px;\n  background-color: #fff;\n  margin-bottom: 32px;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms .reservePage_inputform_forms_box {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  width: 50px;\n  position: relative;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms .reservePage_inputform_forms_box .reservePage_inputform_forms_box_exclamation {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border: solid 1px red;\n  width: 12px;\n  height: 12px;\n  font-size: 0.75rem;\n  border-radius: 10px;\n  text-align: center;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms .reservePage_inputform_forms_box .reservePage_inputform_forms_box_exclamation p {\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  color: red;\n  font-size: 0.75em;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms .reservePage_inputform_forms_box .reservePage_inputform_forms_box_errmessage {\n  position: absolute;\n  background-color: #eaf079;\n  width: 250px;\n  height: auto;\n  padding: 15px;\n  right: 70px;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms .reservePage_inputform_forms_box .reservePage_inputform_forms_box_errmessage p {\n  color: #00473E;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms .reservePage_inputform_forms_box .reservePage_inputform_forms_box_errmessage:before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 100%;\n  margin-top: -10px;\n  border: 10px solid transparent;\n  border-left: 15px solid #eaf079;\n  pointer-events: none;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms .reservePage_inputform_forms_box_title {\n  color: #00473E;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms .range {\n  border: solid 0px;\n  font-weight: 500;\n  color: #333;\n  font-size: 1.25em;\n  outline: none;\n  text-align: right;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms_bottom_wrap {\n  position: absolute;\n  bottom: 0px;\n  height: 100px;\n  display: flex;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms_bottom_wrap .reservePage_inputform_forms_money {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-end;\n  width: 400px;\n  padding: 0 40px;\n  margin-bottom: 84px;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms_bottom_wrap .reservePage_inputform_forms_money .reservePage_inputform_forms_money_text p {\n  color: #333;\n  font-weight: 500;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms_bottom_wrap .reservePage_inputform_forms_money .reservePage_inputform_forms_money_sum {\n  display: flex;\n  align-items: flex-end;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms_bottom_wrap .reservePage_inputform_forms_money .reservePage_inputform_forms_money_sum p {\n  color: #333;\n  font-weight: 900;\n  font-size: 1.75em;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms_bottom_wrap .reservePage_inputform_forms_money .reservePage_inputform_forms_money_sum .first {\n  font-size: 1.25em;\n  margin-bottom: 4px;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms_bottom_wrap .reservePage_inputform_forms_next {\n  position: absolute;\n  bottom: 0px;\n  left: 0px;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms_bottom_wrap .reservePage_inputform_forms_next button {\n  width: 448px;\n  height: 68px;\n  background-color: #FAAE2B;\n  border: none;\n  color: #fff;\n  font-size: 1.25rem;\n  font-weight: 800;\n  border-radius: 5px;\n  margin: 0 16px;\n}\n.reservePage_main .reservePage_inputform_calendar {\n  position: relative;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 20;\n}\n.reservePage_main .reservePage_inputform_calendar .calendar {\n  position: absolute;\n  top: -20px;\n}\n.errActive, .calendarActive {\n  visibility: hidden;\n}\n.weight {\n  font-weight: 800;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  color: #333;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".reservePage_main {\n  display: flex;\n  height: calc(100vh - 80px - 64px);\n  padding: 32px 0 32px 32px;\n}\n.reservePage_main .map {\n  position: relative;\n  width: 70%;\n  height: 100%;\n}\n.reservePage_main .map #map {\n  width: 100%;\n  height: 100%;\n}\n.reservePage_main .map .mapimg {\n  position: absolute;\n  right: 0px;\n  bottom: 0px;\n}\n.reservePage_main .map .trigger {\n  position: absolute;\n  bottom: calc(50% - 50px);\n  right: calc(50% - 26px);\n  font-size: 5em;\n  opacity: 0.5;\n  font-weight: 100;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n.reservePage_main .reservePage_inputform {\n  position: relative;\n  width: 480px;\n  height: 100%;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  height: 64px;\n  width: 420px;\n  padding: 0 30px;\n  background-color: #fff;\n  margin-bottom: 32px;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms .reservePage_inputform_forms_box {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  width: 50px;\n  position: relative;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms .reservePage_inputform_forms_box .reservePage_inputform_forms_box_exclamation {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border: solid 1px red;\n  width: 12px;\n  height: 12px;\n  font-size: 0.75rem;\n  border-radius: 10px;\n  text-align: center;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms .reservePage_inputform_forms_box .reservePage_inputform_forms_box_exclamation p {\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  color: red;\n  font-size: 0.75em;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms .reservePage_inputform_forms_box .reservePage_inputform_forms_box_errmessage {\n  position: absolute;\n  background-color: #eaf079;\n  width: 250px;\n  height: auto;\n  padding: 15px;\n  right: 70px;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms .reservePage_inputform_forms_box .reservePage_inputform_forms_box_errmessage p {\n  color: #00473e;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms .reservePage_inputform_forms_box .reservePage_inputform_forms_box_errmessage:before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 100%;\n  margin-top: -10px;\n  border: 10px solid transparent;\n  border-left: 15px solid #eaf079;\n  pointer-events: none;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms .reservePage_inputform_forms_box_title {\n  color: #00473e;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms .range {\n  border: solid 0px;\n  font-weight: 500;\n  color: #333;\n  font-size: 1.25em;\n  outline: none;\n  text-align: right;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms_bottom_wrap {\n  position: absolute;\n  bottom: 0px;\n  height: 100px;\n  display: flex;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms_bottom_wrap .reservePage_inputform_forms_money {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-end;\n  width: 400px;\n  padding: 0 40px;\n  margin-bottom: 84px;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms_bottom_wrap .reservePage_inputform_forms_money .reservePage_inputform_forms_money_text p {\n  color: #333;\n  font-weight: 500;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms_bottom_wrap .reservePage_inputform_forms_money .reservePage_inputform_forms_money_sum {\n  display: flex;\n  align-items: flex-end;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms_bottom_wrap .reservePage_inputform_forms_money .reservePage_inputform_forms_money_sum p {\n  color: #333;\n  font-weight: 900;\n  font-size: 1.75em;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms_bottom_wrap .reservePage_inputform_forms_money .reservePage_inputform_forms_money_sum .first {\n  font-size: 1.25em;\n  margin-bottom: 4px;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms_bottom_wrap .reservePage_inputform_forms_next {\n  position: absolute;\n  bottom: 0px;\n  left: 0px;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms_bottom_wrap .reservePage_inputform_forms_next button {\n  width: 448px;\n  height: 68px;\n  background-color: #faae2b;\n  border: none;\n  color: #fff;\n  font-size: 1.25rem;\n  font-weight: 800;\n  border-radius: 5px;\n  margin: 0 16px;\n}\n.reservePage_main .reservePage_inputform_calendar {\n  position: relative;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 20;\n}\n.reservePage_main .reservePage_inputform_calendar .calendar {\n  position: absolute;\n  top: -20px;\n}\n.errActive,\n.calendarActive {\n  visibility: hidden;\n}\n.weight {\n  font-weight: 800;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  color: #333;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -52025,7 +52065,9 @@ var render = function () {
             },
             [
               _c("p", [
-                _vm._v("時間は予約予定日の~24:00までの登録しか出来ません。"),
+                _vm._v(
+                  "\n                        時間は予約予定日の~24:00までの登録しか出来ません。\n                    "
+                ),
               ]),
             ]
           ),
@@ -52090,6 +52132,7 @@ var render = function () {
           _vm._v(" "),
           _c("div", { staticClass: "reservePage_inputform_forms_money_sum" }, [
             _c("div", { staticClass: "first" }, [_vm._v("¥")]),
+            _vm._v(" "),
             _c("p", { attrs: { id: "val" } }, [_vm._v(_vm._s(_vm.sumval))]),
           ]),
           _vm._v(" "),
@@ -52108,7 +52151,8 @@ var staticRenderFns = [
       _c(
         "div",
         {
-          staticClass: "reservePage_inputform_forms_box_exclamation errActive",
+          staticClass:
+            "\n                        reservePage_inputform_forms_box_exclamation\n                        errActive\n                    ",
         },
         [_c("p", [_vm._v("!")])]
       ),
@@ -52126,7 +52170,8 @@ var staticRenderFns = [
       _c(
         "div",
         {
-          staticClass: "reservePage_inputform_forms_box_exclamation  errActive",
+          staticClass:
+            "\n                        reservePage_inputform_forms_box_exclamation\n                        errActive\n                    ",
         },
         [_c("p", [_vm._v("!")])]
       ),
