@@ -1,0 +1,23 @@
+.button_orange{
+    border-radius: 11px;
+    background-color: $color-orange;
+    width: 400px;
+    height: 64px;
+    text-align: center;
+    size: 18px;
+    color: $color-white;
+    font-family: Noto Sans JP;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 26px;
+}
+
+.button_orange:hover{
+    filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.25));
+}
+
+.button_orange:active{
+    .button_chara{
+        opacity: 0.55;
+    }
+}

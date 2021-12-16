@@ -15,6 +15,7 @@
 </template>
 
 <script>
+    import Header from "components/./Header.vue";
     export default {
         mounted() {
             console.log('Component mounted.')

@@ -6,7 +6,11 @@
 
 require('./bootstrap');
 
-window.Vue = require('vue');
+/*window.Vue = require('vue');*/
+
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import router from './router';
 
 /**
  * The following block of code may be used to automatically register your
@@ -19,7 +23,6 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 Vue.component('reserve-page', require('./components/ReservePage.vue').default);
 
@@ -32,6 +35,8 @@ Vue.component('confirmation-page', require('./components/ConfirmationPage.vue').
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+ window.Vue = Vue;
+ Vue.use(VueRouter);
 
 // const app = new Vue({
 //     el: '#app',
@@ -40,5 +45,9 @@ Vue.component('confirmation-page', require('./components/ConfirmationPage.vue').
 
 const reserve = new Vue({
     el: '#reserve',
+});
+const app = new Vue({
+    el: '#app',
+    router
 });
 
