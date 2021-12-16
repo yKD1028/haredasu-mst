@@ -1,13 +1,12 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
-
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP');
 // Variables
 @import 'variables';
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+//destyle.css
+@import './destyle.css';
 
-@import 'header.scss';
 
 $color-orange : #EB8E4B;
 $color-gray : #767676;
@@ -15,4 +14,19 @@ $color-gray2 : #FAFAFA;
 $color-blue : #84A6F4;
 $color-red : #F48484;
 $color-black : #252525;
+$color-black1 : #4D4D4D;
 $color-white : #fff;
+
+/*共通部分?*/
+
+body{
+    letter-spacing: 0.01em;
+}
+
+
+@import './header.scss';
+@import './button.scss';
+@import './form.scss';
+@import './home.scss';
+@import './situation.scss';
+@import'./question.scss';

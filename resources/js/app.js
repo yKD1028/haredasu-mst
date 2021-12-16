@@ -23,8 +23,12 @@ import router from './router';
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('header-comp', require('./components/Header.vue').default);
+
+Vue.component('reserve-page', require('./components/ReservePage.vue').default);
+
+Vue.component('complete-page', require('./components/CompletePage.vue').default);
+
+Vue.component('confirmation-page', require('./components/ConfirmationPage.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -34,7 +38,16 @@ Vue.component('header-comp', require('./components/Header.vue').default);
  window.Vue = Vue;
  Vue.use(VueRouter);
 
+// const app = new Vue({
+//     el: '#app',
+// });
+
+
+const reserve = new Vue({
+    el: '#reserve',
+});
 const app = new Vue({
     el: '#app',
     router
 });
+

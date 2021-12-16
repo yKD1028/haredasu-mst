@@ -15,7 +15,12 @@ return [
 
   'name' => env('APP_NAME', 'Laravel'),
 
+<<<<<<< HEAD
   /*
+=======
+
+    /*
+>>>>>>> eccc5abbcb2d5cda81d2ed123f5e857dea41b583
     |--------------------------------------------------------------------------
     | Application Environment
     |--------------------------------------------------------------------------
@@ -133,6 +138,7 @@ return [
     | this array to grant expanded functionality to your applications.
     |
     */
+    "map_api" => env("map_api"),
 
   'providers' => [
 

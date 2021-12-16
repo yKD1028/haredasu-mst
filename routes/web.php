@@ -19,9 +19,9 @@ use Illuminate\Support\Facades\Auth;
 // Route::get('/vue', function () {
 //   return view('app');
 // });
-Route::get('/', function () {
-  return view('auth.register');
-});
+// Route::get('/', function () {
+//   return view('auth.register');
+// });
 
 Auth::routes(['verify' => true]);
 // middlewareで遷移先の制限
@@ -34,3 +34,21 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/payment', 'PaymentController@payment');
   });
 });
+
+Route::get('/vue', function () {
+  return view('app');
+});
+Route::get('/', function () {
+  return view('welcome');
+});
+Auth::routes();
+
+Route::get('/{any}', function () {
+  return view('welcome');
+})->where('any', '.*');
+
+Route::get('/Reserve', function () {
+  return view('Reservepage');
+});
+
+Route::post('/api', 'GooglemapController@index');
