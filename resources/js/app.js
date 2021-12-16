@@ -24,6 +24,12 @@ import router from './router';
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 
+Vue.component('reserve-page', require('./components/ReservePage.vue').default);
+
+Vue.component('complete-page', require('./components/CompletePage.vue').default);
+
+Vue.component('confirmation-page', require('./components/ConfirmationPage.vue').default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -32,7 +38,16 @@ import router from './router';
  window.Vue = Vue;
  Vue.use(VueRouter);
 
+// const app = new Vue({
+//     el: '#app',
+// });
+
+
+const reserve = new Vue({
+    el: '#reserve',
+});
 const app = new Vue({
     el: '#app',
     router
 });
+

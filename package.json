@@ -25,6 +25,11 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "date-fns": "^2.27.0",
+        "google-maps-api-loader": "^1.1.1",
+        "gsap": "^3.8.0",
+        "moment": "^2.29.1",
+        "v-calendar": "^2.3.4",
         "vue-router": "^3.5.3"
     }
 }
