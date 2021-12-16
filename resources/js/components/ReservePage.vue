@@ -64,13 +64,14 @@
                     <option value="1000">1000m</option>
                 </select>
             </div>
-            <div class="reservePage_inputform_forms_droneErr"></div>
-            <div class="reservePage_inputform_forms_money">
+            <div class="reservePage_inputform_forms_bottom_wrap">
+                <div class="reservePage_inputform_forms_money">
                 <div class="reservePage_inputform_forms_money_text"><p>見積り価格</p></div>
                 <div class="reservePage_inputform_forms_money_sum"><div class="first">¥</div><p id="val">{{sumval}}</p></div>
+                <div class="reservePage_inputform_forms_next">
+                    <button>次へ進む</button>
+                </div>
             </div>
-            <div class="reservePage_inputform_forms_next">
-                <button>次へ進む</button>
             </div>
         </div>
     </div>
@@ -415,53 +416,61 @@ export default {
 
                 }
             }
-            .reservePage_inputform_forms_money{
-                display: flex;
-                justify-content: space-between;
-                align-items: flex-end;
-                width: 400px;
-                padding: 0 40px;
-                height: 200px;
-
-                .reservePage_inputform_forms_money_text{
-                    p{
-                        color: #333;
-                        font-weight: 500;
-
-                    }
-                }
-                .reservePage_inputform_forms_money_sum{
-                    display: flex;
-                    align-items: flex-end;
-                    p{
-                        color: #333;
-                        font-weight: 900;
-                        font-size:1.75em;
-
-                    }
-                    .first{
-                        font-size:1.25em;
-                        margin-bottom: 4px;
-
-                    }
-                }
-
-            }
-            .reservePage_inputform_forms_next{
+            .reservePage_inputform_forms_bottom_wrap{
                 position: absolute;
-                bottom:0px;
+                bottom: 0px;
+                height: 100px;
+                display: flex;
 
-                button{
-                    width: 448px;
-                    height: 68px;
-                    background-color: #FAAE2B;
-                    border: none;
-                    color: #fff;
-                    font-size: 1.25rem;
-                    font-weight: 800;
-                    border-radius: 5px;
-                    margin: 0 16px;
+                .reservePage_inputform_forms_money{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-end;
+                    width: 400px;
+                    padding: 0 40px;
+                    margin-bottom: 84px;
 
+                    .reservePage_inputform_forms_money_text{
+                        p{
+                            color: #333;
+                            font-weight: 500;
+
+                        }
+                    }
+                    .reservePage_inputform_forms_money_sum{
+                        display: flex;
+                        align-items: flex-end;
+                        p{
+                            color: #333;
+                            font-weight: 900;
+                            font-size:1.75em;
+
+                        }
+                        .first{
+                            font-size:1.25em;
+                            margin-bottom: 4px;
+
+                        }
+                    }
+
+                }
+                .reservePage_inputform_forms_next{
+                    position: absolute;
+                    bottom:0px;
+                    left:0px;
+
+                    button{
+                        width: 448px;
+                        height: 68px;
+                        background-color: #FAAE2B;
+                        border: none;
+                        color: #fff;
+                        font-size: 1.25rem;
+                        font-weight: 800;
+                        border-radius: 5px;
+                        margin: 0 16px;
+
+                    }
                 }
             }
         }

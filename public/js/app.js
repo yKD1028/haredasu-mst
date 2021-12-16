@@ -1911,6 +1911,178 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ConfirmationPage.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ConfirmationPage.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var google_maps_api_loader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! google-maps-api-loader */ "./node_modules/google-maps-api-loader/index.js");
+/* harmony import */ var google_maps_api_loader__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(google_maps_api_loader__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      google: null,
+      Map: "",
+      mapConfig: {
+        center: {
+          lat: 35.68944,
+          lng: 139.69167
+        },
+        zoom: 13,
+        mapTypeControl: false,
+        fullscreenControl: false,
+        streetViewControl: false,
+        zoomControl: false,
+        disableDoubleClickZoom: true,
+        scrollwheel: false,
+        draggable: false,
+        clickable: false
+      },
+      cardNumber: "**** **** **** 0000",
+      btnActive: false
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return google_maps_api_loader__WEBPACK_IMPORTED_MODULE_1___default()({
+                apiKey: 'AIzaSyCbr524Eht2tpaHaFLvBShbHBy1m1uqBy4'
+              });
+
+            case 2:
+              _this.google = _context.sent;
+
+              _this.initializeMap();
+
+            case 4:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
+  },
+  methods: {
+    initializeMap: function initializeMap() {
+      var _this2 = this;
+
+      this.Map = new this.google.maps.Map(this.$refs.googleMap, this.mapConfig);
+      document.getElementById("next").disabled = true;
+      document.getElementById("next").addEventListener("click", function () {
+        console.log(document.getElementById("checkbox").checked);
+      });
+      document.getElementById("checkbox").addEventListener("click", function () {
+        if (document.getElementById("checkbox").checked) {
+          _this2.btnActive = true;
+        } else {
+          _this2.btnActive = false;
+        }
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js& ***!
@@ -1971,6 +2143,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
 //
 //
 //
@@ -6661,6 +6834,44 @@ vue__WEBPACK_IMPORTED_MODULE_2___default.a.use(v_calendar__WEBPACK_IMPORTED_MODU
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CompletePage.vue?vue&type=style&index=0&lang=scss&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/CompletePage.vue?vue&type=style&index=0&lang=scss& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".completePage_main {\n  display: flex;\n  align-items: center;\n  flex-direction: column;\n  height: calc(100vh - 80px - 64px);\n  padding: 32px 0;\n  width: auto;\n}\n.completePage_main .confirmationPage_main_location {\n  width: 280px;\n  height: 68px;\n  margin-bottom: 32px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.completePage_main .confirmationPage_main_location .confirmationPage_main_location_wrap {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  color: #00473E;\n}\n.completePage_main .confirmationPage_main_location .confirmationPage_main_location_wrap .Inactive {\n  opacity: 0.5;\n}\n.completePage_main .confirmationPage_main_location .confirmationPage_main_location_border {\n  height: 1px;\n  width: 32px;\n  margin-bottom: 18px;\n  background: #00473E;\n}\n.completePage_main .completePage_main_contents {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  color: #00473E;\n  margin-top: 5vh;\n}\n.completePage_main .completePage_main_contents .completePage_main_contents_title {\n  font-size: 1.75rem;\n  font-weight: 600;\n}\n.completePage_main .completePage_main_contents .completePage_main_contents_border {\n  background: #00473E;\n  height: 1px;\n  width: 80px;\n  margin: 32px 0;\n}\n.completePage_main .completePage_main_contents .completePage_main_contents_subtitle {\n  text-align: center;\n  font-size: 1.25rem;\n}\n.completePage_main .completePage_main_contents .completePage_main_contents_contents {\n  display: flex;\n  flex-direction: column;\n  justify-content: flex-start;\n  width: 300px;\n  margin: 32px 0;\n}\n.completePage_main .completePage_main_contents .completePage_main_contents_contents .completePage_main_contents_contents_subwrap {\n  padding: 8px 0;\n  display: flex;\n  align-items: flex-end;\n}\n.completePage_main .completePage_main_contents .completePage_main_contents_contents .completePage_main_contents_contents_subwrap p:nth-child(1) {\n  font-size: 1.25rem;\n}\n.completePage_main .completePage_main_contents .completePage_main_contents_contents .completePage_main_contents_contents_subwrap a {\n  text-decoration: none;\n  color: #AFC7FF;\n  margin-left: 16px;\n}\n.completePage_main .completePage_main_contents .completePage_main_contents_contents .completePage_main_contents_contents_wrap {\n  padding: 8px 0;\n  display: flex;\n}\n.completePage_main .completePage_main_contents .completePage_main_contents_contents .completePage_main_contents_contents_wrap p:nth-child(2) {\n  margin-left: 16px;\n}\n.completePage_main button {\n  background-color: #FAAE2B;\n  border: none;\n  border-radius: 8px;\n  width: 300px;\n  height: 64px;\n  color: #fff;\n  font-size: 1.05rem;\n  font-weight: 500;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ConfirmationPage.vue?vue&type=style&index=0&lang=scss&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ConfirmationPage.vue?vue&type=style&index=0&lang=scss& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".font_size {\n  font-size: 1.25rem;\n}\n.font_size_totla {\n  font-size: 1.35rem;\n}\n.confirmationPage_main {\n  display: flex;\n  align-items: center;\n  flex-direction: column;\n  height: auto;\n  padding: 32px 0;\n  width: auto;\n}\n.confirmationPage_main .confirmationPage_main_location {\n  width: 280px;\n  height: 68px;\n  margin-bottom: 32px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.confirmationPage_main .confirmationPage_main_location .confirmationPage_main_location_wrap {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  color: #00473E;\n}\n.confirmationPage_main .confirmationPage_main_location .confirmationPage_main_location_wrap .Inactive {\n  opacity: 0.5;\n}\n.confirmationPage_main .confirmationPage_main_location .confirmationPage_main_location_border {\n  height: 1px;\n  width: 32px;\n  margin-bottom: 18px;\n  background: #00473E;\n}\n.confirmationPage_main .confirmationPage_main_wrap {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n}\n.confirmationPage_main .confirmationPage_main_wrap .confirmationPage_main_information {\n  height: auto;\n  width: 646px;\n  margin-right: 16px;\n  border-radius: 8px;\n  border: solid 1px #d2d2d2;\n  padding: 16px 32px;\n}\n.confirmationPage_main .confirmationPage_main_wrap .confirmationPage_main_information .confirmationPage_main_information_title {\n  color: #00473E;\n  font-size: 1.45rem;\n  font-weight: 600;\n  padding: 16px 0;\n}\n.confirmationPage_main .confirmationPage_main_wrap .confirmationPage_main_information #map {\n  width: 100%;\n  height: 280px;\n  margin: 16px 0;\n  pointer-events: none;\n}\n.confirmationPage_main .confirmationPage_main_wrap .confirmationPage_main_information .confirmationPage_main_information_contents {\n  display: flex;\n  align-items: flex-end;\n  margin: 16px 0;\n  color: #00473E;\n  font-weight: 500;\n}\n.confirmationPage_main .confirmationPage_main_wrap .confirmationPage_main_information .confirmationPage_main_information_contents p:nth-child(2) {\n  margin-left: 32px;\n}\n.confirmationPage_main .confirmationPage_main_wrap .confirmationPage_main_information .confirmationPage_main_information_contents_border {\n  background: #a7a7a7;\n  height: 1px;\n  width: 100%;\n}\n.confirmationPage_main .confirmationPage_main_wrap .confirmationPage_main_information .confirmationPage_main_information_contents_alert {\n  color: #00473E;\n  padding: 16px 0;\n  font-size: 1.15rem;\n}\n.confirmationPage_main .confirmationPage_main_wrap .confirmationPage_main_information .confirmationPage_main_information_contents_alert .confirmationPage_main_information_contents_alert_checkbox {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.confirmationPage_main .confirmationPage_main_wrap .confirmationPage_main_information .confirmationPage_main_information_contents_alert .confirmationPage_main_information_contents_alert_checkbox .my-checkbox {\n  display: block;\n  position: relative;\n  margin: 1em 0;\n  padding-left: 28px;\n  cursor: pointer;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n.confirmationPage_main .confirmationPage_main_wrap .confirmationPage_main_information .confirmationPage_main_information_contents_alert .confirmationPage_main_information_contents_alert_checkbox .my-checkbox p {\n  font-size: 0.9rem;\n}\n.confirmationPage_main .confirmationPage_main_wrap .confirmationPage_main_information .confirmationPage_main_information_contents_alert .confirmationPage_main_information_contents_alert_checkbox .my-checkbox input {\n  display: none;\n}\n.confirmationPage_main .confirmationPage_main_wrap .confirmationPage_main_information .confirmationPage_main_information_contents_alert .confirmationPage_main_information_contents_alert_checkbox .checkmark {\n  position: absolute;\n  top: 1px;\n  left: 0;\n  height: 22px;\n  width: 22px;\n  border: solid 2px #d4dae2;\n  border-radius: 4px;\n  box-sizing: border-box;\n}\n.confirmationPage_main .confirmationPage_main_wrap .confirmationPage_main_information .confirmationPage_main_information_contents_alert .confirmationPage_main_information_contents_alert_checkbox .checkmark:after {\n  content: \"\";\n  position: absolute;\n  left: 5px;\n  top: 1px;\n  width: 6px;\n  height: 10px;\n  border: solid #FFF;\n  border-width: 0 2px 2px 0;\n  transform: rotate(45deg);\n  opacity: 0;\n}\n.confirmationPage_main .confirmationPage_main_wrap .confirmationPage_main_information .confirmationPage_main_information_contents_alert .confirmationPage_main_information_contents_alert_checkbox .my-checkbox input:checked + .checkmark {\n  background: #FA5246;\n  border-color: #FA5246;\n}\n.confirmationPage_main .confirmationPage_main_wrap .confirmationPage_main_information .confirmationPage_main_information_contents_alert .confirmationPage_main_information_contents_alert_checkbox .my-checkbox input:checked + .checkmark:after {\n  opacity: 1;\n}\n.confirmationPage_main .confirmationPage_main_wrap .confirmationPage_main_others {\n  height: 60vh;\n  width: 400px;\n  margin-left: 16px;\n}\n.confirmationPage_main .confirmationPage_main_wrap .confirmationPage_main_others .confirmationPage_main_others_price {\n  color: #00473E;\n  width: calc(100% - 36px);\n  height: auto;\n  border-radius: 8px;\n  border: solid 1px #d2d2d2;\n  padding: 16px;\n}\n.confirmationPage_main .confirmationPage_main_wrap .confirmationPage_main_others .confirmationPage_main_others_price .confirmationPage_main_others_price_title {\n  color: #00473E;\n  font-size: 1.45rem;\n  font-weight: 600;\n  padding: 16px 0;\n}\n.confirmationPage_main .confirmationPage_main_wrap .confirmationPage_main_others .confirmationPage_main_others_price .confirmationPage_main_others_price_contents {\n  display: flex;\n  align-items: flex-end;\n  justify-content: space-between;\n  padding: 8px 0;\n  text-align: bottom;\n}\n.confirmationPage_main .confirmationPage_main_wrap .confirmationPage_main_others .confirmationPage_main_others_price .confirmationPage_main_others_price_contents .confirmationPage_main_others_price_contents_total {\n  font-size: 1.15rem;\n  font-weight: 600;\n}\n.confirmationPage_main .confirmationPage_main_wrap .confirmationPage_main_others .confirmationPage_main_others_price .confirmationPage_main_others_price_contents_border {\n  margin-top: 100px;\n  background: #a7a7a7;\n  height: 1px;\n  margin-bottom: 16px;\n  width: 100%;\n}\n.confirmationPage_main .confirmationPage_main_wrap .confirmationPage_main_others .confirmationPage_main_others_payment {\n  color: #00473E;\n  width: calc(100% - 36px);\n  height: auto;\n  border-radius: 8px;\n  border: solid 1px #d2d2d2;\n  padding: 16px;\n  margin: 32px 0;\n  display: flex;\n  justify-content: space-between;\n}\n.confirmationPage_main .confirmationPage_main_wrap .confirmationPage_main_others .confirmationPage_main_others_payment a {\n  text-decoration: none;\n  color: #AFC7FF;\n}\n.confirmationPage_main .confirmationPage_main_wrap .confirmationPage_main_others .confirmationPage_main_others_button button {\n  border: none;\n  border-radius: 8px;\n  width: 100%;\n  height: 64px;\n  color: #fff;\n  font-size: 1.1rem;\n  font-weight: 600;\n}\n.btnActive {\n  background-color: #FAAE2B;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ReservePage.vue?vue&type=style&index=0&lang=scss&":
 /*!*********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ReservePage.vue?vue&type=style&index=0&lang=scss& ***!
@@ -6673,7 +6884,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".reservePage_main {\n  display: flex;\n  height: calc(100vh - 80px - 64px);\n  padding: 32px 0 32px 32px;\n}\n.reservePage_main .map {\n  position: relative;\n  width: 70%;\n  height: 100%;\n}\n.reservePage_main .map #map {\n  width: 100%;\n  height: 100%;\n}\n.reservePage_main .map .mapimg {\n  position: absolute;\n  right: 0px;\n  bottom: 0px;\n}\n.reservePage_main .map .trigger {\n  position: absolute;\n  bottom: calc(50% - 50px);\n  right: calc(50% - 26px);\n  font-size: 5em;\n  opacity: 0.5;\n  font-weight: 100;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n.reservePage_main .reservePage_inputform {\n  position: relative;\n  width: 480px;\n  height: 100%;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  height: 64px;\n  width: 420px;\n  padding: 0 30px;\n  background-color: #fff;\n  margin-bottom: 32px;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms .reservePage_inputform_forms_box {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  width: 50px;\n  position: relative;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms .reservePage_inputform_forms_box .reservePage_inputform_forms_box_exclamation {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border: solid 1px red;\n  width: 12px;\n  height: 12px;\n  font-size: 0.75rem;\n  border-radius: 10px;\n  text-align: center;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms .reservePage_inputform_forms_box .reservePage_inputform_forms_box_exclamation p {\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  color: red;\n  font-size: 0.75em;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms .reservePage_inputform_forms_box .reservePage_inputform_forms_box_errmessage {\n  position: absolute;\n  background-color: #eaf079;\n  width: 250px;\n  height: auto;\n  padding: 15px;\n  right: 70px;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms .reservePage_inputform_forms_box .reservePage_inputform_forms_box_errmessage p {\n  color: #00473E;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms .reservePage_inputform_forms_box .reservePage_inputform_forms_box_errmessage:before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 100%;\n  margin-top: -10px;\n  border: 10px solid transparent;\n  border-left: 15px solid #eaf079;\n  pointer-events: none;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms .reservePage_inputform_forms_box_title {\n  color: #00473E;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms .range {\n  border: solid 0px;\n  font-weight: 500;\n  color: #333;\n  font-size: 1.25em;\n  outline: none;\n  text-align: right;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms_money {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-end;\n  width: 400px;\n  padding: 0 40px;\n  height: 200px;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms_money .reservePage_inputform_forms_money_text p {\n  color: #333;\n  font-weight: 500;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms_money .reservePage_inputform_forms_money_sum {\n  display: flex;\n  align-items: flex-end;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms_money .reservePage_inputform_forms_money_sum p {\n  color: #333;\n  font-weight: 900;\n  font-size: 1.75em;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms_money .reservePage_inputform_forms_money_sum .first {\n  font-size: 1.25em;\n  margin-bottom: 4px;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms_next {\n  position: absolute;\n  bottom: 0px;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms_next button {\n  width: 448px;\n  height: 68px;\n  background-color: #FAAE2B;\n  border: none;\n  color: #fff;\n  font-size: 1.25rem;\n  font-weight: 800;\n  border-radius: 5px;\n  margin: 0 16px;\n}\n.reservePage_main .reservePage_inputform_calendar {\n  position: relative;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 20;\n}\n.reservePage_main .reservePage_inputform_calendar .calendar {\n  position: absolute;\n  top: -20px;\n}\n.errActive, .calendarActive {\n  visibility: hidden;\n}\n.weight {\n  font-weight: 800;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  color: #333;\n}", ""]);
+exports.push([module.i, ".reservePage_main {\n  display: flex;\n  height: calc(100vh - 80px - 64px);\n  padding: 32px 0 32px 32px;\n}\n.reservePage_main .map {\n  position: relative;\n  width: 70%;\n  height: 100%;\n}\n.reservePage_main .map #map {\n  width: 100%;\n  height: 100%;\n}\n.reservePage_main .map .mapimg {\n  position: absolute;\n  right: 0px;\n  bottom: 0px;\n}\n.reservePage_main .map .trigger {\n  position: absolute;\n  bottom: calc(50% - 50px);\n  right: calc(50% - 26px);\n  font-size: 5em;\n  opacity: 0.5;\n  font-weight: 100;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n.reservePage_main .reservePage_inputform {\n  position: relative;\n  width: 480px;\n  height: 100%;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  height: 64px;\n  width: 420px;\n  padding: 0 30px;\n  background-color: #fff;\n  margin-bottom: 32px;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms .reservePage_inputform_forms_box {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  width: 50px;\n  position: relative;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms .reservePage_inputform_forms_box .reservePage_inputform_forms_box_exclamation {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border: solid 1px red;\n  width: 12px;\n  height: 12px;\n  font-size: 0.75rem;\n  border-radius: 10px;\n  text-align: center;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms .reservePage_inputform_forms_box .reservePage_inputform_forms_box_exclamation p {\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  color: red;\n  font-size: 0.75em;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms .reservePage_inputform_forms_box .reservePage_inputform_forms_box_errmessage {\n  position: absolute;\n  background-color: #eaf079;\n  width: 250px;\n  height: auto;\n  padding: 15px;\n  right: 70px;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms .reservePage_inputform_forms_box .reservePage_inputform_forms_box_errmessage p {\n  color: #00473E;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms .reservePage_inputform_forms_box .reservePage_inputform_forms_box_errmessage:before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 100%;\n  margin-top: -10px;\n  border: 10px solid transparent;\n  border-left: 15px solid #eaf079;\n  pointer-events: none;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms .reservePage_inputform_forms_box_title {\n  color: #00473E;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms .range {\n  border: solid 0px;\n  font-weight: 500;\n  color: #333;\n  font-size: 1.25em;\n  outline: none;\n  text-align: right;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms_bottom_wrap {\n  position: absolute;\n  bottom: 0px;\n  height: 100px;\n  display: flex;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms_bottom_wrap .reservePage_inputform_forms_money {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-end;\n  width: 400px;\n  padding: 0 40px;\n  margin-bottom: 84px;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms_bottom_wrap .reservePage_inputform_forms_money .reservePage_inputform_forms_money_text p {\n  color: #333;\n  font-weight: 500;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms_bottom_wrap .reservePage_inputform_forms_money .reservePage_inputform_forms_money_sum {\n  display: flex;\n  align-items: flex-end;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms_bottom_wrap .reservePage_inputform_forms_money .reservePage_inputform_forms_money_sum p {\n  color: #333;\n  font-weight: 900;\n  font-size: 1.75em;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms_bottom_wrap .reservePage_inputform_forms_money .reservePage_inputform_forms_money_sum .first {\n  font-size: 1.25em;\n  margin-bottom: 4px;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms_bottom_wrap .reservePage_inputform_forms_next {\n  position: absolute;\n  bottom: 0px;\n  left: 0px;\n}\n.reservePage_main .reservePage_inputform .reservePage_inputform_forms_bottom_wrap .reservePage_inputform_forms_next button {\n  width: 448px;\n  height: 68px;\n  background-color: #FAAE2B;\n  border: none;\n  color: #fff;\n  font-size: 1.25rem;\n  font-weight: 800;\n  border-radius: 5px;\n  margin: 0 16px;\n}\n.reservePage_main .reservePage_inputform_calendar {\n  position: relative;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 20;\n}\n.reservePage_main .reservePage_inputform_calendar .calendar {\n  position: absolute;\n  top: -20px;\n}\n.errActive, .calendarActive {\n  visibility: hidden;\n}\n.weight {\n  font-weight: 800;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  color: #333;\n}", ""]);
 
 // exports
 
@@ -65772,6 +65983,66 @@ try {
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CompletePage.vue?vue&type=style&index=0&lang=scss&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/CompletePage.vue?vue&type=style&index=0&lang=scss& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./CompletePage.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CompletePage.vue?vue&type=style&index=0&lang=scss&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ConfirmationPage.vue?vue&type=style&index=0&lang=scss&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ConfirmationPage.vue?vue&type=style&index=0&lang=scss& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./ConfirmationPage.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ConfirmationPage.vue?vue&type=style&index=0&lang=scss&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ReservePage.vue?vue&type=style&index=0&lang=scss&":
 /*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ReservePage.vue?vue&type=style&index=0&lang=scss& ***!
@@ -66398,6 +66669,348 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CompletePage.vue?vue&type=template&id=f4bd795a&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/CompletePage.vue?vue&type=template&id=f4bd795a& ***!
+  \***************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "completePage_main" }, [
+    _c("div", { staticClass: "confirmationPage_main_location" }, [
+      _c("div", { staticClass: "confirmationPage_main_location_wrap" }, [
+        _c("img", { attrs: { src: "/images/signup.png", alt: "" } }),
+        _vm._v(" "),
+        _c("p", { staticClass: "Inactive" }, [_vm._v("予約入力")]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "confirmationPage_main_location_border" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "confirmationPage_main_location_wrap" }, [
+        _c("img", { attrs: { src: "/images/confirmation.png", alt: "" } }),
+        _vm._v(" "),
+        _c("p", { staticClass: "Inactive" }, [_vm._v("予約確認")]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "confirmationPage_main_location_border" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "confirmationPage_main_location_wrap" }, [
+        _c("img", { attrs: { src: "/images/completion_a.png", alt: "" } }),
+        _vm._v(" "),
+        _c("p", [_vm._v("予約完了")]),
+      ]),
+    ]),
+    _vm._v(" "),
+    _vm._m(0),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "completePage_main_contents" }, [
+      _c("p", { staticClass: "completePage_main_contents_title" }, [
+        _vm._v("予約完了"),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "completePage_main_contents_border" }),
+      _vm._v(" "),
+      _c("p", { staticClass: "completePage_main_contents_subtitle" }, [
+        _vm._v("晴れ予約が完了しました。"),
+        _c("br"),
+        _vm._v("当日は晴れをお楽しみください！"),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "completePage_main_contents_contents" }, [
+        _c(
+          "div",
+          { staticClass: "completePage_main_contents_contents_subwrap" },
+          [
+            _c("p", [_vm._v("予約情報")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "#" } }, [_vm._v("詳細")]),
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "completePage_main_contents_contents_wrap" }, [
+          _c("p", [_vm._v("場所")]),
+          _vm._v(" "),
+          _c("p", [_vm._v("{{}}")]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "completePage_main_contents_contents_wrap" }, [
+          _c("p", [_vm._v("日時")]),
+          _vm._v(" "),
+          _c("p", [_vm._v("{{}}")]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "completePage_main_contents_contents_wrap" }, [
+          _c("p", [_vm._v("範囲")]),
+          _vm._v(" "),
+          _c("p", [_vm._v("{{}}")]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", [_c("button", [_vm._v("トップに戻る")])]),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ConfirmationPage.vue?vue&type=template&id=162700cf&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ConfirmationPage.vue?vue&type=template&id=162700cf& ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "confirmationPage_main" }, [
+    _c("div", { staticClass: "confirmationPage_main_location" }, [
+      _c("div", { staticClass: "confirmationPage_main_location_wrap" }, [
+        _c("img", { attrs: { src: "/images/signup.png", alt: "" } }),
+        _vm._v(" "),
+        _c("p", { staticClass: "Inactive" }, [_vm._v("予約入力")]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "confirmationPage_main_location_border" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "confirmationPage_main_location_wrap" }, [
+        _c("img", { attrs: { src: "/images/confirmation_a.png", alt: "" } }),
+        _vm._v(" "),
+        _c("p", [_vm._v("予約確認")]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "confirmationPage_main_location_border" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "confirmationPage_main_location_wrap" }, [
+        _c("img", { attrs: { src: "/images/completion.png", alt: "" } }),
+        _vm._v(" "),
+        _c("p", { staticClass: "Inactive" }, [_vm._v("予約完了")]),
+      ]),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "confirmationPage_main_wrap" }, [
+      _c("div", { staticClass: "confirmationPage_main_information" }, [
+        _c("p", { staticClass: "confirmationPage_main_information_title" }, [
+          _vm._v("予約情報"),
+        ]),
+        _vm._v(" "),
+        _c("div", { ref: "googleMap", attrs: { id: "map" } }),
+        _vm._v(" "),
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._m(1),
+        _vm._v(" "),
+        _vm._m(2),
+        _vm._v(" "),
+        _c("div", {
+          staticClass: "confirmationPage_main_information_contents_border",
+        }),
+        _vm._v(" "),
+        _vm._m(3),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "confirmationPage_main_others" }, [
+        _vm._m(4),
+        _vm._v(" "),
+        _c("div", { staticClass: "confirmationPage_main_others_payment" }, [
+          _c("p", [_vm._v("お支払い情報")]),
+          _vm._v(" "),
+          _c("p", [_vm._v(_vm._s(_vm.cardNumber))]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [_vm._v("変更")]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "confirmationPage_main_others_button" }, [
+          _c(
+            "button",
+            {
+              class: { btnActive: _vm.btnActive },
+              attrs: { id: "next", calss: "nextbtn" },
+            },
+            [_vm._v("予約を確定する")]
+          ),
+        ]),
+      ]),
+    ]),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "confirmationPage_main_information_contents" },
+      [
+        _c("p", [_vm._v("場所")]),
+        _vm._v(" "),
+        _c("p", { staticClass: "font_size" }, [_vm._v("{{}}")]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "confirmationPage_main_information_contents" },
+      [
+        _c("p", [_vm._v("場所")]),
+        _vm._v(" "),
+        _c("p", { staticClass: "font_size" }, [_vm._v("{{}}")]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "confirmationPage_main_information_contents" },
+      [
+        _c("p", [_vm._v("場所")]),
+        _vm._v(" "),
+        _c("p", { staticClass: "font_size" }, [_vm._v("{{}}")]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "confirmationPage_main_information_contents_alert" },
+      [
+        _c("p", [
+          _vm._v(
+            "前日までのキャンセルの場合、キャンセル料としてお支払い料金の100%を申し受けます。"
+          ),
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "confirmationPage_main_information_contents_alert_checkbox",
+          },
+          [
+            _c("label", { staticClass: "my-checkbox" }, [
+              _c("input", { attrs: { type: "checkbox", id: "checkbox" } }),
+              _vm._v(" "),
+              _c("span", { staticClass: "checkmark" }),
+              _vm._v(" "),
+              _c("p", [_vm._v("キャンセルポリシーに同意する")]),
+            ]),
+          ]
+        ),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "confirmationPage_main_others_price" }, [
+      _c("p", { staticClass: "confirmationPage_main_others_price_title" }, [
+        _vm._v("料金詳細"),
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "confirmationPage_main_others_price_contents" },
+        [
+          _c("p", [_vm._v("基本料金")]),
+          _vm._v(" "),
+          _c("p", [
+            _c("span", { staticClass: "font_size" }, [_vm._v("{{}}")]),
+            _vm._v("円"),
+          ]),
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "confirmationPage_main_others_price_contents" },
+        [
+          _c("p", [_vm._v("範囲料金")]),
+          _vm._v(" "),
+          _c("p", [
+            _c("span", { staticClass: "font_size" }, [_vm._v("{{}}")]),
+            _vm._v("円"),
+          ]),
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "confirmationPage_main_others_price_contents" },
+        [
+          _c("p", [_vm._v("時間料金")]),
+          _vm._v(" "),
+          _c("p", [
+            _c("span", { staticClass: "font_size" }, [_vm._v("{{}}")]),
+            _vm._v("時間"),
+          ]),
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", {
+        staticClass: "confirmationPage_main_others_price_contents_border",
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "confirmationPage_main_others_price_contents" },
+        [
+          _c(
+            "p",
+            {
+              staticClass: "confirmationPage_main_others_price_contents_total",
+            },
+            [_vm._v("お支払い金額")]
+          ),
+          _vm._v(" "),
+          _c("p", [
+            _c("span", { staticClass: "font_size_totla" }, [_vm._v("{{}}")]),
+            _vm._v("円"),
+          ]),
+        ]
+      ),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&":
 /*!*******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e& ***!
@@ -66592,18 +67205,18 @@ var render = function () {
         ),
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "reservePage_inputform_forms_droneErr" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "reservePage_inputform_forms_money" }, [
-        _vm._m(2),
-        _vm._v(" "),
-        _c("div", { staticClass: "reservePage_inputform_forms_money_sum" }, [
-          _c("div", { staticClass: "first" }, [_vm._v("¥")]),
-          _c("p", { attrs: { id: "val" } }, [_vm._v(_vm._s(_vm.sumval))]),
+      _c("div", { staticClass: "reservePage_inputform_forms_bottom_wrap" }, [
+        _c("div", { staticClass: "reservePage_inputform_forms_money" }, [
+          _vm._m(2),
+          _vm._v(" "),
+          _c("div", { staticClass: "reservePage_inputform_forms_money_sum" }, [
+            _c("div", { staticClass: "first" }, [_vm._v("¥")]),
+            _c("p", { attrs: { id: "val" } }, [_vm._v(_vm._s(_vm.sumval))]),
+          ]),
+          _vm._v(" "),
+          _vm._m(3),
         ]),
       ]),
-      _vm._v(" "),
-      _vm._m(3),
     ]),
   ])
 }
@@ -78907,6 +79520,8 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
 Vue.component('reserve-page', __webpack_require__(/*! ./components/ReservePage.vue */ "./resources/js/components/ReservePage.vue")["default"]);
+Vue.component('complete-page', __webpack_require__(/*! ./components/CompletePage.vue */ "./resources/js/components/CompletePage.vue")["default"]);
+Vue.component('confirmation-page', __webpack_require__(/*! ./components/ConfirmationPage.vue */ "./resources/js/components/ConfirmationPage.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -78964,6 +79579,164 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/components/CompletePage.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/components/CompletePage.vue ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CompletePage_vue_vue_type_template_id_f4bd795a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CompletePage.vue?vue&type=template&id=f4bd795a& */ "./resources/js/components/CompletePage.vue?vue&type=template&id=f4bd795a&");
+/* harmony import */ var _CompletePage_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CompletePage.vue?vue&type=style&index=0&lang=scss& */ "./resources/js/components/CompletePage.vue?vue&type=style&index=0&lang=scss&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  script,
+  _CompletePage_vue_vue_type_template_id_f4bd795a___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _CompletePage_vue_vue_type_template_id_f4bd795a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/CompletePage.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/CompletePage.vue?vue&type=style&index=0&lang=scss&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/CompletePage.vue?vue&type=style&index=0&lang=scss& ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_CompletePage_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./CompletePage.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CompletePage.vue?vue&type=style&index=0&lang=scss&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_CompletePage_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_CompletePage_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_CompletePage_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_CompletePage_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/js/components/CompletePage.vue?vue&type=template&id=f4bd795a&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/CompletePage.vue?vue&type=template&id=f4bd795a& ***!
+  \*********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CompletePage_vue_vue_type_template_id_f4bd795a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./CompletePage.vue?vue&type=template&id=f4bd795a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CompletePage.vue?vue&type=template&id=f4bd795a&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CompletePage_vue_vue_type_template_id_f4bd795a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CompletePage_vue_vue_type_template_id_f4bd795a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/ConfirmationPage.vue":
+/*!******************************************************!*\
+  !*** ./resources/js/components/ConfirmationPage.vue ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ConfirmationPage_vue_vue_type_template_id_162700cf___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ConfirmationPage.vue?vue&type=template&id=162700cf& */ "./resources/js/components/ConfirmationPage.vue?vue&type=template&id=162700cf&");
+/* harmony import */ var _ConfirmationPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ConfirmationPage.vue?vue&type=script&lang=js& */ "./resources/js/components/ConfirmationPage.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _ConfirmationPage_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ConfirmationPage.vue?vue&type=style&index=0&lang=scss& */ "./resources/js/components/ConfirmationPage.vue?vue&type=style&index=0&lang=scss&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _ConfirmationPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ConfirmationPage_vue_vue_type_template_id_162700cf___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ConfirmationPage_vue_vue_type_template_id_162700cf___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/ConfirmationPage.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/ConfirmationPage.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/components/ConfirmationPage.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ConfirmationPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ConfirmationPage.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ConfirmationPage.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ConfirmationPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/ConfirmationPage.vue?vue&type=style&index=0&lang=scss&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/ConfirmationPage.vue?vue&type=style&index=0&lang=scss& ***!
+  \****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ConfirmationPage_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./ConfirmationPage.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ConfirmationPage.vue?vue&type=style&index=0&lang=scss&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ConfirmationPage_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ConfirmationPage_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ConfirmationPage_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ConfirmationPage_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/js/components/ConfirmationPage.vue?vue&type=template&id=162700cf&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/ConfirmationPage.vue?vue&type=template&id=162700cf& ***!
+  \*************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ConfirmationPage_vue_vue_type_template_id_162700cf___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ConfirmationPage.vue?vue&type=template&id=162700cf& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ConfirmationPage.vue?vue&type=template&id=162700cf&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ConfirmationPage_vue_vue_type_template_id_162700cf___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ConfirmationPage_vue_vue_type_template_id_162700cf___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 

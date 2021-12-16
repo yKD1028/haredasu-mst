@@ -10,7 +10,9 @@
 <body>
     <h1>TOPnav予定地</h1>
         <div id="reserve">
-            <reserve-page></reserve-page>
+            <!-- <reserve-page></reserve-page> -->
+            <confirmation-page></confirmation-page>
+            <!-- <complete-page></complete-page> -->
         </div>
     </div>
 
@@ -25,7 +27,7 @@
         height: 80px;
     }
     body{
-        background-color: #F2F7F5;
+        background-color: #fff;
     }
     * {
         margin: 0;

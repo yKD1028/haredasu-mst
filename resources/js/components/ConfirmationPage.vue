@@ -1,0 +1,367 @@
+<template>
+    <div class="confirmationPage_main">
+        <div class="confirmationPage_main_location">
+            <div class="confirmationPage_main_location_wrap">
+                 <img :src="'/images/signup.png'" alt="">
+                 <p class="Inactive">予約入力</p>
+            </div>
+            <div class="confirmationPage_main_location_border"></div>
+            <div class="confirmationPage_main_location_wrap">
+                <img :src="'/images/confirmation_a.png'" alt="">
+                <p>予約確認</p>
+            </div>
+            <div class="confirmationPage_main_location_border"></div>
+            <div class="confirmationPage_main_location_wrap">
+                <img :src="'/images/completion.png'" alt="">
+                <p class="Inactive">予約完了</p>
+            </div>
+        </div>
+         <div class="confirmationPage_main_wrap">
+            <div class="confirmationPage_main_information">
+                <p class="confirmationPage_main_information_title">予約情報</p>
+                <div id="map" ref="googleMap"/>
+                <div class="confirmationPage_main_information_contents">
+                    <p>場所</p>
+                    <p class="font_size">{{}}</p>
+                </div>
+                 <div class="confirmationPage_main_information_contents">
+                    <p>場所</p>
+                    <p class="font_size">{{}}</p>
+                </div>
+                 <div class="confirmationPage_main_information_contents">
+                    <p>場所</p>
+                    <p class="font_size">{{}}</p>
+                </div>
+                <div class="confirmationPage_main_information_contents_border"></div>
+                <div class="confirmationPage_main_information_contents_alert">
+                    <p>前日までのキャンセルの場合、キャンセル料としてお支払い料金の100%を申し受けます。</p>
+                    <div class="confirmationPage_main_information_contents_alert_checkbox">
+                        <label class="my-checkbox">
+                            <input type="checkbox" id="checkbox">
+                            <span class="checkmark"></span>
+                             <p>キャンセルポリシーに同意する</p>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="confirmationPage_main_others">
+                <div class="confirmationPage_main_others_price">
+                    <p class="confirmationPage_main_others_price_title">料金詳細</p>
+                    <div class="confirmationPage_main_others_price_contents">
+                        <p>基本料金</p>
+                        <p><span class="font_size">{{}}</span>円</p>
+                    </div>
+                    <div class="confirmationPage_main_others_price_contents">
+                        <p>範囲料金</p>
+                        <p><span class="font_size">{{}}</span>円</p>
+                    </div>
+                    <div class="confirmationPage_main_others_price_contents">
+                        <p>時間料金</p>
+                        <p><span class="font_size">{{}}</span>時間</p>
+                    </div>
+                    <div class="confirmationPage_main_others_price_contents_border"></div>
+                    <div class="confirmationPage_main_others_price_contents">
+                        <p class="confirmationPage_main_others_price_contents_total">お支払い金額</p>
+                        <p><span class="font_size_totla">{{}}</span>円</p>
+                    </div>
+                </div>
+                <div class="confirmationPage_main_others_payment">
+                    <p>お支払い情報</p>
+                    <p>{{cardNumber}}</p>
+                    <a href="#">変更</a>
+                </div>
+                <div class="confirmationPage_main_others_button">
+                    <button id="next" calss="nextbtn" v-bind:class="{ btnActive:btnActive }">予約を確定する</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+import GoogleMapsApiLoader from 'google-maps-api-loader';
+
+export default {
+    data(){
+        return{
+            google: null,
+            Map:"",
+            mapConfig: {
+                center: {
+                    lat: 35.68944,
+                    lng: 139.69167
+                },
+                zoom: 13,
+                mapTypeControl: false,
+                fullscreenControl: false,
+                streetViewControl: false,
+                zoomControl: false,
+                disableDoubleClickZoom: true,
+                scrollwheel: false,
+                draggable: false,
+                clickable: false,
+
+            },
+            cardNumber:"**** **** **** 0000",
+            btnActive:false,
+        }
+    },
+    async mounted() {
+        this.google = await GoogleMapsApiLoader({
+            apiKey: 'AIzaSyCbr524Eht2tpaHaFLvBShbHBy1m1uqBy4'
+        });
+        this.initializeMap();
+    },
+    methods: {
+        initializeMap() {
+            this.Map = new this.google.maps.Map(this.$refs.googleMap, this.mapConfig);
+            document.getElementById("next").disabled = true;
+            document.getElementById("next").addEventListener("click",()=>{
+                console.log(document.getElementById("checkbox").checked);
+
+            })
+            document.getElementById("checkbox").addEventListener("click",()=>{
+                if(document.getElementById("checkbox").checked){
+                    this. btnActive=true;
+                }else{
+                    this. btnActive=false;
+                }
+            })
+
+        }
+    }
+}
+</script>
+
+
+<style lang="scss">
+.font_size{
+    font-size:1.25rem;
+}
+.font_size_totla{
+    font-size:1.35rem
+}
+.confirmationPage_main{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: auto;
+    padding: 32px 0;
+    width: auto;
+
+    .confirmationPage_main_location{
+        width: 280px;
+        height: 68px;
+        margin-bottom: 32px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .confirmationPage_main_location_wrap{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #00473E;
+            .Inactive{
+                opacity: 0.5;
+            }
+
+        }
+        .confirmationPage_main_location_border{
+            height: 1px;
+            width: 32px;
+            margin-bottom: 18px;
+            background: #00473E;
+
+        }
+
+    }
+    .confirmationPage_main_wrap{
+       display: flex;
+       flex-wrap: wrap;
+        justify-content: center;
+
+        .confirmationPage_main_information{
+            height: auto;
+            width:646px;
+            margin-right: 16px;
+            border-radius: 8px;
+            border: solid 1px #d2d2d2;
+            padding: 16px 32px;
+
+            .confirmationPage_main_information_title{
+                color: #00473E;
+                font-size: 1.45rem;
+                font-weight: 600;
+                padding: 16px 0;
+
+            }
+            #map{
+                width: 100%;
+                height: 280px;
+                margin: 16px 0;
+                pointer-events: none;
+
+            }
+            .confirmationPage_main_information_contents{
+                display: flex;
+                align-items: flex-end;
+                margin: 16px 0;
+                color: #00473E;
+                font-weight: 500;
+
+                p:nth-child(2) {
+                    margin-left:32px;
+
+                }
+            }
+            .confirmationPage_main_information_contents_border{
+                background: #a7a7a7;
+                height: 1px;
+                width: 100%;
+
+            }
+            .confirmationPage_main_information_contents_alert{
+                color: #00473E;
+                padding: 16px 0;
+                font-size: 1.15rem;
+
+                .confirmationPage_main_information_contents_alert_checkbox{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    .my-checkbox {
+                        display: block;
+                        position: relative;
+                        margin: 1em 0;
+                        padding-left: 28px;
+                        cursor: pointer;
+                        user-select: none;
+
+                        p{
+                            font-size: 0.9rem;
+                        }
+
+                    }
+                    .my-checkbox input {
+                        display: none;
+
+                    }
+
+                    .checkmark {
+                        position: absolute;
+                        top: 1px;
+                        left: 0;
+                        height: 22px;
+                        width: 22px;
+                        border: solid 2px #d4dae2;
+                        border-radius: 4px;
+                        box-sizing: border-box;
+
+                    }
+                    .checkmark:after {
+                        content: "";
+                        position: absolute;
+                        left: 5px;
+                        top: 1px;
+                        width: 6px;
+                        height: 10px;
+                        border: solid #FFF;
+                        border-width: 0 2px 2px 0;
+                        transform: rotate(45deg);
+                        opacity: 0;
+
+                    }
+
+                    .my-checkbox input:checked + .checkmark {
+                        background: #FA5246;
+                        border-color: #FA5246;
+                    }
+
+                    .my-checkbox input:checked + .checkmark:after {
+                        opacity: 1;
+                    }
+                }
+            }
+
+        }
+        .confirmationPage_main_others{
+            height: 60vh;
+            width:400px;
+            margin-left: 16px;
+
+            .confirmationPage_main_others_price{
+                color: #00473E;
+                width: calc(100% - 36px);
+                height: auto;
+                border-radius: 8px;
+                border: solid 1px #d2d2d2;
+                padding: 16px;
+
+
+                .confirmationPage_main_others_price_title{
+                    color: #00473E;
+                    font-size: 1.45rem;
+                    font-weight: 600;
+                    padding: 16px 0;
+
+                }
+                .confirmationPage_main_others_price_contents{
+                    display: flex;
+                    align-items: flex-end;
+                    justify-content: space-between;
+                    padding: 8px 0;
+                    text-align: bottom;
+
+                    .confirmationPage_main_others_price_contents_total{
+                        font-size: 1.15rem;
+                        font-weight: 600;
+                    }
+
+                }
+                .confirmationPage_main_others_price_contents_border{
+                    margin-top: 100px;
+                    background: #a7a7a7;
+                    height: 1px;
+                    margin-bottom: 16px;
+                    width:100%;
+
+                }
+            }
+            .confirmationPage_main_others_payment{
+                color: #00473E;
+                width: calc(100% - 36px);
+                height: auto;
+                border-radius: 8px;
+                border: solid 1px #d2d2d2;
+                padding: 16px;
+                margin: 32px 0;
+                display: flex;
+                justify-content: space-between;
+                a{
+                    text-decoration: none;
+                    color: #AFC7FF;
+                }
+            }
+            .confirmationPage_main_others_button{
+                button{
+                    border: none;
+                    border-radius: 8px;
+                    width: 100%;
+                    height: 64px;
+                    color: #fff;
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                }
+            }
+
+
+        }
+    }
+}
+.btnActive{
+    background-color: #FAAE2B;
+}
+
+</style>
