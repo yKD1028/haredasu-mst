@@ -72,4 +72,7 @@ class PaymentController extends Controller
       return redirect()->back();
     }
   }
+  //クレカの登録
+  //クレカの変更
+  //クレカによる決済
 }
