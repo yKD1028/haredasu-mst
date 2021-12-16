@@ -4,6 +4,7 @@
             <Header></Header>
             <Situation></Situation>
             <Question></Question>
+            <p>footer</p>
         </div>
     </div>
 </template>
