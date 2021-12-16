@@ -174,6 +174,9 @@ export default {
             apiKey: "AIzaSyCbr524Eht2tpaHaFLvBShbHBy1m1uqBy4",
         });
         this.initializeMap();
+        axios.get("/reserve_page").then((response) => {
+            console.log(response.data);
+        });
     },
 
     methods: {
@@ -264,7 +267,6 @@ export default {
                 }
             });
         },
-
         //時間エラーメッセージ
         errMessage() {
             if (this.errActive) {

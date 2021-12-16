@@ -2548,7 +2548,11 @@ vue__WEBPACK_IMPORTED_MODULE_4__["default"].use((v_calendar__WEBPACK_IMPORTED_MO
 
               _this.initializeMap();
 
-            case 4:
+              axios__WEBPACK_IMPORTED_MODULE_3___default().get("/reserve_page").then(function (response) {
+                console.log(response.data);
+              });
+
+            case 5:
             case "end":
               return _context.stop();
           }
