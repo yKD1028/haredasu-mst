@@ -32,7 +32,7 @@ export default {
     },
     watch: {
         password(password) {
-            var pattern1 = /^[A-Za-z0-9]*$/;
+            var pattern1 = /^[A-Za-z\d]*$/;
             var pattern2 = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,20}$/;
             var pattern3 = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{2,}$/
             if(!password) {

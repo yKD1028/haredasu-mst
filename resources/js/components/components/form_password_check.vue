@@ -1,13 +1,13 @@
 <template>
     <div class="form_wrap">
         <div>
-            <input class="form_pc" type="password" name="password" v-model="password" v-on:blur="onBlur" :placeholder="'パスワード'">
-            <label for="form_pc" class="form_title">パスワード</label>
+            <input class="form_pc" type="password" name="password" v-model="password" v-on:blur="onBlur" :placeholder="placeholder1">
+            <label for="form_pc" class="form_title">{{form_title1}}</label>
             <span class="form_error">{{errors.password}}</span>
         </div>
         <div>
-            <input class="form_pc" type="password" name="passwordCheck" v-model="passwordCheck" v-on:blur="onBlur" :placeholder="'パスワード確認'">
-            <label for="form_pc" class="form_title">パスワード確認</label>
+            <input class="form_pc" type="password" name="passwordCheck" v-model="passwordCheck" v-on:blur="onBlur" :placeholder="placeholder2">
+            <label for="form_pc" class="form_title">{{form_title2}}</label>
             <span class="form_error">{{errors.passwordCheck}}</span>
         </div>
     </div>
@@ -16,6 +16,10 @@
 <script>
 export default {
     props: {
+        placeholder1: { type: String, required: false },
+        placeholder2: { type: String, required: false },
+        form_title1: { type:String },
+        form_title2: { type:String },
     },
     data () {
         return {
@@ -43,7 +47,7 @@ export default {
 
     watch: {
         password(password) {
-            var pattern1 = /^[A-Za-z0-9]*$/;
+            var pattern1 = /^[A-Za-z\d]*$/;
             var pattern2 = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,20}$/;
             var pattern3 = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{2,}$/
             if(!password) {

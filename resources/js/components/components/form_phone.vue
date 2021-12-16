@@ -1,8 +1,6 @@
 <template>
     <div class="form_wrap">
-        <!--<input type="text" placeholder={{form_placeholder}} class="form_black">
-        <input class="form_pc" :type="type" :name="name" :value="value" :placeholder="placeholder" @input="updateValue" :v-model="form_v_model" />-->
-        <input class="form_pc" type="text" v-model="phoneNumber" :placeholder="placeholder">
+        <input class="form_pc" type="text" v-model="phoneNumber" v-on:blur="onBlur" :placeholder="placeholder">
         <label for="form_pc" class="form_title">{{form_title}}</label>
         <span class="form_error">{{errors.phoneNumber}}</span>
     </div>
@@ -25,13 +23,21 @@ export default {
             return Object.keys(this.errors).length > 0 ? true : false
         }
     },
+    methods: {
+        onBlur: function(){
+            if (!this.phoneNumber) {
+                this.$delete(this.errors, 'phoneNumber')
+            }
+        },
+    },
     watch: {
         phoneNumber(phoneNumber) {
-        if (!phoneNumber || !!phoneNumber.match(/^[0-9\-]+$/)) {
-            this.$delete(this.errors, 'phoneNumber')
-        } else {
-            this.$set(this.errors, "phoneNumber", '電話番号が正しくありません。')
-        }
+            // !!phoneNumber.match(/^[0-9\-]+$/)
+            if (!phoneNumber) {
+                this.$delete(this.errors, 'phoneNumber','電話番号を入力してください。')
+            } else {
+                this.$delete(this.errors, 'phoneNumber')
+            }
         },
     }
 }
