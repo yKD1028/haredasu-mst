@@ -1,0 +1,40 @@
+.user-page{
+    font-family: 'Noto Sans JP';
+    font-style: normal;
+    color: $color-gray;
+    padding: 0 0;
+
+
+    width: 60%;
+    margin: 156px auto 0;
+    background-color: cornsilk;
+    // margin-top: 156px;
+
+    .userPage-title {
+        font-style: bold;
+        font-size: 36px;
+        line-height: 52px;
+
+        background-color: burlywood;
+    }
+
+    hr{
+        margin-top: 32px;
+        margin-bottom: 48px;
+        border-top: 1px solid $color-gray;
+    }
+
+
+    .userPage-changes {
+        font-size: 18px;
+        line-height: 26px;
+
+        div{
+            background-color: bisque;
+            margin-bottom: 32px;
+        }
+        div:hover {
+            cursor: pointer;
+        }
+    }
+}
