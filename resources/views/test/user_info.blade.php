@@ -13,6 +13,9 @@
   <p>{{$user->address}}</p>
 
   <div>
+    <div id="app">
+      <resister-page></resister-page>
+    </div>
     <form action="/regist_user_info" method="post">
       @csrf
       <div class="form-group row">
@@ -165,24 +168,4 @@
   <p>{{ session('error-message') }}</p>
   @endif
 
-  <div>
-
-  </div>
-  <!-- <script>
-    $(function() {
-      reserve_page();
-    });
-
-    function reserve_page() {
-      $.ajax({
-        url: "reserve_page",
-        dataType: "json",
-        success: data => {
-          console.log(data);
-        },
-        error: () => {
-          alert("ajax Error");
-        }
-      });
-    }
-  </script> -->
+  <>

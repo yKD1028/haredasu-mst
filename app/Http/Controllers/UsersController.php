@@ -64,9 +64,13 @@ class UsersController extends Controller
   }
   public function regist_mail(Request $request)
   {
-    $data = $request->email;
     $email = $request->email;
-    Mail::to($email)->send(new TestSendMail());
+    Mail::to($email)->send(new TestSendMail($email));
     return redirect()->back();
+  }
+  public function hon_regist(Request $request)
+  {
+    $email = $request->email;
+    return view('test.hon_regist', ['email' => $email]);
   }
 }

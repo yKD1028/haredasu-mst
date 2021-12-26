@@ -29,7 +29,7 @@ Vue.component('reserve-page', require('./components/ReservePage.vue').default);
 Vue.component('complete-page', require('./components/CompletePage.vue').default);
 
 Vue.component('confirmation-page', require('./components/ConfirmationPage.vue').default);
-
+Vue.component('resister-page', require('./components/pages/UserResistPage.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

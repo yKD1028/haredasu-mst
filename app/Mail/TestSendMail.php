@@ -16,9 +16,10 @@ class TestSendMail extends Mailable
    *
    * @return void
    */
-  public function __construct()
+  public function __construct($email)
   {
     //
+    $this->email = $email;
   }
 
   /**
@@ -32,6 +33,7 @@ class TestSendMail extends Mailable
       //メールの件名
       ->subject('Test Mail')
       //メールとして表示したいビューファイル
-      ->view('test.mail');
+      ->view('test.mail')
+      ->with(['email' => $this->email]);
   }
 }

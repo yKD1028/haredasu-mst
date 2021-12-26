@@ -40,3 +40,4 @@ Route::get('/Reserve', function () {
 });
 Route::get('/reserve_page', 'ReserveController@reserve_page');
 Route::post('/api', 'GooglemapController@index');
+Route::post('/hon_regist', 'UsersController@hon_regist');
