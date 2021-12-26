@@ -121,6 +121,14 @@
       </div>
     </form>
   </div>
+  <div>
+    <form action="/regist_mail" method="POST">
+      @csrf
+      <p>メール送信</p>
+      <input id="email" name="email" type="text">
+      <button type="submit">送信</button>
+    </form>
+  </div>
   @endsection
   <div id="payment">
     <form action="/payment" method="post">

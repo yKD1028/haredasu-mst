@@ -32,6 +32,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/regist_user_info', 'UsersController@regist_user_info')->name('regist_user_info');
     //payjp
     Route::post('/payment', 'PaymentController@payment');
+    Route::post('/regist_mail', 'UsersController@regist_mail')->name('regist_mail');
   });
 });
 Route::get('/Reserve', function () {

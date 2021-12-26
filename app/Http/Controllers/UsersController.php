@@ -8,6 +8,8 @@ use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\TestSendMail;
 
 class UsersController extends Controller
 {
@@ -47,10 +49,8 @@ class UsersController extends Controller
 
     $data = $post->validate([
 
-      'first_name' => ['required', 'string', 'max:20'],
-      'last_name' => ['required', 'string', 'max:20'],
-      'first_name_kana' => ['required', 'kana', 'max:20'],
-      'last_name_kana' => ['required', 'kana', 'max:20'],
+      'name' => ['required', 'string', 'max:20'],
+      'name_kana' => ['required', 'kana', 'max:20'],
       'tell' => ['required', 'string', 'max:12'],
       'zip' => ['required', 'digits:7'],
       'address' => ['required', 'string',  'max:255'],
@@ -60,6 +60,13 @@ class UsersController extends Controller
     //保存
     $user->fill($user_info)->save();
 
+    return redirect()->back();
+  }
+  public function regist_mail(Request $request)
+  {
+    $data = $request->email;
+    $email = $request->email;
+    Mail::to($email)->send(new TestSendMail());
     return redirect()->back();
   }
 }
