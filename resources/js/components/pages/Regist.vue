@@ -1,6 +1,5 @@
 <template>
     <div>
-        <Header></Header>
         <h1>基本情報入力</h1>
         <p>快適な晴れ体験のために<br>あなたのことを教えてください。</p>
         <FormLastName placeholder="晴れ出す" form_title="姓"></FormLastName>
