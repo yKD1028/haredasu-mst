@@ -9,109 +9,93 @@
                     @click="backAddress"
                 />
             </div>
-            <div class="trigger">+</div>
         </div>
-        <div class="reservePage_inputform">
-            <div class="reservePage_inputform_forms">
-                <div class="reservePage_inputform_forms_box">
-                    <div
-                        class="
-                            reservePage_inputform_forms_box_exclamation
-                            errActive
-                        "
-                    >
-                        <p>!</p>
+        <div class="reservePage_main_contents">
+             <div class="reservePage_main_input">
+                <p class="reservePage_main_input_title">予約情報入力</p>
+                <div class="reservePage_main_input_form">
+                    <input type="text" class="weight" id="mapname" placeholder="エリア・キーワード・駅名など">
+                    <div class="reservePage_main_input_form_title">
+                        <p>場所</p>
                     </div>
-                    <p class="reservePage_inputform_forms_box_title">場所</p>
                 </div>
-                <p class="weight">{{ addressName }}</p>
-            </div>
-            <div class="reservePage_inputform_forms">
-                <div class="reservePage_inputform_forms_box">
-                    <div
-                        class="
-                            reservePage_inputform_forms_box_exclamation
-                            errActive
-                        "
-                    >
-                        <p>!</p>
+                <div class="reservePage_main_input_form" @click="datePicker">
+                    <input type="text" class="weight" id="date" placeholder="日付を選択" readonly="readonly">
+                    <div class="reservePage_main_input_form_title">
+                        <p>日付</p>
                     </div>
-                    <p class="reservePage_inputform_forms_box_title">日付</p>
                 </div>
-                <p class="weight" @click="datePicker">{{ text }}</p>
-            </div>
-            <div class="reservePage_inputform_calendar">
-                <v-date-picker
+                <div class="reservePage_main_input_form_calendar" v-if="calendarPicker"  v-click-outside="hideMenu">
+                    <v-date-picker
                     v-bind:class="{ calendarActive: calendarPicker }"
-                    class="calendar"
-                    :available-dates="dates"
-                    :mode="mode"
-                    v-model="picker"
-                    @input="formatDate(picker)"
-                >
-                </v-date-picker>
-            </div>
-            <div class="reservePage_inputform_forms">
-                <div class="reservePage_inputform_forms_box">
-                    <div
-                        class="reservePage_inputform_forms_box_exclamation"
-                        @click="errMessage"
+                        class="calendar"
+                        :available-dates="dates"
+                        :mode="mode"
+                        v-model="picker"
+                        @input="formatDate(picker)"
                     >
-                        <p>!</p>
-                    </div>
-                    <div
-                        class="reservePage_inputform_forms_box_errmessage"
-                        v-bind:class="{ errActive: errActive }"
-                    >
-                        <p>
-                            時間は予約予定日の~24:00までの登録しか出来ません。
-                        </p>
-                    </div>
-                    <p class="reservePage_inputform_forms_box_title">時間</p>
+                    </v-date-picker>
                 </div>
-                <p class="weight">17:00~19:00</p>
-            </div>
-            <div class="reservePage_inputform_forms">
-                <div class="reservePage_inputform_forms_box">
-                    <div
-                        class="reservePage_inputform_forms_box_exclamation"
-                        @click="errMessage2"
-                    >
-                        <p>!</p>
+                <div class="reservePage_main_input_timeform">
+                    <p class="reservePage_main_input_timeform_title">利用時間</p>
+                    <div class="time_ipselect_wrap">
+                        <input type="text" class="weight" id="starttime" value="00:00" readonly="readonly" @click="starttime_judg">
+                        <div class="time_ipselect_picker" v-if="timePicker" v-click-outside="hide_starttime">
+                            <div class="touka"></div>
+                            <div class="touka2"></div>
+                            <div class="time_ipselect">
+                                <form name="timepicker" @change="updateTimePicker">
+                                    <span v-html="startTimePicker"></span>
+                                </form>
+                            </div>
+                        </div>
                     </div>
-                    <div
-                        class="reservePage_inputform_forms_box_errmessage"
-                        v-bind:class="{ errActive: errActive2 }"
-                    >
-                        <p>これはエラーです</p>
+                    <p>〜</p>
+                    <div>
+                        <div class="time_ipselect_wrap">
+                            <input type="text" class="weight" id="endtime" value="00:30" readonly="readonly" @click="endtime_judg">
+                         <div class="time_ipselect_picker" v-if="endtimePicker" v-click-outside="hide_endtime">
+                            <div class="touka"></div>
+                            <div class="touka2"></div>
+                            <div class="time_ipselect">
+                                <form name="timepicker" @change="updateendTimePicker">
+                                    <span v-html="endTimePicker"></span>
+                                </form>
+                            </div>
+                            </div>
+                        </div>
                     </div>
-                    <p class="reservePage_inputform_forms_box_title">範囲</p>
                 </div>
-                <select
-                    name="example"
-                    class="range"
-                    id="range"
-                    v-on:change="changeRange"
-                >
-                    <option value="150">150m</option>
-                    <option value="300">300m</option>
-                    <option value="500">500m</option>
-                    <option value="750">750m</option>
-                    <option value="1000">1000m</option>
-                </select>
+
+                <div class="reservePage_main_input_form_radius">
+                    <p>範囲</p>
+                    <form name="range" @change="changeRange">
+                    <div class="reservePage_main_input_form_radius_wrap weight">
+                        <input type="radio" name="radius" value="150" id="150" checked="checked">
+                        <label for="150">150m</label>
+                        <input type="radio" name="radius" value="300" id="300">
+                        <label for="300">300m</label>
+                        <input type="radio" name="radius" value="500" id="500">
+                        <label for="500">500m</label>
+                        <input type="radio" name="radius" value="750" id="750">
+                        <label for="750">750m</label>
+                        <input type="radio" name="radius" value="1000" id="1000">
+                        <label for="1000">1000m</label>
+                    </div>
+                    </form>
+                </div>
             </div>
-            <div class="reservePage_inputform_forms_bottom_wrap">
-                <div class="reservePage_inputform_forms_money">
-                    <div class="reservePage_inputform_forms_money_text">
-                        <p>見積り価格</p>
-                    </div>
-                    <div class="reservePage_inputform_forms_money_sum">
-                        <div class="first">¥</div>
-                        <p id="val">{{ sumval }}</p>
-                    </div>
-                    <div class="reservePage_inputform_forms_next">
-                        <button>次へ進む</button>
-                    </div>
+            <div class="reservePage_main_money">
+                <div class="reservePage_main_money_sum">
+                    <p>見積もり金額</p>
+                    <p id="val"><span class="enn">¥</span>{{sumval}}</p>
+                </div>
+                <div class="reservePage_main_money_next">
+                    <a href="#">
+                        <div>
+                            <p>次へ進む</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -125,8 +109,14 @@ import VCalendar from "v-calendar";
 import axios from "axios";
 import { compareAsc, format } from "date-fns";
 import gsap from "gsap";
+import Vuetify from 'vuetify'
+import ClickOutside from 'vue-click-outside'
+import mypin from "../../../public/assets/mypin.png"
+import atherpin from "../../../public/assets/atherpin.png"
+
 
 Vue.use(VCalendar);
+Vue.use(Vuetify);
 
 export default {
     data() {
@@ -149,10 +139,8 @@ export default {
                 zoomControl: false,
             },
             nowMappin: null,
-            errActive: true,
-            errActive2: true,
             addressName: "",
-            calendarPicker: true,
+            calendarPicker: false,
             Map: "",
             menu: "",
             text: "2021/11/31",
@@ -162,10 +150,20 @@ export default {
                 val: 0,
                 latlng: { lat: 35.68944, lng: 139.69167 },
                 radius: 150,
-                radiusIndex: 0,
+                radiusIndex: 1,
                 address: "",
                 sumDrone: 0,
             },
+            startTimePicker:"",
+            endTimePicker:"",
+            timePicker:false,
+            endtimePicker:false,
+            startTimeSum:0,
+            endTimeSum:30,
+            oldMapname:"",
+
+            anyMapData:"",
+            anyMapDatas:[],
         };
     },
 
@@ -174,7 +172,14 @@ export default {
             apiKey: "AIzaSyCbr524Eht2tpaHaFLvBShbHBy1m1uqBy4",
         });
         this.initializeMap();
+        this.createTimePicker();
+        await axios.get("/reserve_page").then((response) => {
+            console.log(response.data);
+            this.anyMapData=response.data;
+        });
+        this.getAnyPins();
     },
+
 
     methods: {
         initializeMap() {
@@ -187,6 +192,7 @@ export default {
             this.marker = new this.google.maps.Marker({
                 position: new this.google.maps.LatLng(this.mapConfig.center),
                 map: this.Map,
+                icon: mypin,
             });
 
             //範囲の詳細
@@ -213,24 +219,23 @@ export default {
                     this.addressName =
                         response.data.results[0].formatted_address.substr(-13);
                 }
+                document.getElementById("mapname").value=this.addressName;
+                this.oldMapname =this.addressName;
             });
+
+
 
             //Mapがクリックされた時のハンドラ
             this.Map.addListener("click", (e) => {
-                this.getMap(e);
-            });
-
-            //Mapのドラックされた時のハンドラ
-            this.Map.addListener("dragend", () => {
-                var lat = this.Map.getCenter().lat();
-                var lng = this.Map.getCenter().lng();
+                var lat = e.latLng.lat();
+                var lng = e.latLng.lng();
                 var data = { lat, lng };
                 this.totalFee.latlng = data;
                 this.nowMappin.setMap(null);
                 this.nowMappin = new this.google.maps.Circle({
                     center: new this.google.maps.LatLng(data),
                     map: this.Map,
-                    radius: Number(document.getElementById("range").value),
+                    radius: Number(document.range.radius.value),
                     strokeColor: "#A5888800",
                     fillColor: "#A58888",
                 });
@@ -238,7 +243,35 @@ export default {
                 this.marker = new this.google.maps.Marker({
                     position: new this.google.maps.LatLng(data),
                     map: this.Map,
+                    icon: mypin,
                 });
+                this.getMap(e);
+            });
+
+            document.getElementById("mapname").addEventListener('keypress',()=>{
+                new this.google.maps.Geocoder().geocode({
+                    address:document.getElementById("mapname").value
+                },(results)=>{
+                    console.log(results[0].formatted_address);
+                    this.marker.setMap(null)
+                    this.nowMappin.setMap(null);
+                    this.marker = new this.google.maps.Marker({
+                        position: new this.google.maps.LatLng(results[0].geometry.location),
+                        map: this.Map,
+                        icon: mypin,
+                    });
+                    this.nowMappin = new this.google.maps.Circle({
+                        center: new this.google.maps.LatLng(results[0].geometry.location),
+                        map: this.Map,
+                        radius: Number(document.range.radius.value),
+                        strokeColor: "#A5888800",
+                        fillColor: "#A58888",
+                    });
+                    this.totalFee.latlng =results[0].geometry.location;
+                    this.Map.panTo(new this.google.maps.LatLng(results[0].geometry.location));
+                    document.getElementById("mapname").value=results[0].formatted_address;
+
+                })
             });
         },
 
@@ -248,37 +281,15 @@ export default {
                 lat:Number(e.latLng.lat()),
                 lng:Number(e.latLng.lng())
             }
-            console.log("aaa");
             axios.post('/api',data).then((response) => {
-                if(response.data.results[0].formatted_address.substr( 13 ).length >=22){
-                    this.addressName=response.data.results[0].formatted_address.substring(12,35)+"...";;
-                }else{
-                    this.addressName=response.data.results[0].formatted_address.substr( -13 );
-                }
+                    this.addressName=response.data.results[0].formatted_address
             });
-        },
-
-        //時間エラーメッセージ
-        errMessage() {
-            if (this.errActive) {
-                this.errActive = false;
-            } else {
-                this.errActive = true;
-            }
-        },
-
-        //範囲エラーメッセージ
-        errMessage2() {
-            if (this.errActive2) {
-                this.errActive2 = false;
-            } else {
-                this.errActive2 = true;
-            }
+            document.getElementById("mapname").value=this.addressName;
         },
 
         //カレンダーピッカーの表示切り替え
         datePicker() {
-            this.calendarPicker = false;
+            this.calendarPicker = true;
         },
 
         //日付データのフォーマット
@@ -292,8 +303,9 @@ export default {
                 str = str.replace("-", "/");
                 result = result.replace("-", "/");
             }
+            document.getElementById("date").value=result;
             this.text = result;
-            this.calendarPicker = true;
+            this.calendarPicker = false;
         },
 
         //範囲選択値の更新
@@ -302,19 +314,27 @@ export default {
             this.nowMappin = new this.google.maps.Circle({
                 center: new this.google.maps.LatLng(this.totalFee.latlng),
                 map: this.Map,
-                radius: Number(document.getElementById("range").value),
+                radius: Number(document.range.radius.value),
                 strokeColor: "#A5888800",
                 fillColor: "#A58888",
             });
+            var sum ="";
+            for(var i=0;i<5;i++){
+                if(document.range.radius[i].checked){
+                    sum = i;
+                    break;
+                }
+            }
             this.totalFee.radiusIndex = Number(
-                document.getElementById("range").selectedIndex + 1
+                sum + 1
             );
             this.Calculation();
         },
 
         //合計金額計算
         Calculation() {
-            var str = String(100000 * 3 * this.totalFee.radiusIndex);
+            var sum =  Math.ceil(((this.endTimeSum-this.startTimeSum)/60)/2)
+            var str = String(100000 * sum * this.totalFee.radiusIndex);
             var num = [];
             for (let i = 0; i < str.length; i += 3) {
                 num.unshift(str.substring(str.length - 3 - i, str.length - i));
@@ -339,7 +359,7 @@ export default {
             this.nowMappin = new this.google.maps.Circle({
                 center: new this.google.maps.LatLng(this.mapConfig.center),
                 map: this.Map,
-                radius: Number(document.getElementById("range").value),
+                radius: Number(document.range.radius.value),
                 strokeColor: "#A5888800",
                 fillColor: "#A58888",
             });
@@ -347,9 +367,202 @@ export default {
             this.marker = new this.google.maps.Marker({
                 position: new this.google.maps.LatLng(this.mapConfig.center),
                 map: this.Map,
+                icon: mypin,
             });
             this.Map.panTo(new this.google.maps.LatLng(this.mapConfig.center));
+             document.getElementById("mapname").value=this.oldMapname;
         },
+
+        hideMenu(){
+            this.calendarPicker = false;
+        },
+
+        hide_starttime(){
+            this.timePicker=false
+        },
+
+        hide_endtime(){
+            this.endtimePicker=false
+        },
+
+        createTimePicker(){
+            var index = "";
+            var endindex = "";
+            var hour = "";
+            var minit = "";
+
+            for (let i= 0; i < 1430; i+=30) {
+                if(i/60 < 10){
+                    var hour = "0"+Math.floor(i/60);
+                }else{
+                    var hour = Math.floor(i/60);
+                }
+                if(i%60 == 0){
+                    var minit = "0"+i%60;
+                }else{
+                    var minit = i%60;
+                }
+                if(i == 0){
+                     index += " <input type='radio' name='start_titme' checked='checked' value="+i+" id="+i+"> <label for="+i+">"+hour+":"+minit+"</label>"
+                }else{
+                     index += " <input type='radio' name='start_titme' value="+i+" id="+i+"> <label for="+i+">"+hour+":"+minit+"</label>"
+                }
+
+            }
+
+             for (let i= 30; i < 750; i+=30) {
+                if(i/60 < 10){
+                    var hour = "0"+Math.floor(i/60);
+                }else{
+                    var hour = Math.floor(i/60);
+                }
+                if(i%60 == 0){
+                    var minit = "0"+i%60;
+                }else{
+                    var minit = i%60;
+                }
+                if(i == 30){
+                     endindex += " <input type='radio' name='end_titme' checked='checked' value="+i+" id="+i+"> <label for="+i+">"+hour+":"+minit+"</label>"
+                }else{
+                     endindex += " <input type='radio' name='end_titme' value="+i+" id="+i+"> <label for="+i+">"+hour+":"+minit+"</label>"
+                }
+
+            }
+            this.startTimePicker = index
+            this.endTimePicker = endindex
+        },
+
+
+
+        updateTimePicker(){
+            var index = "";
+            var endindex = "";
+            var sum =Number(document.timepicker.start_titme.value);
+            var hour="";
+            var minit="";
+
+             if(sum/60 < 10){
+                    hour = "0"+Math.floor(sum/60);
+                }else{
+                    hour = Math.floor(sum/60);
+                }
+                if(sum%60 == 0){
+                    minit = "0"+sum%60;
+                }else{
+                    minit = sum%60;
+                }
+            document.getElementById("starttime").value=hour+":"+minit;
+
+            this.startTimeSum =sum;
+            if(this.endTimeSum < this.startTimeSum+30 ||this.endTimeSum - this.startTimeSum >720 ){
+                 if((sum+30)/60 < 10){
+                    hour = "0"+Math.floor((sum+30)/60);
+                }else{
+                    hour = Math.floor((sum+30)/60);
+                }
+                if((sum+30)%60 == 0){
+                    minit = "0"+(sum+30)%60;
+                }else{
+                    minit = (sum+30)%60;
+                }
+                document.getElementById("endtime").value=hour+":"+minit;
+                this.endTimeSum =sum+30;
+            }
+
+            this.timePicker=false
+
+            for (let i= 0; i < 1430; i+=30) {
+                if(i/60 < 10){
+                    var hour = "0"+Math.floor(i/60);
+                }else{
+                    var hour = Math.floor(i/60);
+                }
+                if(i%60 == 0){
+                    var minit = "0"+i%60;
+                }else{
+                    var minit = i%60;
+                }
+                index += " <input type='radio' name='start_titme' value="+i+" id="+i+"> <label for="+i+">"+hour+":"+minit+"</label>"
+            }
+            var maxleg = "";
+            if(sum + 30 * 25 >1470){
+                maxleg = 1470
+            }
+            else{
+                 maxleg = sum + 30 * 25
+            }
+
+            for (let i= sum+30; i < maxleg; i+=30) {
+                if(i/60 < 10){
+                    var hour = "0"+Math.floor(i/60);
+                }else{
+                    var hour = Math.floor(i/60);
+                }
+                if(i%60 == 0){
+                    var minit = "0"+i%60;
+                }else{
+                    var minit = i%60;
+                }
+
+                endindex += " <input type='radio' name='end_titme' value="+i+" id="+i+"> <label for="+i+">"+hour+":"+minit+"</label>"
+            }
+            this.startTimePicker = index
+            this.endTimePicker = endindex
+            this.Calculation()
+        },
+
+         updateendTimePicker(){
+            var sum =Number(document.timepicker.end_titme.value);
+            var hour="";
+            var minit="";
+            this.endTimeSum = sum;
+             if(sum/60 < 10){
+                    hour = "0"+Math.floor(sum/60);
+                }else{
+                    hour = Math.floor(sum/60);
+                }
+                if(sum%60 == 0){
+                    minit = "0"+sum%60;
+                }else{
+                    minit = sum%60;
+                }
+            document.getElementById("endtime").value=hour+":"+minit;
+            this.endtimePicker=false
+            this.Calculation();
+        },
+
+        starttime_judg(){
+            this.timePicker=true
+        },
+
+        endtime_judg(){
+            this.endtimePicker=true
+        },
+
+        getAnyPins(){
+            for (let i = 0; i < this.anyMapData.length; i++) {
+                var map =  new this.google.maps.Marker({
+                    position: new this.google.maps.LatLng(this.anyMapData[i].latitude,this.anyMapData[i].longitude),
+                    map: this.Map,
+                    icon: atherpin
+                });
+                this.anyMapDatas.push(map)
+
+                new this.google.maps.Circle({
+                center: new this.google.maps.LatLng(this.anyMapData[i].latitude,this.anyMapData[i].longitude),
+                map: this.Map,
+                radius: Number(this.anyMapData[i].area),
+                strokeColor: "#eaf07900",
+                fillColor: "#A58888",
+
+                });
+                var pop = new this.google.maps.InfoWindow({
+                    content: '18:00~20:00'
+                });
+                pop.open(this.Map, this.anyMapDatas[i]); // 吹き出しの表示
+            }
+
+        }
     },
 };
 </script>
@@ -357,8 +570,8 @@ export default {
 <style lang="scss">
 .reservePage_main {
     display: flex;
-    height: calc(100vh - 80px - 64px);
-    padding: 32px 0 32px 32px;
+    height: calc(100vh - 80px);
+    color: #00473E;
 
     .map {
         position: relative;
@@ -368,11 +581,13 @@ export default {
         #map {
             width: 100%;
             height: 100%;
+
         }
         .mapimg {
             position: absolute;
             right: 0px;
             bottom: 0px;
+
         }
         .trigger {
             position: absolute;
@@ -382,152 +597,241 @@ export default {
             opacity: 0.5;
             font-weight: 100;
             user-select: none;
+
         }
     }
-    .reservePage_inputform {
+    .reservePage_main_contents{
         position: relative;
         width: 480px;
         height: 100%;
 
-        .reservePage_inputform_forms {
+        .reservePage_main_input{
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            height: 64px;
-            width: 420px;
-            padding: 0 30px;
-            background-color: #fff;
-            margin-bottom: 32px;
+            flex-direction: column;
+            justify-content: flex-start;
+            width: 480px;
+            .reservePage_main_input_title{
+                font-weight: 700;
+                font-size: 24px;
+                padding: 16px 0;
 
-            .reservePage_inputform_forms_box {
+            }
+            .reservePage_main_input_form{
+                position: relative;
+                z-index: 1;
+                width: 400px;
+                padding: 16px 0;
+
+                input{
+                    width: 360px;
+                    padding: 20px;
+                    border-radius: 7px;
+                    border: solid #00473E ;
+                    font-size:16px;
+                    color: #00473E;
+
+                }
+                input[type="text"]:focus {
+                    outline: none;
+                    border: solid #FAAE2B ;
+                }
+                input[type="text"]:focus +  .reservePage_main_input_form_title{
+                    color: #FAAE2B;
+                }
+                .reservePage_main_input_form_title{
+                    position:absolute;
+                    background: #fff;
+                    top: 5px;
+                    left: 10px;
+                    padding:0 3px;
+                    input[type=radio] {
+                        display: none;
+                    }
+                     label{
+                    display: block;
+                    padding: 15px 12.9px;
+                    border-right:solid 3px #00473E;
+                    color: #00473E;
+                }
+                input[type="radio"]:checked+label {
+                    background: #00473E;
+                    color: #ffffff;
+                }
+                }
+            }
+            .reservePage_main_input_form_calendar{
+                position:absolute;
+                z-index: 100;
+                width:300px;
                 display: flex;
                 align-items: center;
-                justify-content: space-between;
-                width: 50px;
+                flex-direction: column;
+                margin-left: 3px;
+                margin-top:239px ;
+                border-radius: 10px;
+                padding: 16px 0;
+                background: #fff;
+                box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
+            }
+            .reservePage_main_input_timeform{
                 position: relative;
+                display: flex;
+                align-items: center;
+                width: 400px;
+                margin: 20px 0px;
+                .reservePage_main_input_timeform_title{
+                    margin-right: 20px;
+                    width: 100px;
+                }
 
-                .reservePage_inputform_forms_box_exclamation {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    border: solid 1px red;
-                    width: 12px;
-                    height: 12px;
-                    font-size: 0.75rem;
-                    border-radius: 10px;
+                .time_ipselect_wrap{
+                    margin: 0 30px;
+                }
+
+                input[type=text] {
+                    border: solid #00473E 3px;
+                    border-radius: 8px;
+                    padding: 10px 15px;
+                    width: 50px;
                     text-align: center;
-
-                    p {
-                        user-select: none;
-                        color: red;
-                        font-size: 0.75em;
-                    }
+                    font-size: 16px;
+                    color:#00473E;
                 }
-                .reservePage_inputform_forms_box_errmessage {
-                    position: absolute;
-                    background-color: #eaf079;
-                    width: 250px;
-                    height: auto;
-                    padding: 15px;
-                    right: 70px;
-
-                    p {
-                        color: #00473e;
-                    }
+                input[type="text"]:focus {
+                    outline: none;
+                    border: solid #FAAE2B ;
+                    color: #FAAE2B;
                 }
-                .reservePage_inputform_forms_box_errmessage:before {
-                    content: "";
+
+                .touka{
+                    z-index: 3;
                     position: absolute;
-                    top: 50%;
-                    left: 100%;
-                    margin-top: -10px;
-                    border: 10px solid transparent;
-                    border-left: 15px solid #eaf079;
-                    pointer-events: none;
+                    background: linear-gradient(rgba(255,255,255,0) 0, #fff 80%); /* 徐々に透明にする */
+                    height: 25px;
+                    width: 85px;
+                    border-radius: 7px;
+                    transform: rotate(180deg)
+                }
+                .touka2{
+                    z-index: 3;
+                    position: absolute;
+                    background: linear-gradient(rgba(255,255,255,0) 0, #fff 80%); /* 徐々に透明にする */
+                    height: 25px;
+                    width: 85px;
+                    bottom:-230px;
+                    border-radius: 7px;
+                }
+
+                .time_ipselect{
+                    position: absolute;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    max-height: 190px;
+                    overflow: scroll;
+                    background: #fff;
+                    border-radius: 7px;
+                    padding: 20px 0;
+                    box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
+                        input[type=radio] {
+                            display: none;
+                        }
+                        label{
+                            display: block;
+                            padding: 6px 20px;
+                            color: #00473E;
+                        }
+                }
+                .time_ipselect::-webkit-scrollbar {  /* Chrome, Safari 対応 */
+                    display:none;
                 }
             }
-            .reservePage_inputform_forms_box_title {
-                color: #00473e;
-            }
-            .range {
-                border: solid 0px;
-                font-weight: 500;
-                color: #333;
-                font-size: 1.25em;
-                outline: none;
-                text-align: right;
+
+            .reservePage_main_input_form_radius{
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: center;
+
+                .reservePage_main_input_form_radius_wrap{
+                    margin-left: 5px;
+                    width: 400px;
+                    height: 54px;
+                    border: #00473E solid 3px;
+                    border-radius: 7px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    overflow: hidden;
+
+                    input[type=radio] {
+                            display: none;
+                        }
+                        label{
+                            display: block;
+                            padding: 15px 12.9px;
+                            border-right:solid 3px #00473E;
+                            color: #00473E;
+                        }
+                        input[type="radio"]:checked+label {
+                            background: #00473E;
+                            color: #ffffff;
+                        }
+
+                }
+
             }
         }
-        .reservePage_inputform_forms_bottom_wrap {
+        .reservePage_main_money{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
             position: absolute;
             bottom: 0px;
-            height: 100px;
-            display: flex;
-
-            .reservePage_inputform_forms_money {
+            width: 480px;
+            .reservePage_main_money_sum{
                 display: flex;
-                justify-content: space-between;
                 align-items: flex-end;
-                width: 400px;
-                padding: 0 40px;
-                margin-bottom: 84px;
-
-                .reservePage_inputform_forms_money_text {
-                    p {
-                        color: #333;
-                        font-weight: 500;
-                    }
+                justify-content: space-between;
+                margin: 0 48px;
+                p:nth-child(1){
+                    font-size: 18px;
                 }
-                .reservePage_inputform_forms_money_sum {
-                    display: flex;
-                    align-items: flex-end;
-                    p {
-                        color: #333;
-                        font-weight: 900;
-                        font-size: 1.75em;
-                    }
-                    .first {
-                        font-size: 1.25em;
-                        margin-bottom: 4px;
+                p:nth-child(2){
+                    font-size: 36px;
+                    font-weight: 700;
+                }
+                .enn{
+                    font-size: 24px;
+                }
+            }
+            .reservePage_main_money_next{
+                width: 480px;
+                a{
+                    text-decoration: none;
+                    // pointer-events: none;
+                    div{
+                        width: 448px;
+                        height: 64px;
+                        margin: 16px;
+                        background: #FAAE2B;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 3px;
+                        pointer-events: none;
+                        p{
+                            font-weight: 800;
+                            font-size: 24px;
+                            color: #fff;
+                        }
                     }
                 }
             }
-            .reservePage_inputform_forms_next {
-                position: absolute;
-                bottom: 0px;
-                left: 0px;
-
-                button {
-                    width: 448px;
-                    height: 68px;
-                    background-color: #faae2b;
-                    border: none;
-                    color: #fff;
-                    font-size: 1.25rem;
-                    font-weight: 800;
-                    border-radius: 5px;
-                    margin: 0 16px;
-                }
-            }
         }
-    }
-    .reservePage_inputform_calendar {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 20;
 
-        .calendar {
-            position: absolute;
-            top: -20px;
-        }
     }
-}
-
-.errActive,
-.calendarActive {
-    visibility: hidden;
 }
 
 .weight {
@@ -535,4 +839,8 @@ export default {
     user-select: none;
     color: #333;
 }
+.vc-container{
+    border: none;
+}
+
 </style>

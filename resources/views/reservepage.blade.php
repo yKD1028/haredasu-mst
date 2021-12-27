@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,19 +9,22 @@
 </head>
 
 <body>
+<v-app id="app">
   <h1>TOPnav予定地</h1>
   <div id="reserve">
     <reserve-page></reserve-page>
+    <router-view></router-view>
     <!-- <confirmation-page></confirmation-page> -->
     <!-- <complete-page></complete-page> -->
   </div>
   </div>
 
   <script src="{{ asset('/js/app.js') }}" defer></script>
+  </v-app>
 </body>
 
-</html>
 
+</html>
 <style>
   h1 {
     background-color: #ccc;
