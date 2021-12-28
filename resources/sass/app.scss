@@ -4,17 +4,30 @@
 // Variables
 @import "variables";
 
-//destyle.css
-@import "./destyle.css";
+// //destyle.css
+@import './destyle.css';
 
-$color-orange: #eb8e4b;
-$color-gray: #767676;
-$color-gray2: #fafafa;
-$color-blue: #84a6f4;
-$color-red: #f48484;
-$color-black: #252525;
-$color-black1: #4d4d4d;
-$color-white: #fff;
+//vuetify
+@import '~vuetify/dist/vuetify.min.css';
+
+
+// $color-orange : #EB8E4B;
+$color-orange: #FAAE2B;
+
+//$color-gray: #767676;
+$color-gray : #00473E;
+
+$color-gray2 : #FAFAFA;
+//$color-gray2: F2F7F5;
+
+$color-blue : #84A6F4;
+
+// $color-red : #F48484;
+$color-red: #FF1A1A;
+
+$color-black : #252525;
+$color-black1 : #4D4D4D;
+$color-white : #fff;
 
 /*共通部分?*/
 
@@ -22,9 +35,12 @@ body {
     letter-spacing: 0.01em;
 }
 
-@import "./header.scss";
-@import "./button.scss";
-@import "./form.scss";
-@import "./home.scss";
-@import "./situation.scss";
-@import "./question.scss";
+
+@import './header.scss';
+// @import './button.scss';
+@import './form.scss';
+@import './home.scss';
+@import './situation.scss';
+@import './question.scss';
+@import './button_sample.scss';
+@import './user_page.scss'
