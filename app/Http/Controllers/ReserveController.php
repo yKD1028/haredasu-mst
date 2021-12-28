@@ -30,7 +30,7 @@ class ReserveController extends Controller
   {
     //日付データに基づいたデータの取得
     //returnで返す
-  }
+  }  
   //個人の予約履歴
   public function user_reserves()
   {

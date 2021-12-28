@@ -279,12 +279,12 @@ export default {
         },
 
         //Mapの住所名取得
-        getMap(e) {
+        async getMap(e) {
             const data = {
                 lat:Number(e.latLng.lat()),
                 lng:Number(e.latLng.lng())
             }
-            axios.post('/api',data).then((response) => {
+            await axios.post('/api',data).then((response) => {
                     this.addressName=response.data.results[0].formatted_address
             });
             document.getElementById("mapname").value=this.addressName;
@@ -301,14 +301,17 @@ export default {
             const day = format(date, "yyyy-MM-dd");
             var str = day;
             var result = day.replace("-", "/");
-
+            console.log(result);
             while (result !== str) {
                 str = str.replace("-", "/");
                 result = result.replace("-", "/");
             }
             document.getElementById("date").value=result;
+            console.log(day);
             this.text = result;
             this.calendarPicker = false;
+
+
         },
 
         //範囲選択値の更新
@@ -373,7 +376,7 @@ export default {
                 icon: mypin,
             });
             this.Map.panTo(new this.google.maps.LatLng(this.mapConfig.center));
-             document.getElementById("mapname").value=this.oldMapname;
+            document.getElementById("mapname").value=this.oldMapname;
         },
 
         hideMenu(){
