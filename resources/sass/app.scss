@@ -1,8 +1,8 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP');
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP");
 // Variables
-@import 'variables';
+@import "variables";
 
 // //destyle.css
 @import './destyle.css';
@@ -31,7 +31,7 @@ $color-white : #fff;
 
 /*共通部分?*/
 
-body{
+body {
     letter-spacing: 0.01em;
 }
 

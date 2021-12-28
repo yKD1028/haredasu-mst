@@ -135,7 +135,7 @@ return [
     */
   "MIX_GOOGLE_MAPS_API" => env("MIX_GOOGLE_MAPS_API"),
 
-  'providers' => [
+'providers' => [
 
     /*
          * Laravel Framework Service Providers...

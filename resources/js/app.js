@@ -49,14 +49,9 @@ Vue.component('sample-page', require('./components/SamplePage.vue').default);
  Vue.use(Vuetify);
  Vue.use(VueTheMask);
 
-// const app = new Vue({
-//     el: '#app',
+// const reserve = new Vue({
+//     el: '#reserve',
 // });
-
-
-const reserve = new Vue({
-    el: '#reserve',
-});
 const app = new Vue({
     el: '#app',
     router,
