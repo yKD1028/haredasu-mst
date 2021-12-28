@@ -13,6 +13,9 @@
   <p>{{$user->address}}</p>
 
   <div>
+    <div id="app">
+      <resister-page></resister-page>
+    </div>
     <form action="/regist_user_info" method="post">
       @csrf
       <div class="form-group row">
@@ -121,6 +124,14 @@
       </div>
     </form>
   </div>
+  <div>
+    <form action="/regist_mail" method="POST">
+      @csrf
+      <p>メール送信</p>
+      <input id="email" name="email" type="text">
+      <button type="submit">送信</button>
+    </form>
+  </div>
   @endsection
   <div id="payment">
     <form action="/payment" method="post">
@@ -157,24 +168,4 @@
   <p>{{ session('error-message') }}</p>
   @endif
 
-  <div>
-
-  </div>
-  <!-- <script>
-    $(function() {
-      reserve_page();
-    });
-
-    function reserve_page() {
-      $.ajax({
-        url: "reserve_page",
-        dataType: "json",
-        success: data => {
-          console.log(data);
-        },
-        error: () => {
-          alert("ajax Error");
-        }
-      });
-    }
-  </script> -->
+  <>

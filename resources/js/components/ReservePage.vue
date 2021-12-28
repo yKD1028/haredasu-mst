@@ -548,6 +548,7 @@ export default {
         async getAnyPins(){
             await axios.get("/api/reserve_page").then((response) => {
                 this.anyMapData=response.data;
+                console.log(response.data);
             });
             for (let i = 0; i < this.anyMapData.length; i++) {
                 var map =  new this.google.maps.Marker({
