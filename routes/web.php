@@ -18,9 +18,9 @@ use Illuminate\Support\Facades\Auth;
 // Route::get('/', function () {
 //   return view('welcome');
 // });
-// Route::get('/{any}', function () {
-//   return view('welcome');
-// })->where('any', '.*');
+Route::get('/{any}', function () {
+  return view('welcome');
+})->where('any', '.*');
 
 
 Auth::routes(['verify' => true]);
@@ -32,10 +32,25 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/regist_user_info', 'UsersController@regist_user_info')->name('regist_user_info');
     //payjp
     Route::post('/payment', 'PaymentController@payment');
+    Route::post('/regist_mail', 'UsersController@regist_mail')->name('regist_mail');
   });
 });
-Route::get('/Reserve', function () {
-  return view('Reservepage');
+
+Route::get('/vue', function () {
+  return view('app');
 });
+Route::get('/', function () {
+  return view('welcome');
+});
+Auth::routes();
+
+Route::get('/{any}', function () {
+  return view('welcome');
+})->where('any', '.*');
+
+// Route::get('/Reserve', function () {
+//   return view('Reservepage');
+// });
 Route::get('/reserve_page', 'ReserveController@reserve_page');
 Route::post('/api', 'GooglemapController@index');
+Route::post('/hon_regist', 'UsersController@hon_regist');
