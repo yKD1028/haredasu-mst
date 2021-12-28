@@ -1,0 +1,44 @@
+.howto{
+    font-family: 'Noto Sans JP', sans-serif;
+    margin: 0 auto;
+    width: 60%;
+    .howto_title{
+        text-align: center;
+        margin-bottom: 50px;
+        .backgroundcharacter{
+            font-size: 100px;
+            color: $color-white;
+        }
+        .howto_titlep{
+            position: relative;
+            bottom: 65px;
+            font-size: 24px;
+            color: $color-orange;
+        }
+    }
+    .howto_01{
+        background-color: $color-white;
+        border-radius: 25px;
+        width: 40%;
+        color: $color-black1;
+        margin-bottom: 40px;
+        padding: 30px 20px;
+        position: relative;
+        h2{
+            font-size: 20px;
+            span{
+                color: green;
+            }
+            margin-bottom: 20px;
+        }
+        p{
+            font-size: 13px;
+        }
+        .howto_img{
+            width: 70px;
+            position: absolute;
+            bottom: 90px;
+            left: 300px;
+        }
+    }
+}
