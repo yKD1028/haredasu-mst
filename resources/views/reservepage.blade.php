@@ -13,7 +13,7 @@
   <h1>TOPnav予定地</h1>
   <div id="reserve">
     <reserve-page></reserve-page>
-    <router-view></router-view>
+    <!-- <router-view></router-view> -->
     <!-- <confirmation-page></confirmation-page> -->
     <!-- <complete-page></complete-page> -->
   </div>

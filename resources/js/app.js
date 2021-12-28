@@ -38,11 +38,11 @@ Vue.component('confirmation-page', require('./components/ConfirmationPage.vue').
 window.Vue = Vue;
 Vue.use(VueRouter);
 
-const reserve = new Vue({
-    el: '#reserve',
-});
-// const app = new Vue({
-//     el: '#app',
-//     router
+// const reserve = new Vue({
+//     el: '#reserve',
 // });
+const app = new Vue({
+    el: '#app',
+    router
+});
 

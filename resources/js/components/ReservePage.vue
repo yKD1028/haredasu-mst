@@ -1,5 +1,7 @@
 <template>
-    <div class="reservePage_main">
+<div>
+    <Header></Header>
+     <div class="reservePage_main">
         <div class="map">
             <div id="map" ref="googleMap" />
             <div class="mapimg">
@@ -100,6 +102,7 @@
             </div>
         </div>
     </div>
+</div>
 </template>
 
 <script>
@@ -113,12 +116,16 @@ import Vuetify from 'vuetify'
 import ClickOutside from 'vue-click-outside'
 import mypin from "../../../public/assets/mypin.png"
 import atherpin from "../../../public/assets/atherpin.png"
+import Header from "./components/Header.vue"
 
 
 Vue.use(VCalendar);
 Vue.use(Vuetify);
 
 export default {
+    components:{
+        Header
+    },
     data() {
         return {
             dates: {
@@ -173,10 +180,6 @@ export default {
         });
         this.initializeMap();
         this.createTimePicker();
-        await axios.get("/reserve_page").then((response) => {
-            console.log(response.data);
-            this.anyMapData=response.data;
-        });
         this.getAnyPins();
     },
 
@@ -539,27 +542,31 @@ export default {
             this.endtimePicker=true
         },
 
-        getAnyPins(){
+        async getAnyPins(){
+            await axios.get("/reserve_page").then((response) => {
+                this.anyMapData=response.data;
+                console.log(response.data);
+            });
             for (let i = 0; i < this.anyMapData.length; i++) {
-                var map =  new this.google.maps.Marker({
-                    position: new this.google.maps.LatLng(this.anyMapData[i].latitude,this.anyMapData[i].longitude),
-                    map: this.Map,
-                    icon: atherpin
-                });
-                this.anyMapDatas.push(map)
+                // var map =  new this.google.maps.Marker({
+                //     position: new this.google.maps.LatLng(this.anyMapData[i].latitude,this.anyMapData[i].longitude),
+                //     map: this.Map,
+                //     icon: atherpin
+                // });
+                // this.anyMapDatas.push(map)
 
-                new this.google.maps.Circle({
-                center: new this.google.maps.LatLng(this.anyMapData[i].latitude,this.anyMapData[i].longitude),
-                map: this.Map,
-                radius: Number(this.anyMapData[i].area),
-                strokeColor: "#eaf07900",
-                fillColor: "#A58888",
+                // new this.google.maps.Circle({
+                // center: new this.google.maps.LatLng(this.anyMapData[i].latitude,this.anyMapData[i].longitude),
+                // map: this.Map,
+                // radius: Number(this.anyMapData[i].area),
+                // strokeColor: "#eaf07900",
+                // fillColor: "#A58888",
 
-                });
-                var pop = new this.google.maps.InfoWindow({
-                    content: '18:00~20:00'
-                });
-                pop.open(this.Map, this.anyMapDatas[i]); // 吹き出しの表示
+                // });
+                // var pop = new this.google.maps.InfoWindow({
+                //     content: '18:00~20:00'
+                // });
+                // pop.open(this.Map, this.anyMapDatas[i]); // 吹き出しの表示
             }
 
         }
@@ -770,7 +777,7 @@ export default {
                         }
                         label{
                             display: block;
-                            padding: 15px 12.9px;
+                            padding: 20px 12.9px;
                             border-right:solid 3px #00473E;
                             color: #00473E;
                         }
@@ -841,6 +848,10 @@ export default {
 }
 .vc-container{
     border: none;
+}
+
+*{
+    box-sizing: content-box;
 }
 
 </style>

@@ -1,32 +1,30 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP');
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP");
 // Variables
-@import 'variables';
+@import "variables";
 
 //destyle.css
-@import './destyle.css';
+@import "./destyle.css";
 
-
-$color-orange : #EB8E4B;
-$color-gray : #767676;
-$color-gray2 : #FAFAFA;
-$color-blue : #84A6F4;
-$color-red : #F48484;
-$color-black : #252525;
-$color-black1 : #4D4D4D;
-$color-white : #fff;
+$color-orange: #eb8e4b;
+$color-gray: #767676;
+$color-gray2: #fafafa;
+$color-blue: #84a6f4;
+$color-red: #f48484;
+$color-black: #252525;
+$color-black1: #4d4d4d;
+$color-white: #fff;
 
 /*共通部分?*/
 
-body{
+body {
     letter-spacing: 0.01em;
 }
 
-
-@import './header.scss';
-@import './button.scss';
-@import './form.scss';
-@import './home.scss';
-@import './situation.scss';
-@import'./question.scss';
+@import "./header.scss";
+@import "./button.scss";
+@import "./form.scss";
+@import "./home.scss";
+@import "./situation.scss";
+@import "./question.scss";

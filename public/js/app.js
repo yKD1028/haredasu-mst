@@ -2347,19 +2347,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var google_maps_api_loader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! google-maps-api-loader */ "./node_modules/google-maps-api-loader/index.js");
 /* harmony import */ var google_maps_api_loader__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(google_maps_api_loader__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var v_calendar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! v-calendar */ "./node_modules/v-calendar/lib/v-calendar.umd.min.js");
 /* harmony import */ var v_calendar__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(v_calendar__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/format/index.js");
-/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
-/* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vuetify */ "./node_modules/vuetify/dist/vuetify.js");
-/* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vuetify__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/format/index.js");
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuetify */ "./node_modules/vuetify/dist/vuetify.js");
+/* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(vuetify__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var vue_click_outside__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-click-outside */ "./node_modules/vue-click-outside/index.js");
 /* harmony import */ var vue_click_outside__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vue_click_outside__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _public_assets_mypin_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../public/assets/mypin.png */ "./public/assets/mypin.png");
 /* harmony import */ var _public_assets_atherpin_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../public/assets/atherpin.png */ "./public/assets/atherpin.png");
+/* harmony import */ var _components_Header_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/Header.vue */ "./resources/js/components/components/Header.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -2470,6 +2471,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 
 
 
@@ -2480,9 +2484,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_7__["default"].use((v_calendar__WEBPACK_IMPORTED_MODULE_2___default()));
-vue__WEBPACK_IMPORTED_MODULE_7__["default"].use((vuetify__WEBPACK_IMPORTED_MODULE_8___default()));
+
+vue__WEBPACK_IMPORTED_MODULE_8__["default"].use((v_calendar__WEBPACK_IMPORTED_MODULE_2___default()));
+vue__WEBPACK_IMPORTED_MODULE_8__["default"].use((vuetify__WEBPACK_IMPORTED_MODULE_9___default()));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    Header: _components_Header_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
+  },
   data: function data() {
     return {
       dates: {
@@ -2552,16 +2560,9 @@ vue__WEBPACK_IMPORTED_MODULE_7__["default"].use((vuetify__WEBPACK_IMPORTED_MODUL
 
               _this.createTimePicker();
 
-              _context.next = 7;
-              return axios__WEBPACK_IMPORTED_MODULE_3___default().get("/reserve_page").then(function (response) {
-                console.log(response.data);
-                _this.anyMapData = response.data;
-              });
-
-            case 7:
               _this.getAnyPins();
 
-            case 8:
+            case 6:
             case "end":
               return _context.stop();
           }
@@ -2679,7 +2680,7 @@ vue__WEBPACK_IMPORTED_MODULE_7__["default"].use((vuetify__WEBPACK_IMPORTED_MODUL
     //日付データのフォーマット
     formatDate: function formatDate(date) {
       if (!date) return null;
-      var day = (0,date_fns__WEBPACK_IMPORTED_MODULE_9__["default"])(date, "yyyy-MM-dd");
+      var day = (0,date_fns__WEBPACK_IMPORTED_MODULE_10__["default"])(date, "yyyy-MM-dd");
       var str = day;
       var result = day.replace("-", "/");
 
@@ -2725,11 +2726,11 @@ vue__WEBPACK_IMPORTED_MODULE_7__["default"].use((vuetify__WEBPACK_IMPORTED_MODUL
       }
 
       this.sumval = num.join(",");
-      gsap__WEBPACK_IMPORTED_MODULE_10__["default"].to(document.getElementById("val"), {
+      gsap__WEBPACK_IMPORTED_MODULE_11__["default"].to(document.getElementById("val"), {
         y: -250,
         opacity: 0
       });
-      gsap__WEBPACK_IMPORTED_MODULE_10__["default"].to(document.getElementById("val"), {
+      gsap__WEBPACK_IMPORTED_MODULE_11__["default"].to(document.getElementById("val"), {
         y: 0,
         opacity: 1,
         duration: 0.5,
@@ -2927,25 +2928,47 @@ vue__WEBPACK_IMPORTED_MODULE_7__["default"].use((vuetify__WEBPACK_IMPORTED_MODUL
       this.endtimePicker = true;
     },
     getAnyPins: function getAnyPins() {
-      for (var i = 0; i < this.anyMapData.length; i++) {
-        var map = new this.google.maps.Marker({
-          position: new this.google.maps.LatLng(this.anyMapData[i].latitude, this.anyMapData[i].longitude),
-          map: this.Map,
-          icon: _public_assets_atherpin_png__WEBPACK_IMPORTED_MODULE_6__["default"]
-        });
-        this.anyMapDatas.push(map);
-        new this.google.maps.Circle({
-          center: new this.google.maps.LatLng(this.anyMapData[i].latitude, this.anyMapData[i].longitude),
-          map: this.Map,
-          radius: Number(this.anyMapData[i].area),
-          strokeColor: "#eaf07900",
-          fillColor: "#A58888"
-        });
-        var pop = new this.google.maps.InfoWindow({
-          content: '18:00~20:00'
-        });
-        pop.open(this.Map, this.anyMapDatas[i]); // 吹き出しの表示
-      }
+      var _this4 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var i;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return axios__WEBPACK_IMPORTED_MODULE_3___default().get("/reserve_page").then(function (response) {
+                  _this4.anyMapData = response.data;
+                  console.log(response.data);
+                });
+
+              case 2:
+                for (i = 0; i < _this4.anyMapData.length; i++) {// var map =  new this.google.maps.Marker({
+                  //     position: new this.google.maps.LatLng(this.anyMapData[i].latitude,this.anyMapData[i].longitude),
+                  //     map: this.Map,
+                  //     icon: atherpin
+                  // });
+                  // this.anyMapDatas.push(map)
+                  // new this.google.maps.Circle({
+                  // center: new this.google.maps.LatLng(this.anyMapData[i].latitude,this.anyMapData[i].longitude),
+                  // map: this.Map,
+                  // radius: Number(this.anyMapData[i].area),
+                  // strokeColor: "#eaf07900",
+                  // fillColor: "#A58888",
+                  // });
+                  // var pop = new this.google.maps.InfoWindow({
+                  //     content: '18:00~20:00'
+                  // });
+                  // pop.open(this.Map, this.anyMapDatas[i]); // 吹き出しの表示
+                }
+
+              case 3:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
     }
   }
 });
@@ -3818,13 +3841,14 @@ vue__WEBPACK_IMPORTED_MODULE_1__["default"].component('confirmation-page', (__we
  */
 
 window.Vue = vue__WEBPACK_IMPORTED_MODULE_1__["default"];
-vue__WEBPACK_IMPORTED_MODULE_1__["default"].use(vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]);
-var reserve = new vue__WEBPACK_IMPORTED_MODULE_1__["default"]({
-  el: '#reserve'
-}); // const app = new Vue({
-//     el: '#app',
-//     router
+vue__WEBPACK_IMPORTED_MODULE_1__["default"].use(vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]); // const reserve = new Vue({
+//     el: '#reserve',
 // });
+
+var app = new vue__WEBPACK_IMPORTED_MODULE_1__["default"]({
+  el: '#app',
+  router: _router__WEBPACK_IMPORTED_MODULE_0__["default"]
+});
 
 /***/ }),
 
@@ -8377,7 +8401,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.reservePage_main {\n  display: flex;\n  height: calc(100vh - 80px);\n  color: #00473E;\n}\n.reservePage_main .map {\n  position: relative;\n  width: 70%;\n  height: 100%;\n}\n.reservePage_main .map #map {\n  width: 100%;\n  height: 100%;\n}\n.reservePage_main .map .mapimg {\n  position: absolute;\n  right: 0px;\n  bottom: 0px;\n}\n.reservePage_main .map .trigger {\n  position: absolute;\n  bottom: calc(50% - 50px);\n  right: calc(50% - 26px);\n  font-size: 5em;\n  opacity: 0.5;\n  font-weight: 100;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n.reservePage_main .reservePage_main_contents {\n  position: relative;\n  width: 480px;\n  height: 100%;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input {\n  display: flex;\n  align-items: center;\n  flex-direction: column;\n  justify-content: flex-start;\n  width: 480px;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_title {\n  font-weight: 700;\n  font-size: 24px;\n  padding: 16px 0;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_form {\n  position: relative;\n  z-index: 1;\n  width: 400px;\n  padding: 16px 0;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_form input {\n  width: 360px;\n  padding: 20px;\n  border-radius: 7px;\n  border: solid #00473E;\n  font-size: 16px;\n  color: #00473E;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_form input[type=text]:focus {\n  outline: none;\n  border: solid #FAAE2B;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_form input[type=text]:focus + .reservePage_main_input_form_title {\n  color: #FAAE2B;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_form .reservePage_main_input_form_title {\n  position: absolute;\n  background: #fff;\n  top: 5px;\n  left: 10px;\n  padding: 0 3px;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_form .reservePage_main_input_form_title input[type=radio] {\n  display: none;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_form .reservePage_main_input_form_title label {\n  display: block;\n  padding: 15px 12.9px;\n  border-right: solid 3px #00473E;\n  color: #00473E;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_form .reservePage_main_input_form_title input[type=radio]:checked + label {\n  background: #00473E;\n  color: #ffffff;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_form_calendar {\n  position: absolute;\n  z-index: 100;\n  width: 300px;\n  display: flex;\n  align-items: center;\n  flex-direction: column;\n  margin-left: 3px;\n  margin-top: 239px;\n  border-radius: 10px;\n  padding: 16px 0;\n  background: #fff;\n  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.5);\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_timeform {\n  position: relative;\n  display: flex;\n  align-items: center;\n  width: 400px;\n  margin: 20px 0px;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_timeform .reservePage_main_input_timeform_title {\n  margin-right: 20px;\n  width: 100px;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_timeform .time_ipselect_wrap {\n  margin: 0 30px;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_timeform input[type=text] {\n  border: solid #00473E 3px;\n  border-radius: 8px;\n  padding: 10px 15px;\n  width: 50px;\n  text-align: center;\n  font-size: 16px;\n  color: #00473E;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_timeform input[type=text]:focus {\n  outline: none;\n  border: solid #FAAE2B;\n  color: #FAAE2B;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_timeform .touka {\n  z-index: 3;\n  position: absolute;\n  background: linear-gradient(rgba(255, 255, 255, 0) 0, #fff 80%);\n  /* 徐々に透明にする */\n  height: 25px;\n  width: 85px;\n  border-radius: 7px;\n  transform: rotate(180deg);\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_timeform .touka2 {\n  z-index: 3;\n  position: absolute;\n  background: linear-gradient(rgba(255, 255, 255, 0) 0, #fff 80%);\n  /* 徐々に透明にする */\n  height: 25px;\n  width: 85px;\n  bottom: -230px;\n  border-radius: 7px;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_timeform .time_ipselect {\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  max-height: 190px;\n  overflow: scroll;\n  background: #fff;\n  border-radius: 7px;\n  padding: 20px 0;\n  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.5);\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_timeform .time_ipselect input[type=radio] {\n  display: none;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_timeform .time_ipselect label {\n  display: block;\n  padding: 6px 20px;\n  color: #00473E;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_timeform .time_ipselect::-webkit-scrollbar {\n  /* Chrome, Safari 対応 */\n  display: none;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_form_radius {\n  display: flex;\n  align-items: center;\n  flex-direction: column;\n  justify-content: center;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_form_radius .reservePage_main_input_form_radius_wrap {\n  margin-left: 5px;\n  width: 400px;\n  height: 54px;\n  border: #00473E solid 3px;\n  border-radius: 7px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  overflow: hidden;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_form_radius .reservePage_main_input_form_radius_wrap input[type=radio] {\n  display: none;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_form_radius .reservePage_main_input_form_radius_wrap label {\n  display: block;\n  padding: 15px 12.9px;\n  border-right: solid 3px #00473E;\n  color: #00473E;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_form_radius .reservePage_main_input_form_radius_wrap input[type=radio]:checked + label {\n  background: #00473E;\n  color: #ffffff;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_money {\n  display: flex;\n  flex-direction: column;\n  justify-content: flex-start;\n  position: absolute;\n  bottom: 0px;\n  width: 480px;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_money .reservePage_main_money_sum {\n  display: flex;\n  align-items: flex-end;\n  justify-content: space-between;\n  margin: 0 48px;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_money .reservePage_main_money_sum p:nth-child(1) {\n  font-size: 18px;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_money .reservePage_main_money_sum p:nth-child(2) {\n  font-size: 36px;\n  font-weight: 700;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_money .reservePage_main_money_sum .enn {\n  font-size: 24px;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_money .reservePage_main_money_next {\n  width: 480px;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_money .reservePage_main_money_next a {\n  text-decoration: none;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_money .reservePage_main_money_next a div {\n  width: 448px;\n  height: 64px;\n  margin: 16px;\n  background: #FAAE2B;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 3px;\n  pointer-events: none;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_money .reservePage_main_money_next a div p {\n  font-weight: 800;\n  font-size: 24px;\n  color: #fff;\n}\n.weight {\n  font-weight: 800;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  color: #333;\n}\n.vc-container {\n  border: none;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.reservePage_main {\n  display: flex;\n  height: calc(100vh - 80px);\n  color: #00473E;\n}\n.reservePage_main .map {\n  position: relative;\n  width: 70%;\n  height: 100%;\n}\n.reservePage_main .map #map {\n  width: 100%;\n  height: 100%;\n}\n.reservePage_main .map .mapimg {\n  position: absolute;\n  right: 0px;\n  bottom: 0px;\n}\n.reservePage_main .map .trigger {\n  position: absolute;\n  bottom: calc(50% - 50px);\n  right: calc(50% - 26px);\n  font-size: 5em;\n  opacity: 0.5;\n  font-weight: 100;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n.reservePage_main .reservePage_main_contents {\n  position: relative;\n  width: 480px;\n  height: 100%;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input {\n  display: flex;\n  align-items: center;\n  flex-direction: column;\n  justify-content: flex-start;\n  width: 480px;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_title {\n  font-weight: 700;\n  font-size: 24px;\n  padding: 16px 0;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_form {\n  position: relative;\n  z-index: 1;\n  width: 400px;\n  padding: 16px 0;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_form input {\n  width: 360px;\n  padding: 20px;\n  border-radius: 7px;\n  border: solid #00473E;\n  font-size: 16px;\n  color: #00473E;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_form input[type=text]:focus {\n  outline: none;\n  border: solid #FAAE2B;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_form input[type=text]:focus + .reservePage_main_input_form_title {\n  color: #FAAE2B;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_form .reservePage_main_input_form_title {\n  position: absolute;\n  background: #fff;\n  top: 5px;\n  left: 10px;\n  padding: 0 3px;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_form .reservePage_main_input_form_title input[type=radio] {\n  display: none;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_form .reservePage_main_input_form_title label {\n  display: block;\n  padding: 15px 12.9px;\n  border-right: solid 3px #00473E;\n  color: #00473E;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_form .reservePage_main_input_form_title input[type=radio]:checked + label {\n  background: #00473E;\n  color: #ffffff;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_form_calendar {\n  position: absolute;\n  z-index: 100;\n  width: 300px;\n  display: flex;\n  align-items: center;\n  flex-direction: column;\n  margin-left: 3px;\n  margin-top: 239px;\n  border-radius: 10px;\n  padding: 16px 0;\n  background: #fff;\n  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.5);\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_timeform {\n  position: relative;\n  display: flex;\n  align-items: center;\n  width: 400px;\n  margin: 20px 0px;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_timeform .reservePage_main_input_timeform_title {\n  margin-right: 20px;\n  width: 100px;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_timeform .time_ipselect_wrap {\n  margin: 0 30px;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_timeform input[type=text] {\n  border: solid #00473E 3px;\n  border-radius: 8px;\n  padding: 10px 15px;\n  width: 50px;\n  text-align: center;\n  font-size: 16px;\n  color: #00473E;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_timeform input[type=text]:focus {\n  outline: none;\n  border: solid #FAAE2B;\n  color: #FAAE2B;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_timeform .touka {\n  z-index: 3;\n  position: absolute;\n  background: linear-gradient(rgba(255, 255, 255, 0) 0, #fff 80%);\n  /* 徐々に透明にする */\n  height: 25px;\n  width: 85px;\n  border-radius: 7px;\n  transform: rotate(180deg);\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_timeform .touka2 {\n  z-index: 3;\n  position: absolute;\n  background: linear-gradient(rgba(255, 255, 255, 0) 0, #fff 80%);\n  /* 徐々に透明にする */\n  height: 25px;\n  width: 85px;\n  bottom: -230px;\n  border-radius: 7px;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_timeform .time_ipselect {\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  max-height: 190px;\n  overflow: scroll;\n  background: #fff;\n  border-radius: 7px;\n  padding: 20px 0;\n  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.5);\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_timeform .time_ipselect input[type=radio] {\n  display: none;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_timeform .time_ipselect label {\n  display: block;\n  padding: 6px 20px;\n  color: #00473E;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_timeform .time_ipselect::-webkit-scrollbar {\n  /* Chrome, Safari 対応 */\n  display: none;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_form_radius {\n  display: flex;\n  align-items: center;\n  flex-direction: column;\n  justify-content: center;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_form_radius .reservePage_main_input_form_radius_wrap {\n  margin-left: 5px;\n  width: 400px;\n  height: 54px;\n  border: #00473E solid 3px;\n  border-radius: 7px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  overflow: hidden;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_form_radius .reservePage_main_input_form_radius_wrap input[type=radio] {\n  display: none;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_form_radius .reservePage_main_input_form_radius_wrap label {\n  display: block;\n  padding: 20px 12.9px;\n  border-right: solid 3px #00473E;\n  color: #00473E;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_input .reservePage_main_input_form_radius .reservePage_main_input_form_radius_wrap input[type=radio]:checked + label {\n  background: #00473E;\n  color: #ffffff;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_money {\n  display: flex;\n  flex-direction: column;\n  justify-content: flex-start;\n  position: absolute;\n  bottom: 0px;\n  width: 480px;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_money .reservePage_main_money_sum {\n  display: flex;\n  align-items: flex-end;\n  justify-content: space-between;\n  margin: 0 48px;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_money .reservePage_main_money_sum p:nth-child(1) {\n  font-size: 18px;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_money .reservePage_main_money_sum p:nth-child(2) {\n  font-size: 36px;\n  font-weight: 700;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_money .reservePage_main_money_sum .enn {\n  font-size: 24px;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_money .reservePage_main_money_next {\n  width: 480px;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_money .reservePage_main_money_next a {\n  text-decoration: none;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_money .reservePage_main_money_next a div {\n  width: 448px;\n  height: 64px;\n  margin: 16px;\n  background: #FAAE2B;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 3px;\n  pointer-events: none;\n}\n.reservePage_main .reservePage_main_contents .reservePage_main_money .reservePage_main_money_next a div p {\n  font-weight: 800;\n  font-size: 24px;\n  color: #fff;\n}\n.weight {\n  font-weight: 800;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  color: #333;\n}\n.vc-container {\n  border: none;\n}\n* {\n  box-sizing: content-box;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -52332,102 +52356,53 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "reservePage_main" }, [
-    _c("div", { staticClass: "map" }, [
-      _c("div", { ref: "googleMap", attrs: { id: "map" } }),
+  return _c(
+    "div",
+    [
+      _c("Header"),
       _vm._v(" "),
-      _c("div", { staticClass: "mapimg" }, [
-        _c("img", {
-          attrs: { src: "/images/Group73.png", alt: "現在地ボタン" },
-          on: { click: _vm.backAddress },
-        }),
-      ]),
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "reservePage_main_contents" }, [
-      _c("div", { staticClass: "reservePage_main_input" }, [
-        _c("p", { staticClass: "reservePage_main_input_title" }, [
-          _vm._v("予約情報入力"),
+      _c("div", { staticClass: "reservePage_main" }, [
+        _c("div", { staticClass: "map" }, [
+          _c("div", { ref: "googleMap", attrs: { id: "map" } }),
+          _vm._v(" "),
+          _c("div", { staticClass: "mapimg" }, [
+            _c("img", {
+              attrs: { src: "/images/Group73.png", alt: "現在地ボタン" },
+              on: { click: _vm.backAddress },
+            }),
+          ]),
         ]),
         _vm._v(" "),
-        _vm._m(0),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "reservePage_main_input_form",
-            on: { click: _vm.datePicker },
-          },
-          [
-            _c("input", {
-              staticClass: "weight",
-              attrs: {
-                type: "text",
-                id: "date",
-                placeholder: "日付を選択",
-                readonly: "readonly",
-              },
-            }),
+        _c("div", { staticClass: "reservePage_main_contents" }, [
+          _c("div", { staticClass: "reservePage_main_input" }, [
+            _c("p", { staticClass: "reservePage_main_input_title" }, [
+              _vm._v("予約情報入力"),
+            ]),
             _vm._v(" "),
-            _vm._m(1),
-          ]
-        ),
-        _vm._v(" "),
-        _vm.calendarPicker
-          ? _c(
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
               "div",
               {
-                directives: [
-                  {
-                    name: "click-outside",
-                    rawName: "v-click-outside",
-                    value: _vm.hideMenu,
-                    expression: "hideMenu",
-                  },
-                ],
-                staticClass: "reservePage_main_input_form_calendar",
+                staticClass: "reservePage_main_input_form",
+                on: { click: _vm.datePicker },
               },
               [
-                _c("v-date-picker", {
-                  staticClass: "calendar",
-                  class: { calendarActive: _vm.calendarPicker },
-                  attrs: { "available-dates": _vm.dates, mode: _vm.mode },
-                  on: {
-                    input: function ($event) {
-                      return _vm.formatDate(_vm.picker)
-                    },
-                  },
-                  model: {
-                    value: _vm.picker,
-                    callback: function ($$v) {
-                      _vm.picker = $$v
-                    },
-                    expression: "picker",
+                _c("input", {
+                  staticClass: "weight",
+                  attrs: {
+                    type: "text",
+                    id: "date",
+                    placeholder: "日付を選択",
+                    readonly: "readonly",
                   },
                 }),
-              ],
-              1
-            )
-          : _vm._e(),
-        _vm._v(" "),
-        _c("div", { staticClass: "reservePage_main_input_timeform" }, [
-          _c("p", { staticClass: "reservePage_main_input_timeform_title" }, [
-            _vm._v("利用時間"),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "time_ipselect_wrap" }, [
-            _c("input", {
-              staticClass: "weight",
-              attrs: {
-                type: "text",
-                id: "starttime",
-                value: "00:00",
-                readonly: "readonly",
-              },
-              on: { click: _vm.starttime_judg },
-            }),
+                _vm._v(" "),
+                _vm._m(1),
+              ]
+            ),
             _vm._v(" "),
-            _vm.timePicker
+            _vm.calendarPicker
               ? _c(
                   "div",
                   {
@@ -52435,120 +52410,179 @@ var render = function () {
                       {
                         name: "click-outside",
                         rawName: "v-click-outside",
-                        value: _vm.hide_starttime,
-                        expression: "hide_starttime",
+                        value: _vm.hideMenu,
+                        expression: "hideMenu",
                       },
                     ],
-                    staticClass: "time_ipselect_picker",
+                    staticClass: "reservePage_main_input_form_calendar",
                   },
                   [
-                    _c("div", { staticClass: "touka" }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "touka2" }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "time_ipselect" }, [
-                      _c(
-                        "form",
-                        {
-                          attrs: { name: "timepicker" },
-                          on: { change: _vm.updateTimePicker },
+                    _c("v-date-picker", {
+                      staticClass: "calendar",
+                      class: { calendarActive: _vm.calendarPicker },
+                      attrs: { "available-dates": _vm.dates, mode: _vm.mode },
+                      on: {
+                        input: function ($event) {
+                          return _vm.formatDate(_vm.picker)
                         },
-                        [
-                          _c("span", {
-                            domProps: {
-                              innerHTML: _vm._s(_vm.startTimePicker),
-                            },
-                          }),
-                        ]
-                      ),
-                    ]),
-                  ]
+                      },
+                      model: {
+                        value: _vm.picker,
+                        callback: function ($$v) {
+                          _vm.picker = $$v
+                        },
+                        expression: "picker",
+                      },
+                    }),
+                  ],
+                  1
                 )
               : _vm._e(),
-          ]),
-          _vm._v(" "),
-          _c("p", [_vm._v("〜")]),
-          _vm._v(" "),
-          _c("div", [
-            _c("div", { staticClass: "time_ipselect_wrap" }, [
-              _c("input", {
-                staticClass: "weight",
-                attrs: {
-                  type: "text",
-                  id: "endtime",
-                  value: "00:30",
-                  readonly: "readonly",
-                },
-                on: { click: _vm.endtime_judg },
-              }),
+            _vm._v(" "),
+            _c("div", { staticClass: "reservePage_main_input_timeform" }, [
+              _c(
+                "p",
+                { staticClass: "reservePage_main_input_timeform_title" },
+                [_vm._v("利用時間")]
+              ),
               _vm._v(" "),
-              _vm.endtimePicker
-                ? _c(
-                    "div",
-                    {
-                      directives: [
-                        {
-                          name: "click-outside",
-                          rawName: "v-click-outside",
-                          value: _vm.hide_endtime,
-                          expression: "hide_endtime",
-                        },
-                      ],
-                      staticClass: "time_ipselect_picker",
-                    },
-                    [
-                      _c("div", { staticClass: "touka" }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "touka2" }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "time_ipselect" }, [
-                        _c(
-                          "form",
+              _c("div", { staticClass: "time_ipselect_wrap" }, [
+                _c("input", {
+                  staticClass: "weight",
+                  attrs: {
+                    type: "text",
+                    id: "starttime",
+                    value: "00:00",
+                    readonly: "readonly",
+                  },
+                  on: { click: _vm.starttime_judg },
+                }),
+                _vm._v(" "),
+                _vm.timePicker
+                  ? _c(
+                      "div",
+                      {
+                        directives: [
                           {
-                            attrs: { name: "timepicker" },
-                            on: { change: _vm.updateendTimePicker },
+                            name: "click-outside",
+                            rawName: "v-click-outside",
+                            value: _vm.hide_starttime,
+                            expression: "hide_starttime",
                           },
-                          [
-                            _c("span", {
-                              domProps: {
-                                innerHTML: _vm._s(_vm.endTimePicker),
+                        ],
+                        staticClass: "time_ipselect_picker",
+                      },
+                      [
+                        _c("div", { staticClass: "touka" }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "touka2" }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "time_ipselect" }, [
+                          _c(
+                            "form",
+                            {
+                              attrs: { name: "timepicker" },
+                              on: { change: _vm.updateTimePicker },
+                            },
+                            [
+                              _c("span", {
+                                domProps: {
+                                  innerHTML: _vm._s(_vm.startTimePicker),
+                                },
+                              }),
+                            ]
+                          ),
+                        ]),
+                      ]
+                    )
+                  : _vm._e(),
+              ]),
+              _vm._v(" "),
+              _c("p", [_vm._v("〜")]),
+              _vm._v(" "),
+              _c("div", [
+                _c("div", { staticClass: "time_ipselect_wrap" }, [
+                  _c("input", {
+                    staticClass: "weight",
+                    attrs: {
+                      type: "text",
+                      id: "endtime",
+                      value: "00:30",
+                      readonly: "readonly",
+                    },
+                    on: { click: _vm.endtime_judg },
+                  }),
+                  _vm._v(" "),
+                  _vm.endtimePicker
+                    ? _c(
+                        "div",
+                        {
+                          directives: [
+                            {
+                              name: "click-outside",
+                              rawName: "v-click-outside",
+                              value: _vm.hide_endtime,
+                              expression: "hide_endtime",
+                            },
+                          ],
+                          staticClass: "time_ipselect_picker",
+                        },
+                        [
+                          _c("div", { staticClass: "touka" }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "touka2" }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "time_ipselect" }, [
+                            _c(
+                              "form",
+                              {
+                                attrs: { name: "timepicker" },
+                                on: { change: _vm.updateendTimePicker },
                               },
-                            }),
-                          ]
-                        ),
-                      ]),
-                    ]
-                  )
-                : _vm._e(),
+                              [
+                                _c("span", {
+                                  domProps: {
+                                    innerHTML: _vm._s(_vm.endTimePicker),
+                                  },
+                                }),
+                              ]
+                            ),
+                          ]),
+                        ]
+                      )
+                    : _vm._e(),
+                ]),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "reservePage_main_input_form_radius" }, [
+              _c("p", [_vm._v("範囲")]),
+              _vm._v(" "),
+              _c(
+                "form",
+                { attrs: { name: "range" }, on: { change: _vm.changeRange } },
+                [_vm._m(2)]
+              ),
             ]),
           ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "reservePage_main_input_form_radius" }, [
-          _c("p", [_vm._v("範囲")]),
           _vm._v(" "),
-          _c(
-            "form",
-            { attrs: { name: "range" }, on: { change: _vm.changeRange } },
-            [_vm._m(2)]
-          ),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "reservePage_main_money" }, [
-        _c("div", { staticClass: "reservePage_main_money_sum" }, [
-          _c("p", [_vm._v("見積もり金額")]),
-          _vm._v(" "),
-          _c("p", { attrs: { id: "val" } }, [
-            _c("span", { staticClass: "enn" }, [_vm._v("¥")]),
-            _vm._v(_vm._s(_vm.sumval)),
+          _c("div", { staticClass: "reservePage_main_money" }, [
+            _c("div", { staticClass: "reservePage_main_money_sum" }, [
+              _c("p", [_vm._v("見積もり金額")]),
+              _vm._v(" "),
+              _c("p", { attrs: { id: "val" } }, [
+                _c("span", { staticClass: "enn" }, [_vm._v("¥")]),
+                _vm._v(_vm._s(_vm.sumval)),
+              ]),
+            ]),
+            _vm._v(" "),
+            _vm._m(3),
           ]),
         ]),
-        _vm._v(" "),
-        _vm._m(3),
       ]),
-    ]),
-  ])
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function () {
