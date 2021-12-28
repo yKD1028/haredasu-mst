@@ -34,8 +34,21 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/payment', 'PaymentController@payment');
   });
 });
-Route::get('/Reserve', function () {
-  return view('Reservepage');
+
+Route::get('/vue', function () {
+  return view('app');
 });
+Route::get('/', function () {
+  return view('welcome');
+});
+Auth::routes();
+
+Route::get('/{any}', function () {
+  return view('welcome');
+})->where('any', '.*');
+
+// Route::get('/Reserve', function () {
+//   return view('Reservepage');
+// });
 Route::get('/reserve_page', 'ReserveController@reserve_page');
 Route::post('/api', 'GooglemapController@index');

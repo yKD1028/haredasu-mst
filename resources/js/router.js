@@ -10,6 +10,7 @@ import UserResist2 from './components/pages/UserResistPage2.vue'
 import UserPage from './components/pages/UserPage/UserPage.vue'
 import Form_sample from './components/form_sample.vue'
 import test_page from './components/pages/test.vue'
+import Reserve from './components/ReservePage.vue'
 
 export default new Router({
   mode: 'history',
@@ -70,6 +71,11 @@ export default new Router({
         path: '/test',
         name: 'test',
         component: test_page
+    },
+    {
+        path: '/reserve',
+        name: 'reserve',
+        component: Reserve
     },
   ]
 });

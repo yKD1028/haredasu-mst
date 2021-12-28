@@ -133,7 +133,6 @@ export default {
 }
 </script>
 
-
 <style lang="scss">
 .font_size{
     font-size:1.25rem;
