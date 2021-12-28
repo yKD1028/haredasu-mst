@@ -18,9 +18,9 @@ use Illuminate\Support\Facades\Auth;
 // Route::get('/', function () {
 //   return view('welcome');
 // });
-// Route::get('/{any}', function () {
-//   return view('welcome');
-// })->where('any', '.*');
+Route::get('/{any}', function () {
+  return view('welcome');
+})->where('any', '.*');
 
 
 Auth::routes(['verify' => true]);
