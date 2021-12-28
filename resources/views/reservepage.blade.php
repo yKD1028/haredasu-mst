@@ -9,7 +9,6 @@
 </head>
 
 <body>
-<v-app id="app">
   <h1>TOPnav予定地</h1>
   <div id="reserve">
     <reserve-page></reserve-page>
@@ -20,7 +19,6 @@
   </div>
 
   <script src="{{ asset('/js/app.js') }}" defer></script>
-  </v-app>
 </body>
 
 

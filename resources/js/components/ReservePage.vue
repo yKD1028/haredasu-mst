@@ -543,30 +543,29 @@ export default {
         },
 
         async getAnyPins(){
-            await axios.get("/reserve_page").then((response) => {
+            await axios.get("/api/reserve_page").then((response) => {
                 this.anyMapData=response.data;
-                console.log(response.data);
             });
             for (let i = 0; i < this.anyMapData.length; i++) {
-                // var map =  new this.google.maps.Marker({
-                //     position: new this.google.maps.LatLng(this.anyMapData[i].latitude,this.anyMapData[i].longitude),
-                //     map: this.Map,
-                //     icon: atherpin
-                // });
-                // this.anyMapDatas.push(map)
+                var map =  new this.google.maps.Marker({
+                    position: new this.google.maps.LatLng(this.anyMapData[i].latitude,this.anyMapData[i].longitude),
+                    map: this.Map,
+                    icon: atherpin
+                });
+                this.anyMapDatas.push(map)
 
-                // new this.google.maps.Circle({
-                // center: new this.google.maps.LatLng(this.anyMapData[i].latitude,this.anyMapData[i].longitude),
-                // map: this.Map,
-                // radius: Number(this.anyMapData[i].area),
-                // strokeColor: "#eaf07900",
-                // fillColor: "#A58888",
+                new this.google.maps.Circle({
+                center: new this.google.maps.LatLng(this.anyMapData[i].latitude,this.anyMapData[i].longitude),
+                map: this.Map,
+                radius: Number(this.anyMapData[i].area),
+                strokeColor: "#eaf07900",
+                fillColor: "#A58888",
 
-                // });
-                // var pop = new this.google.maps.InfoWindow({
-                //     content: '18:00~20:00'
-                // });
-                // pop.open(this.Map, this.anyMapDatas[i]); // 吹き出しの表示
+                });
+                var pop = new this.google.maps.InfoWindow({
+                    content: '18:00~20:00'
+                });
+                pop.open(this.Map, this.anyMapDatas[i]); // 吹き出しの表示
             }
 
         }

@@ -2931,35 +2931,37 @@ vue__WEBPACK_IMPORTED_MODULE_8__["default"].use((vuetify__WEBPACK_IMPORTED_MODUL
       var _this4 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
-        var i;
+        var i, map, pop;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_3___default().get("/reserve_page").then(function (response) {
+                return axios__WEBPACK_IMPORTED_MODULE_3___default().get("/api/reserve_page").then(function (response) {
                   _this4.anyMapData = response.data;
-                  console.log(response.data);
                 });
 
               case 2:
-                for (i = 0; i < _this4.anyMapData.length; i++) {// var map =  new this.google.maps.Marker({
-                  //     position: new this.google.maps.LatLng(this.anyMapData[i].latitude,this.anyMapData[i].longitude),
-                  //     map: this.Map,
-                  //     icon: atherpin
-                  // });
-                  // this.anyMapDatas.push(map)
-                  // new this.google.maps.Circle({
-                  // center: new this.google.maps.LatLng(this.anyMapData[i].latitude,this.anyMapData[i].longitude),
-                  // map: this.Map,
-                  // radius: Number(this.anyMapData[i].area),
-                  // strokeColor: "#eaf07900",
-                  // fillColor: "#A58888",
-                  // });
-                  // var pop = new this.google.maps.InfoWindow({
-                  //     content: '18:00~20:00'
-                  // });
-                  // pop.open(this.Map, this.anyMapDatas[i]); // 吹き出しの表示
+                for (i = 0; i < _this4.anyMapData.length; i++) {
+                  map = new _this4.google.maps.Marker({
+                    position: new _this4.google.maps.LatLng(_this4.anyMapData[i].latitude, _this4.anyMapData[i].longitude),
+                    map: _this4.Map,
+                    icon: _public_assets_atherpin_png__WEBPACK_IMPORTED_MODULE_6__["default"]
+                  });
+
+                  _this4.anyMapDatas.push(map);
+
+                  new _this4.google.maps.Circle({
+                    center: new _this4.google.maps.LatLng(_this4.anyMapData[i].latitude, _this4.anyMapData[i].longitude),
+                    map: _this4.Map,
+                    radius: Number(_this4.anyMapData[i].area),
+                    strokeColor: "#eaf07900",
+                    fillColor: "#A58888"
+                  });
+                  pop = new _this4.google.maps.InfoWindow({
+                    content: '18:00~20:00'
+                  });
+                  pop.open(_this4.Map, _this4.anyMapDatas[i]); // 吹き出しの表示
                 }
 
               case 3:
