@@ -1,24 +1,26 @@
 <template>
-    <div class="home_wrap">
-        <div class="home_wrap">
-            <Header></Header>
-            <p>パスワード変更</p>
-            <p>パスワードは半角英数含め、<br>8字以上で入力してください。</p>
-            <FormPassCheck></FormPassCheck>
-            <OrangeButton button_name="登録"></OrangeButton>
+    <div>
+        <Header></Header>
+        <div class="formPage_wrap">
+            <div class="title">パスワード変更</div>
+            <div class="introduction">パスワードは半角英数含め、<br>8字以上で入力してください。</div>
+            <form>
+                <PassCheck></PassCheck>
+                <SubmitButton buttonName="変更"></SubmitButton>
+            </form>
         </div>
     </div>
 </template>
 
 <script>
-    import Header from "../components/Header.vue"
-    import FormPassCheck from '../components/form_password_check.vue'
-    import OrangeButton from '../components/button.vue'
+    import Header from '../components/Header.vue'
+    import PassCheck from '../Forms/PasswordCheckInput.vue'
+    import SubmitButton from '../SubmitButton.vue'
     export default{
         components:{
             Header,
-            FormPassCheck,
-            OrangeButton,
+            PassCheck,
+            SubmitButton,
         },
     }
 </script>

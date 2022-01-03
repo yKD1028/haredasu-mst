@@ -32,15 +32,17 @@ $color-white : #fff;
 /*共通部分?*/
 
 body {
+    font-family: 'Noto Sans JP';
+    font-style: normal;
     letter-spacing: 0.01em;
 }
 
 
 @import './header.scss';
-// @import './button.scss';
+@import './button.scss';
 @import './form.scss';
 @import './home.scss';
 @import './situation.scss';
 @import './question.scss';
-@import './button_sample.scss';
-@import './user_page.scss'
+@import './form_page.scss';
+@import './user_page.scss';

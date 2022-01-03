@@ -1,12 +1,9 @@
 .form {
-    background-color: blanchedalmond;
     position: relative;
-    margin: 0 0 32px 0; /*topの10pxは後で消す。bottomのpxで次のformとの間隔を調整*/
-    // padding-bottom: 20px;
+    margin: 0 0 32px 0;
+    /* margin-bottom: 最低20pxないと、err文みえなくなる*/
+    /*bottomのpxで次のformとの間隔を調整*/
     color: $color-gray;
-
-    font-family: 'Noto Sans JP';
-    font-style: normal;
 
     label {
         position: absolute;
@@ -23,7 +20,8 @@
         border: solid 4px $color-gray;
         border-radius: 11px;
         outline: none;
-        // width: 200px;
+        // width: 400px;
+        width: 100%;
         height: 64px;
         font-size: 18px;
         line-height: 26px;
@@ -62,41 +60,3 @@
         border: solid 4px $color-red;
     }
 }
-
-// .form_pc{
-//     border-radius: 11px;
-//     border: 4px solid $color-gray;
-//     box-sizing: border-box;
-//     width: 400px;
-//     height: 64px;
-//     margin-bottom: 50px;
-//     outline: none;
-//     padding: 10px 20px;
-// }
-// .form_title{
-//     display: inline-block;
-//     position: relative;
-//     padding: 0 4px;
-//     left: -384px;
-//     top: -55px;
-//     background-color: $color-white;
-//     outline: none;
-//     color: $color-gray;
-// }
-// .form_error{
-//     color: $color-red;
-//     font-size: 14px;
-//     line-height: 20px;
-//     position: relative;
-//     right: 285px;
-//     bottom: 67px;
-// }
-// }
-
-// .form_pc:focus::placeholder{
-//     color:transparent;
-// }
-
-// .form_pc:valid{
-//     color: $color-gray;
-// }
