@@ -1,21 +1,16 @@
-.user-page{
-    font-family: 'Noto Sans JP';
-    font-style: normal;
-    color: $color-gray;
-    padding: 0 0;
-
-
+.user-page-wrap {
     width: 60%;
-    margin: 156px auto 0;
-    background-color: cornsilk;
-    // margin-top: 156px;
+    min-width: max-content;
+    margin: 0 auto;
+    padding: 0 0; //vuetify初期装備のpadding消去
 
-    .userPage-title {
-        font-style: bold;
+    .user-page-title, .user-page-tabs{
+        color: $color-gray;
+    }
+    .user-page-title {
+        font-weight: bold;
         font-size: 36px;
         line-height: 52px;
-
-        background-color: burlywood;
     }
 
     hr{
@@ -24,17 +19,27 @@
         border-top: 1px solid $color-gray;
     }
 
-
-    .userPage-changes {
+    .user-page-tabs {
         font-size: 18px;
         line-height: 26px;
-
         div{
-            background-color: bisque;
             margin-bottom: 32px;
         }
         div:hover {
             cursor: pointer;
+        }
+        .selected{
+            font-weight: 500;
+        }
+    }
+
+    .user-page-screens {
+        .form-screen{
+            width: 400px;
+            margin: 0 auto;
+        }
+        .list-screen{
+            margin-left: 90px;
         }
     }
 }

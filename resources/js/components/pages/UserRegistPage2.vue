@@ -1,7 +1,7 @@
 <template>
     <div>
         <Header></Header>
-        <div class="formPage_wrap">
+        <div class="form-page-wrap">
             <div class="title">基本情報入力</div>
             <div class="introduction">快適な晴れ体験のために<br>あなたのことを教えてください</div>
             <!-- <form action="/regist_user_info" method="post"> -->

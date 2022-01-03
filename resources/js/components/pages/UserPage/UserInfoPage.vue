@@ -4,7 +4,7 @@
         <email></email>
         <zip></zip>
         <userAddress></userAddress>
-        <!--btn-->
+        <SubmitButton buttonName="変更"></SubmitButton>
     </div>
 </template>
 <script>
@@ -12,6 +12,7 @@
     import email from '../../Forms/EmailInput.vue'
     import zip from '../../Forms/ZipInput.vue'
     import userAddress from '../../Forms/AddressInput.vue'
+    import SubmitButton from '../../SubmitButton.vue'
     export default{
         data () {
             return {
@@ -22,6 +23,7 @@
             email,
             zip,
             userAddress,
+            SubmitButton,
         },
     }
 </script>

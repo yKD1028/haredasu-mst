@@ -1,7 +1,7 @@
 <template>
     <div>
         <Header></Header>
-        <div class="formPage_wrap">
+        <div class="form-page-wrap">
             <div class="title">はじめまして！</div>
             <div class="introduction">メールアドレスで登録して<br>晴れ予約を開始しましょう！</div>
             <form>
