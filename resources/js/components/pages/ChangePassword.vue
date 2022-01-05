@@ -5,7 +5,14 @@
             <div class="title">パスワード変更</div>
             <div class="introduction">パスワードは半角英数含め、<br>8字以上で入力してください。</div>
             <form>
-                <PassCheck></PassCheck>
+                <PassCheck
+                    form_label1="パスワード"
+                    name1="new_pass"
+                    placeholder1="パスワード"
+                    form_label2="確認用パスワード"
+                    name2="new_pass_check"
+                    placeholder2="確認用パスワード"
+                ></PassCheck>
                 <SubmitButton buttonName="変更"></SubmitButton>
             </form>
         </div>

@@ -1,7 +1,7 @@
 <template>
     <div class="form" :class="formChange">
-        <label for="password">パスワード</label>
-        <input type="text" name="" id="password" placeholder="パスワード" v-model="password" v-on:focus="onFocus" v-on:blur="onBlur">
+        <label for="password">{{ form_label }}</label>
+        <input type="text" :name="name" id="password" :placeholder="placeholder" v-model="password" v-on:focus="onFocus" v-on:blur="onBlur">
         <div class="err_msg">{{ errors.password }}</div>
     </div>
 </template>
@@ -9,6 +9,9 @@
 <script>
 export default {
     props: {
+        form_label: { type: String, required: true },
+        name: { type: String, required: true },
+        placeholder: { type: String, required: true },
     },
     data () {
         return {

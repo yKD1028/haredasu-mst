@@ -1,17 +1,17 @@
 <template>
     <div>
-        <v-container style="padding:0;">
+        <v-container>
             <v-row no-gutters v-for="(reserve,index) in reserves" :key="index">
                 <v-col>{{ reserve.address }}</v-col>
                 <v-col>{{ reserve.date }}{{ reserve.start_time }}-{{ reserve.end_time }}</v-col>
-                <v-col><SubmitButton buttonName="詳細"></SubmitButton></v-col>
+                <v-col><Button buttonName="詳細"></Button></v-col>
             </v-row>
         </v-container>
         this is ReservationHistoryPage.
     </div>
 </template>
 <script>
-    import SubmitButton from '../../SubmitButton.vue'
+    import Button from '../../Button.vue'
     export default{
         data() {
             return {
@@ -38,7 +38,7 @@
             }
         },
         components:{
-            SubmitButton,
+            Button,
         },
     }
 </script>

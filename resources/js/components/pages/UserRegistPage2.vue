@@ -9,7 +9,14 @@
                 <Name></Name>
                 <NameKana></NameKana>
                 <Tel></Tel>
-                <PassCheck></PassCheck>
+                <PassCheck
+                    form_label1="パスワード"
+                    name1="pass"
+                    placeholder1="パスワード"
+                    form_label2="確認用パスワード"
+                    name2="pass_check"
+                    placeholder2="確認用パスワード"
+                ></PassCheck>
                 <Zip></Zip>
                 <Address></Address>
                 <SubmitButton buttonName="登録"></SubmitButton>

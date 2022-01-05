@@ -6,7 +6,11 @@
             <div class="introduction">アカウントをお持ちですか？<br>ログインして晴れを予約しましょう！</div>
             <form>
                 <Email></Email>
-                <Pass></Pass>
+                <Pass
+                    form_label="パスワード"
+                    name="pass"
+                    placeholder="パスワード"
+                ></Pass>
                 <div class="remember-wrap">
                     <input type="checkbox" id="remenber" name="">
                     <label for="remenber">ログイン状態を保持する</label>
