@@ -1,5 +1,5 @@
 .user-page-wrap {
-    width: 60%;
+    width: 70%;
     min-width: max-content;
     margin: 0 auto;
     padding: 0 0; //vuetify初期装備のpadding消去
@@ -13,7 +13,7 @@
         line-height: 52px;
     }
 
-    hr{
+    .border{
         margin-top: 32px;
         margin-bottom: 48px;
         border-top: 1px solid $color-gray;
@@ -39,11 +39,14 @@
             margin: 0 auto;
         }
         .list-screen{
-            margin-left: 90px;
+            color: $color-gray;
+            width: 100%;
+            // margin-left: 90px;
             font-size: 18px;
             line-height: 26px;
             .reserve{
-                justify-content: space-between;
+                width: 100%;
+                background-color: blue;
                 align-items: center;
                 margin-bottom: 32px;
             }
@@ -56,7 +59,20 @@
                         font-weight: bold;
                         font-size: 24px;
                         line-height: 34px;
-                        margin-bottom: 32px;
+                    }
+                    .card-contents{
+                        font-size: 18px;
+                        line-height: 26px;
+                        #map{
+                            margin: 32px 0;
+                        }
+                        .list-item{
+                            justify-content: start;
+                            margin-bottom: 25px;
+                        }
+                        .list-item:last-child{
+                            margin-bottom: 0;
+                        }
                     }
                 }
                 .detail{
@@ -65,6 +81,9 @@
                 .cost{
                     padding: 32px 16px;
                 }
+                // .card-num{
+
+                // }
             }
         }
     }

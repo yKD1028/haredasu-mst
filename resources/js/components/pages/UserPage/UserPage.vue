@@ -10,7 +10,7 @@
                     <div v-if="screen == 3">予約履歴</div>
                 </v-col>
             </v-row>
-            <hr>
+            <div class="border"></div>
             <v-row no-gutters>
                 <v-col cols="auto" class="user-page-tabs">
                     <div :class="selected0" @click="changeScreen(0)">ユーザー情報</div>
@@ -18,7 +18,7 @@
                     <div :class="selected2" @click="changeScreen(2)">支払い情報</div>
                     <div :class="selected3" @click="changeScreen(3)">予約履歴</div>
                 </v-col>
-                <v-col cols="stretch" class="user-page-screens">
+                <v-col class="user-page-screens">
                     <UserInfo class="form-screen" v-if="screen == 0"></UserInfo>
                     <Password class="form-screen" v-if="screen == 1"></Password>
                     <Payment v-if="screen == 2"></Payment>

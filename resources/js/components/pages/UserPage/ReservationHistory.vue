@@ -1,18 +1,16 @@
 <template>
     <div>
         <div v-if="list == true">
-            <v-row class="reserve" no-gutters v-for="(reserve,index) in reserves" :key="index">
-                <v-col cols="auto">{{ reserve.address }}</v-col>
-                <v-col cols="auto">
+            <v-row class="reserve" justify="between" no-gutters v-for="(reserve,index) in reserves" :key="index">
+                <v-col>{{ reserve.address }}</v-col>
+                <v-col>
                     {{ reserve.date }} {{ reserve.start_time }}-{{ reserve.end_time }}
                     <!-- 初期二行表示 -->
                     <!-- <v-row align-content="left">{{ reserve.date }}</v-row>
                     <v-row>{{ reserve.start_time }}-{{ reserve.end_time }}</v-row> -->
                 </v-col>
-                <v-col cols="auto">
-                    <!-- <button class="button" @click="list = false, num = index">詳細</button> -->
+                <v-col>
                     <button class="button" @click="showDetail(index)">詳細</button>
-                    <!-- <Button buttonName="詳細" v-on:show-detail="list = false"></Button> -->
                 </v-col>
             </v-row>
         </div>
@@ -20,18 +18,36 @@
         <div v-if="list == false" id="sample">
             <v-row no-gutters class="reserve-detail">
                 <v-col>
+                    <!-- <div class="card">
+                        <div class="card-wrap">
+                            <div class="card-title">予約情報</div>
+                        </div>
+
+                        <div id="map" ref="googleMap" style="width:500px; height:280px;"/>
+                        <div>
+                            <div>場所</div>
+                            <div>{{ reserves[num].address }}</div>
+                        </div>
+                        <div>
+
+                        </div>
+                    </div> -->
                     <v-card outlined class="card detail">
                         <div class="card-title">予約情報</div>
                         <div class="card-contents">
-                            <!-- width調整 -->
                             <div id="map" ref="googleMap" style="width:500px; height:280px;"/>
-                            <ul>
-                                <li>場所{{ reserves[num].address }}</li>
-                                <li>
-                                    日時{{ reserves[num].date }} {{ reserves[num].start_time }}-{{ reserves[num].end_time }}
-                                </li>
-                                <li>範囲{{ reserves[num].area }}</li>
-                            </ul>
+                            <v-row no-gutters class="list-item">
+                                <v-col>場所</v-col>
+                                <v-col>{{ reserves[num].address }}</v-col>
+                            </v-row>
+                            <v-row no-gutters class="list-item">
+                                <v-col>日時</v-col>
+                                <v-col>{{ reserves[num].date }} {{ reserves[num].start_time }}-{{ reserves[num].end_time }}</v-col>
+                            </v-row>
+                            <v-row no-gutters class="list-item">
+                                <v-col>範囲</v-col>
+                                <v-col cols="stretch">{{ reserves[num].area }}</v-col>
+                            </v-row>
                         </div>
                     </v-card>
                 </v-col>
@@ -61,8 +77,8 @@
     </div>
 </template>
 <script>
-    import GoogleMapsApiLoader from 'google-maps-api-loader';
-    import mypin from '../../../../../public/assets/mypin.png';
+    import GoogleMapsApiLoader from 'google-maps-api-loader'
+    import mypin from '../../../../../public/assets/mypin.png'
 
     export default{
         data() {
@@ -105,7 +121,7 @@
                         id: 2,
                         latitude: 35.832265,
                         longitude: 139.680714,
-                        address: 'sample2',
+                        address: 'sample2aaaaa',
                         date: '0000-11-22',
                         start_time: '16:10:00',
                         end_time: '18:10:00',
@@ -117,7 +133,7 @@
                         id: 3,
                         latitude:35.830908,
                         longitude: 139.690756,
-                        address: 'sample3',
+                        address: 'sampleaa3',
                         date: '0000-00-00',
                         start_time: '00:00:00',
                         end_time: '00:00:00',
@@ -134,7 +150,6 @@
             });
         },
         components:{
-            // Button,
         },
         methods: {
             showDetail(index){
