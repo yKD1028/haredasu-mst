@@ -13,9 +13,6 @@
   <p>{{$user->address}}</p>
 
   <div>
-    <div id="app">
-      <resister-page></resister-page>
-    </div>
     <form action="/regist_user_info" method="post">
       @csrf
       <div class="form-group row">
@@ -130,6 +127,11 @@
       <p>メール送信</p>
       <input id="email" name="email" type="text">
       <button type="submit">送信</button>
+    </form>
+    <form action="/hon_regist" method="POST">
+      @csrf
+      <input type="text" name="email">
+      <button type="submit">aaaaaaa</button>
     </form>
   </div>
   @endsection
