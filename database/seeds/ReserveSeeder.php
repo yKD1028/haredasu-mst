@@ -19,7 +19,7 @@ class ReserveSeeder extends Seeder
       'name' => 'テス山テス太郎',
       'name_kana' => 'テスヤマテスタロウ',
       'email' => 'test000@gmail.com',
-      'password' => 'test0000',
+      'password' => '$2y$10$eUuc5/3uHYjXct/Gif/laO2sC9vjy6RU0BpH8vtmQK9kOu22TN31W',
       'tell' => '00000000000',
       'zip' => '0000000',
       'address' => 'テスト県テスト区テスト',
