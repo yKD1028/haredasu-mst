@@ -9,7 +9,10 @@
 </head>
 
 <body>
+  <p>testだよ</p>
+  @if(!empty($email))
   {{$email}}
+  @endif
 </body>
 
 </html>

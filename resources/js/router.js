@@ -9,6 +9,7 @@ import UserPage from './components/pages/UserPage/UserPage.vue'
 import Form_sample from './components/form_sample.vue'
 import test_page from './components/pages/test.vue'
 import Reserve from './components/ReservePage.vue'
+import Confirmation from "./components/ConfirmationPage.vue"
 
 export default new Router({
   mode: 'history',
@@ -63,6 +64,11 @@ export default new Router({
         path: '/reserve',
         name: 'reserve',
         component: Reserve
+    },
+    {
+        path: '/confirmation',
+        name: 'confirmation',
+        component: Confirmation
     },
   ]
 });

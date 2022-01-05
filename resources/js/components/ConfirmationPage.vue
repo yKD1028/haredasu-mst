@@ -22,15 +22,15 @@
                 <div id="map" ref="googleMap"/>
                 <div class="confirmationPage_main_information_contents">
                     <p>場所</p>
-                    <p class="font_size">{{}}</p>
+                    <p class="font_size">{{this.mapData.locationName}}</p>
                 </div>
                  <div class="confirmationPage_main_information_contents">
-                    <p>場所</p>
-                    <p class="font_size">{{}}</p>
+                    <p>日時</p>
+                    <p class="font_size">{{this.mapData.time}}</p>
                 </div>
                  <div class="confirmationPage_main_information_contents">
-                    <p>場所</p>
-                    <p class="font_size">{{}}</p>
+                    <p>範囲</p>
+                    <p class="font_size">{{this.mapData.range}}</p>
                 </div>
                 <div class="confirmationPage_main_information_contents_border"></div>
                 <div class="confirmationPage_main_information_contents_alert">
@@ -49,7 +49,7 @@
                     <p class="confirmationPage_main_others_price_title">料金詳細</p>
                     <div class="confirmationPage_main_others_price_contents">
                         <p>基本料金</p>
-                        <p><span class="font_size">{{}}</span>円</p>
+                        <p><span class="font_size">300,000</span>円</p>
                     </div>
                     <div class="confirmationPage_main_others_price_contents">
                         <p>範囲料金</p>
@@ -71,7 +71,11 @@
                     <a href="#">変更</a>
                 </div>
                 <div class="confirmationPage_main_others_button">
-                    <button id="next" calss="nextbtn" v-bind:class="{ btnActive:btnActive }">予約を確定する</button>
+                    <a href="#">
+                        <div id="next" calss="nextbtn" v-bind:class="{ btnActive:btnActive }">
+                            <span>予約を確定する</span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -80,6 +84,7 @@
 
 <script>
 import GoogleMapsApiLoader from 'google-maps-api-loader';
+import mypin from "../../../public/assets/mypin.png"
 
 export default {
     data(){
@@ -104,6 +109,12 @@ export default {
             },
             cardNumber:"**** **** **** 0000",
             btnActive:false,
+            mapData:{
+                locationName:JSON.parse(localStorage.getItem('map')).locationName,
+                time:JSON.parse(localStorage.getItem('map')).time,
+                range:JSON.parse(localStorage.getItem('map')).range+"m"
+
+            }
         }
     },
     async mounted() {
@@ -111,10 +122,29 @@ export default {
             apiKey: 'AIzaSyCbr524Eht2tpaHaFLvBShbHBy1m1uqBy4'
         });
         this.initializeMap();
+         console.log(JSON.parse(localStorage.getItem('map')));
     },
     methods: {
         initializeMap() {
             this.Map = new this.google.maps.Map(this.$refs.googleMap, this.mapConfig);
+
+            //中心のピン詳細(localStorage有)
+            new this.google.maps.Marker({
+                position: new this.google.maps.LatLng(JSON.parse(localStorage.getItem('map')).latlng),
+                map: this.Map,
+                icon: mypin,
+            });
+
+            this.Map.panTo(new this.google.maps.LatLng(JSON.parse(localStorage.getItem('map')).latlng));
+
+            //範囲の詳細(localStorage有)
+            new this.google.maps.Circle({
+                center: new this.google.maps.LatLng(JSON.parse(localStorage.getItem('map')).latlng),
+                map: this.Map,
+                radius: JSON.parse(localStorage.getItem('map')).range,
+                strokeColor: "#eaf07900",
+                fillColor: "#A58888",
+            });
             document.getElementById("next").disabled = true;
             document.getElementById("next").addEventListener("click",()=>{
                 console.log(document.getElementById("checkbox").checked);
@@ -344,7 +374,11 @@ export default {
                 }
             }
             .confirmationPage_main_others_button{
-                button{
+                a{
+                    div{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                     border: none;
                     border-radius: 8px;
                     width: 100%;
@@ -353,6 +387,9 @@ export default {
                     font-size: 1.1rem;
                     font-weight: 600;
                 }
+
+                }
+
             }
 
 
@@ -361,6 +398,7 @@ export default {
 }
 .btnActive{
     background-color: #FAAE2B;
+    width: 10%;
 }
 
 </style>
