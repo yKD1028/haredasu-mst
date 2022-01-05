@@ -30,5 +30,23 @@
             Mainvisual,
             Sonohi,
         },
+        created() {
+        //window変更を検知
+        window.addEventListener('resize', this.setViewport)
+        this.setViewport();
+        },
+        beforeDestroy() {
+            window.removeEventListener('resize', this.setViewport)
+        },
+        methods: {
+            setViewport: function() {
+                let changeWindowSize = 375
+                let viewportContent = "width=device-width,initial-scale=1.0"
+                if (window.innerWidth < changeWindowSize) {
+                    viewportContent = "width=375,user-scalable=no,viewport-fit=cover"
+                }
+                document.querySelector("meta[name='viewport']").setAttribute("content", viewportContent)
+            }
+        }
     }
 </script>
