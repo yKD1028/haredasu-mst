@@ -16,7 +16,8 @@
     <input type="text" name="email" value="{{$email}}">
     <button type="submit">本登録</button>
   </form>
-  <a href="{{url('/hon_regist')}}">ここを押して</a>
+  {{url('/hon_regist?email='.$email)}}
+  <a href="{{url('/hon_regist?email='.$email)}}">ここを押して</a>
 </body>
 
 </html>
