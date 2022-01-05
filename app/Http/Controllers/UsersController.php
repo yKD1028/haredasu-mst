@@ -62,12 +62,14 @@ class UsersController extends Controller
 
     return redirect()->back();
   }
+  //メール送信
   public function regist_mail(Request $request)
   {
     $email = $request->email;
     Mail::to($email)->send(new TestSendMail($email));
     return redirect()->back();
   }
+  //メール認証
   public function hon_regist(Request $request)
   {
     $email = $request->email;
