@@ -18,9 +18,9 @@ use Illuminate\Support\Facades\Auth;
 // Route::get('/', function () {
 //   return view('welcome');
 // });
-Route::get('/{any}', function () {
-  return view('welcome');
-})->where('any', '.*');
+// Route::get('/{any}', function () {
+//   return view('welcome');
+// })->where('any', '.*');
 
 
 Auth::routes(['verify' => true]);
@@ -44,9 +44,9 @@ Route::get('/', function () {
 });
 Auth::routes();
 
-Route::get('/{any}', function () {
-  return view('welcome');
-})->where('any', '.*');
+// Route::get('/{any}', function () {
+//   return view('welcome');
+// })->where('any', '.*');
 
 // Route::get('/Reserve', function () {
 //   return view('Reservepage');

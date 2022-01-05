@@ -11,11 +11,12 @@
 <body>
   <p>テスト送信</p>
   <p>{{$email}}</p>
-  <form action="/hon_regist" method="POST">
+  <form action="{{url('/hon_regist')}}" method="POST" target="_blank">
     @csrf
     <input type="text" name="email" value="{{$email}}">
     <button type="submit">本登録</button>
   </form>
+  <a href="{{url('/hon_regist')}}">ここを押して</a>
 </body>
 
 </html>
