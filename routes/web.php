@@ -18,14 +18,11 @@ use Illuminate\Support\Facades\Auth;
 // Route::get('/', function () {
 //   return view('welcome');
 // });
-// Route::get('/{any}', function () {
-//   return view('welcome');
-// })->where('any', '.*');
 
 
 Auth::routes();
 // middlewareで遷移先の制限
-Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
+Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'auth'], function () {
   Route::get('/user_info', 'UsersController@user_info')->name('user_info');
   Route::post('/regist_user_info', 'UsersController@regist_user_info')->name('regist_user_info');
