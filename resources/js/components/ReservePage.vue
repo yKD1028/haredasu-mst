@@ -93,7 +93,7 @@
                     <p id="val"><span class="enn">¥</span>{{sumval}}</p>
                 </div>
                 <div class="reservePage_main_money_next">
-                    <a href="#">
+                    <a href="/confirmation">
                         <div>
                             <p>次へ進む</p>
                         </div>
@@ -133,7 +133,6 @@ export default {
             },
             mode: "single",
             selectedDate: new Date(),
-            google: null,
             mapConfig: {
                 center: {
                     lat: 35.68944,
@@ -178,55 +177,93 @@ export default {
         this.google = await GoogleMapsApiLoader({
             apiKey: "AIzaSyCbr524Eht2tpaHaFLvBShbHBy1m1uqBy4",
         });
-        this.initializeMap();
+        var local = JSON.parse(localStorage.getItem('map'));
+        this.initializeMap(local);
         this.createTimePicker();
         this.getAnyPins();
     },
 
 
     methods: {
-        initializeMap() {
-            this.Map = new this.google.maps.Map(
+        async initializeMap(localStorage) {
+            this.Map = await new this.google.maps.Map(
                 this.$refs.googleMap,
                 this.mapConfig
             );
 
-            //中心のピン詳細
-            this.marker = new this.google.maps.Marker({
-                position: new this.google.maps.LatLng(this.mapConfig.center),
-                map: this.Map,
-                icon: mypin,
-            });
+            if(localStorage!==null){
 
-            //範囲の詳細
-            this.nowMappin = new this.google.maps.Circle({
-                center: new this.google.maps.LatLng(this.mapConfig.center),
-                map: this.Map,
-                radius: 150,
-                strokeColor: "#eaf07900",
-                fillColor: "#A58888",
-            });
+                //中心のピン詳細(localStorage有)
+                this.marker = new this.google.maps.Marker({
+                    position: new this.google.maps.LatLng(localStorage.latlng),
+                    map: this.Map,
+                    icon: mypin,
+                });
 
-            //初期住所の名前取得
-            axios.post("/api", this.mapConfig.center).then((response) => {
-                if (
-                    response.data.results[0].formatted_address.substr(13)
-                        .length >= 22
-                ) {
-                    this.addressName =
-                        response.data.results[0].formatted_address.substring(
-                            12,
-                            35
-                        ) + "...";
-                } else {
-                    this.addressName =
-                        response.data.results[0].formatted_address.substr(-13);
-                }
-                document.getElementById("mapname").value=this.addressName;
-                this.oldMapname =this.addressName;
-            });
+                this.Map.panTo(new this.google.maps.LatLng(localStorage.latlng));
 
+                //範囲の詳細(localStorage有)
+                this.nowMappin = new this.google.maps.Circle({
+                    center: new this.google.maps.LatLng(localStorage.latlng),
+                    map: this.Map,
+                    radius: localStorage.range,
+                    strokeColor: "#eaf07900",
+                    fillColor: "#A58888",
+                });
 
+                //初期住所の名前取得(localStorage有)
+                document.getElementById("mapname").value=localStorage.locationName;
+
+                this.totalFee.latlng = localStorage.latlng;
+
+                document.getElementById("starttime").value=localStorage.startTime
+                document.getElementById("endtime").value=localStorage.endTime
+                document.getElementById("date").value=localStorage.date
+                document.range.radius[localStorage.rebgeSum -1].checked = true
+                this.startTimeSum=Number(localStorage.startTimesum)
+                this.endTimeSum=Number(localStorage.endTimesum)
+                this.sumval=localStorage.totalFee
+
+                console.log(localStorage);
+
+            }else{
+
+                //中心のピン詳細(localStorage無)
+                this.marker = new this.google.maps.Marker({
+                    position: new this.google.maps.LatLng(this.mapConfig.latlng),
+                    map: this.Map,
+                    icon: mypin,
+                });
+
+                //範囲の詳細(localStorage無)
+                this.nowMappin = new this.google.maps.Circle({
+                    center: new this.google.maps.LatLng(this.mapConfig.center),
+                    map: this.Map,
+                    radius: 150,
+                    strokeColor: "#eaf07900",
+                    fillColor: "#A58888",
+                });
+
+                //初期住所の名前取得(localStorage無)
+                axios.post("/api", this.mapConfig.center).then((response) => {
+                    if (
+                        response.data.results[0].formatted_address.substr(13)
+                            .length >= 22
+                    ) {
+                        this.addressName =
+                            response.data.results[0].formatted_address.substring(
+                                12,
+                                35
+                            ) + "...";
+                    } else {
+                        this.addressName =
+                            response.data.results[0].formatted_address.substr(-13);
+                    }
+                    document.getElementById("mapname").value=this.addressName;
+                    this.oldMapname =this.addressName;
+                });
+
+            }
 
             //Mapがクリックされた時のハンドラ
             this.Map.addListener("click", (e) => {
@@ -249,8 +286,10 @@ export default {
                     icon: mypin,
                 });
                 this.getMap(e);
+                this.localStorage();
             });
 
+            //検索
             document.getElementById("mapname").addEventListener('keypress',()=>{
                 new this.google.maps.Geocoder().geocode({
                     address:document.getElementById("mapname").value
@@ -276,6 +315,7 @@ export default {
 
                 })
             });
+            this.localStorage();
         },
 
         //Mapの住所名取得
@@ -288,6 +328,7 @@ export default {
                     this.addressName=response.data.results[0].formatted_address
             });
             document.getElementById("mapname").value=this.addressName;
+            this.localStorage();
         },
 
         //カレンダーピッカーの表示切り替え
@@ -301,17 +342,14 @@ export default {
             const day = format(date, "yyyy-MM-dd");
             var str = day;
             var result = day.replace("-", "/");
-            console.log(result);
             while (result !== str) {
                 str = str.replace("-", "/");
                 result = result.replace("-", "/");
             }
             document.getElementById("date").value=result;
-            console.log(day);
             this.text = result;
             this.calendarPicker = false;
-
-
+            this.localStorage();
         },
 
         //範囲選択値の更新
@@ -335,6 +373,8 @@ export default {
                 sum + 1
             );
             this.Calculation();
+            this.localStorage();
+
         },
 
         //合計金額計算
@@ -436,6 +476,9 @@ export default {
             }
             this.startTimePicker = index
             this.endTimePicker = endindex
+            this.localStorage();
+
+
         },
 
 
@@ -515,6 +558,7 @@ export default {
             this.startTimePicker = index
             this.endTimePicker = endindex
             this.Calculation()
+            this.localStorage();
         },
 
          updateendTimePicker(){
@@ -535,6 +579,7 @@ export default {
             document.getElementById("endtime").value=hour+":"+minit;
             this.endtimePicker=false
             this.Calculation();
+            this.localStorage();
         },
 
         starttime_judg(){
@@ -572,6 +617,23 @@ export default {
                 pop.open(this.Map, this.anyMapDatas[i]); // 吹き出しの表示
             }
 
+        },
+
+        localStorage(){
+            localStorage.setItem('map', JSON.stringify({
+                locationName: document.getElementById("mapname").value,
+                time: document.getElementById("date").value+" "+document.getElementById("starttime").value+" 〜 "+document.getElementById("endtime").value,
+                startTime:document.getElementById("starttime").value,
+                endTime:document.getElementById("endtime").value,
+                date:document.getElementById("date").value,
+                startTimesum:this.startTimeSum,
+                endTimesum:this.endTimeSum,
+                range: Number(document.range.radius.value),
+                rebgeSum: this.totalFee.radiusIndex,
+                latlng:this.totalFee.latlng,
+                totalTime:this.endTimeSum-this.startTimeSum,
+                totalFee:this.sumval
+            }))
         }
     },
 };
