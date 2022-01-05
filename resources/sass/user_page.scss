@@ -40,6 +40,32 @@
         }
         .list-screen{
             margin-left: 90px;
+            font-size: 18px;
+            line-height: 26px;
+            .reserve{
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 32px;
+            }
+            .reserve-detail{
+                .card{
+                    color: $color-gray;
+                    border: 1px solid #D2D2D2;
+                    border-radius: 8px;
+                    .card-title{
+                        font-weight: bold;
+                        font-size: 24px;
+                        line-height: 34px;
+                        margin-bottom: 32px;
+                    }
+                }
+                .detail{
+                    padding: 32px;
+                }
+                .cost{
+                    padding: 32px 16px;
+                }
+            }
         }
     }
 }
