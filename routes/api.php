@@ -15,7 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+  return $request->user();
 });
-
+//予約処理のroute
 Route::get('/reserve_page', 'ReserveController@reserve_page');
+Route::get('/reserve', 'ReserveController@reserve');
+Route::get('/reserve_date', 'ReserveController@reserve_date');
+//クレカのroute
+Route::get('/pay_info', 'PaymentController@pay_info');
+Route::get('/pay_regist', 'PaymentController@pay_regist');
