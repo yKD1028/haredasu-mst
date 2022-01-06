@@ -108,13 +108,13 @@
 <script>
 import GoogleMapsApiLoader from "google-maps-api-loader";
 import Vue from "vue";
+import mypin from "../../../public/assets/mypin.png"
 import VCalendar from "v-calendar";
 import axios from "axios";
 import { compareAsc, format } from "date-fns";
 import gsap from "gsap";
 import Vuetify from 'vuetify'
 import ClickOutside from 'vue-click-outside'
-import mypin from "../../../public/assets/mypin.png"
 import atherpin from "../../../public/assets/atherpin.png"
 import Header from "./components/Header.vue"
 
@@ -170,6 +170,7 @@ export default {
 
             anyMapData:"",
             anyMapDatas:[],
+            anyMapDatasrange:[]
         };
     },
 
@@ -213,6 +214,7 @@ export default {
 
                 //初期住所の名前取得(localStorage有)
                 document.getElementById("mapname").value=localStorage.locationName;
+                this.oldMapname=localStorage.locationName;
 
                 this.totalFee.latlng = localStorage.latlng;
 
@@ -223,8 +225,7 @@ export default {
                 this.startTimeSum=Number(localStorage.startTimesum)
                 this.endTimeSum=Number(localStorage.endTimesum)
                 this.sumval=localStorage.totalFee
-
-                console.log(localStorage);
+                this.totalFee.latlng=localStorage.latlng
 
             }else{
 
@@ -294,7 +295,6 @@ export default {
                 new this.google.maps.Geocoder().geocode({
                     address:document.getElementById("mapname").value
                 },(results)=>{
-                    console.log(results[0].formatted_address);
                     this.marker.setMap(null)
                     this.nowMappin.setMap(null);
                     this.marker = new this.google.maps.Marker({
@@ -337,7 +337,7 @@ export default {
         },
 
         //日付データのフォーマット
-        formatDate(date) {
+        async formatDate(date) {
             if (!date) return null;
             const day = format(date, "yyyy-MM-dd");
             var str = day;
@@ -350,6 +350,45 @@ export default {
             this.text = result;
             this.calendarPicker = false;
             this.localStorage();
+            const data = {
+                day : day
+            }
+            await axios.post('/api/reserve_date',data).then((response) => {
+                    this.anyMapData=response.data;
+            });
+            for(var i=0;i<this.anyMapDatas.length;i++){
+                this.anyMapDatas[i].setMap(null);
+                this.anyMapDatasrange[i].setMap(null);
+            }
+
+             this.anyMapDatas=[];
+             this.anyMapDatasrange=[];
+
+             for (let i = 0; i < this.anyMapData.length; i++) {
+                var map =  new this.google.maps.Marker({
+                    position: new this.google.maps.LatLng(this.anyMapData[i].latitude,this.anyMapData[i].longitude),
+                    map: this.Map,
+                    icon: atherpin
+                });
+                this.anyMapDatas.push(map)
+
+                var range = new this.google.maps.Circle({
+                    center: new this.google.maps.LatLng(this.anyMapData[i].latitude,this.anyMapData[i].longitude),
+                    map: this.Map,
+                    radius: Number(this.anyMapData[i].area),
+                    strokeColor: "#eaf07900",
+                    fillColor: "#A58888",
+                });
+
+                this.anyMapDatasrange.push(range)
+
+                var pop = new this.google.maps.InfoWindow({
+                    content:  this.anyMapData[i].start_time.slice(0,-3)+" ~ "+this.anyMapData[i].end_time.slice(0,-3),
+                    disableAutoPan: true
+                });
+                pop.open(this.Map, this.anyMapDatas[i]); // 吹き出しの表示
+            }
+
         },
 
         //範囲選択値の更新
@@ -593,9 +632,8 @@ export default {
         async getAnyPins(){
             await axios.get("/api/reserve_page").then((response) => {
                 this.anyMapData=response.data;
-                console.log(response.data);
             });
-            for (let i = 0; i < this.anyMapData.length; i++) {
+           for (let i = 0; i < this.anyMapData.length; i++) {
                 var map =  new this.google.maps.Marker({
                     position: new this.google.maps.LatLng(this.anyMapData[i].latitude,this.anyMapData[i].longitude),
                     map: this.Map,
@@ -603,7 +641,7 @@ export default {
                 });
                 this.anyMapDatas.push(map)
 
-                new this.google.maps.Circle({
+                var range = new this.google.maps.Circle({
                 center: new this.google.maps.LatLng(this.anyMapData[i].latitude,this.anyMapData[i].longitude),
                 map: this.Map,
                 radius: Number(this.anyMapData[i].area),
@@ -611,8 +649,11 @@ export default {
                 fillColor: "#A58888",
 
                 });
+
+                this.anyMapDatasrange.push(range)
                 var pop = new this.google.maps.InfoWindow({
-                    content: '18:00~20:00'
+                    content:  this.anyMapData[i].start_time.slice(0,-3)+" ~ "+this.anyMapData[i].end_time.slice(0,-3),
+                    disableAutoPan: true
                 });
                 pop.open(this.Map, this.anyMapDatas[i]); // 吹き出しの表示
             }

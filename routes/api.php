@@ -20,7 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //予約処理のroute
 Route::get('/reserve_page', 'ReserveController@reserve_page');
 Route::get('/reserve', 'ReserveController@reserve');
-Route::get('/reserve_date', 'ReserveController@reserve_date');
+Route::post('/reserve_date', 'ReserveController@reserve_date');
 //クレカのroute
 Route::get('/pay_info', 'PaymentController@pay_info');
 Route::get('/pay_regist', 'PaymentController@pay_regist');
