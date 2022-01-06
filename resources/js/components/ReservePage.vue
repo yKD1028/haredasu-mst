@@ -188,6 +188,7 @@
 import GoogleMapsApiLoader from "google-maps-api-loader";
 import Vue from "vue";
 import mypin from "../../../public/assets/mypin.png"
+import amagumo from "../../../public/images/amagumo.png"
 import VCalendar from "v-calendar";
 import axios from "axios";
 import { compareAsc, format } from "date-fns";
@@ -397,7 +398,17 @@ export default {
 
                 })
             });
-            this.localStorage();
+
+            var groundOverlay = new google.maps.GroundOverlay(
+                amagumo,
+                new google.maps.LatLngBounds(
+                    new google.maps.LatLng( 35.685577, 139.694858 ) ,
+                    new google.maps.LatLng( 35.694838, 139.707784 )
+                ) , {
+                    map: this.Map,
+                    opacity:0.8
+                }
+            )
         },
 
         //Mapの住所名取得
