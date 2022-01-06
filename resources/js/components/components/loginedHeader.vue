@@ -6,7 +6,7 @@
             </h1>
             <nav class="pc-nav">
                 <ul>
-                    <li class="header-register"><a href="/mail_auth">予約</a></li>
+                    <li class="header-yoyaku"><a href="/mail_auth">予約</a></li>
                     <li class="header-usericon"><a href="/login"><img :src="'/images/usericon.svg'" alt="usericon" class="usericon"></a></li>
                 </ul>
             </nav>

@@ -1,8 +1,8 @@
 <template>
     <div class="home_wrap">
         <div class="home_wrap">
-            <!--<Header></Header>-->
-            <LoginedHeader></LoginedHeader>
+            <Header></Header>
+            <!--<LoginedHeader></LoginedHeader>-->
             <Mainvisual></Mainvisual>
             <Situation></Situation>
             <Howto></Howto>
