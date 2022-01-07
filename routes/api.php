@@ -18,7 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
   return $request->user();
 });
 //auth
-Auth::routes();
+// Auth::routes();
 //予約処理のroute
 Route::get('/reserve_page', 'ReserveController@reserve_page');
 Route::post('/reserve', 'ReserveController@reserve');
