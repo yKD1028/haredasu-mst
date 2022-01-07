@@ -1,7 +1,7 @@
 <template>
-    <div class="form" :class="formChange">
+    <div class="form" :class="formChange" :value="value">
         <label for="password">{{ form_label }}</label>
-        <input type="text" :name="name" id="password" :placeholder="placeholder" v-model="password" v-on:focus="onFocus" v-on:blur="onBlur">
+        <input type="text" :name="name" :placeholder="placeholder" id="password" v-model="password" v-on:focus="onFocus" v-on:blur="onBlur">
         <div class="err_msg">{{ errors.password }}</div>
     </div>
 </template>
@@ -9,18 +9,31 @@
 <script>
 export default {
     props: {
-        form_label: { type: String, required: true },
-        name: { type: String, required: true },
-        placeholder: { type: String, required: true },
+        form_label: {
+            type: String,
+            default: 'パスワード',
+        },
+        name: {
+            type: String,
+            required: true,
+        },
+        placeholder: {
+            type: String,
+            default: 'パスワード',
+        },
+        value: {
+            type: String,
+        }
     },
     data () {
         return {
-        password: '',
-        formChange: '',
-        errors: {}
+            password: '',
+            formChange: '',
+            errors: {},
         }
     },
-    computed: {
+    mounted() {
+        this.password = this.value;
     },
     methods: {
         colorChange: function (color){
@@ -30,11 +43,14 @@ export default {
             if(this.errors.password === undefined){
                 this.colorChange('form_focus');
             }
+            this.$emit("err", false);
         },
         onBlur: function(){
             var pattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,20}$/;
+            var err = true;
             if(this.password.match(pattern)){
                 this.colorChange('');
+                var err = false;
             } else if(this.errors.password){
                 this.colorChange('form_err');
             }else if(!this.password){
@@ -44,6 +60,7 @@ export default {
                 this.$set(this.errors, 'password', 'パスワードは8字以上、20字以内で入力してください。');
                 this.colorChange('form_err');
             }
+            this.$emit("err", err);
         },
     },
     watch: {
@@ -67,6 +84,8 @@ export default {
             }else {
                 this.colorChange('form_focus');
             }
+            this.$emit("err", err);
+            this.$emit("input", password);
         },
     }
 }
