@@ -25,61 +25,60 @@ export default {
       nameKana: "",
       formChange: "",
       errors: {},
+      err: Boolean,
     };
   },
   watch: {
     nameKana(nameKana) {
-      var pattern = /^[\u30A1-\u30F6\u30FB-\u30FC]+$/;
-      var err = true;
-      if (!nameKana) {
-        this.$set(this.errors, "nameKana", "フリガナを入力してください。");
-      } else if (!nameKana.match(pattern)) {
-        this.$set(
-          this.errors,
-          "nameKana",
-          "フリガナは全角カタカナで入力してください。"
-        );
-      } else if (nameKana.length > 50) {
-        this.$set(this.errors, "nameKana", "フリガナが長すぎます。");
-      } else {
-        this.$delete(this.errors, "nameKana");
-        err = false;
-      }
-
-      if (err) {
+      this.errCheck(nameKana);
+      this.$emit("err", this.err);
+      this.$emit("input", nameKana);
+      if (this.err) {
         this.colorChange("form_err");
       } else {
         this.colorChange("form_focus");
       }
-      this.$emit("err", err);
-      this.$emit("input", nameKana);
     },
   },
   mounted() {
     this.nameKana = this.value;
   },
   methods: {
+    errCheck: function (nameKana) {
+      var pattern = /^[\u30A1-\u30F6\u30FB-\u30FC]+$/;
+      if (!nameKana) {
+        this.$set(this.errors, "nameKana", "フリガナを入力してください。");
+        this.err = true;
+      } else if (!nameKana.match(pattern)) {
+        this.$set(
+          this.errors,
+          "nameKana",
+          "フリガナは全角カタカナで入力してください。"
+        );
+        this.err = true;
+      } else if (nameKana.length > 50) {
+        this.$set(this.errors, "nameKana", "フリガナが長すぎます。");
+        this.err = true;
+      } else {
+        this.$delete(this.errors, "nameKana");
+        this.err = false;
+      }
+    },
     colorChange: function (color) {
       this.formChange = color;
     },
     onFocus: function () {
-      if (this.errors.nameKana === undefined) {
-        this.colorChange("form_focus");
-      }
-      this.$emit("err", false);
+      this.$delete(this.errors, "nameKana");
+      this.colorChange("form_focus");
     },
     onBlur: function () {
-        var err = true;
-      if (this.errors.nameKana) {
+      this.errCheck(this.nameKana);
+      this.$emit("err", this.err);
+      if (this.err) {
         this.colorChange("form_err");
-      } else if (!this.nameKana) {
-        this.$set(this.errors, "nameKana", "フリガナを入力してください。");
-        this.colorChange("form_err");
-      } else if (this.errors.nameKana === undefined) {
+      } else {
         this.colorChange("");
-        err = false;
       }
-      this.$emit("err", err);
     },
   },
 };
