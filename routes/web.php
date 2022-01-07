@@ -19,6 +19,9 @@ use Illuminate\Support\Facades\Auth;
 //   return view('welcome');
 // });
 
+Route::get('/{any}', function () {
+  return view('welcome');
+})->where('any', '.*');
 
 Auth::routes();
 // middlewareで遷移先の制限

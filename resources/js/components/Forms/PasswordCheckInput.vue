@@ -1,13 +1,13 @@
 <template>
     <div>
         <div class="form" :class="formChange1">
-            <label for="passCheck1">パスワード</label>
-            <input type="text" name="" id="passCheck1" placeholder="パスワード" v-model="passCheck1" v-on:focus="onFocus1" v-on:blur="onBlur1">
+            <label for="passCheck1">{{ form_label1 }}</label>
+            <input type="text" :name="name1" id="passCheck1" :placeholder="placeholder1" v-model="passCheck1" v-on:focus="onFocus1" v-on:blur="onBlur1">
             <div class="err_msg">{{ errors.passCheck1 }}</div>
         </div>
         <div class="form" :class="formChange2">
-            <label for="passCheck2">パスワード確認</label>
-            <input type="text" name="" id="passCheck2" placeholder="パスワード確認" v-model="passCheck2" v-on:focus="onFocus2" v-on:blur="onBlur2">
+            <label for="passCheck2">{{ form_label2 }}</label>
+            <input type="text" :name="name2" id="passCheck2" :placeholder="placeholder2" v-model="passCheck2" v-on:focus="onFocus2" v-on:blur="onBlur2">
             <div class="err_msg">{{ errors.passCheck2 }}</div>
         </div>
     </div>
@@ -16,6 +16,12 @@
 <script>
 export default {
     props: {
+        name1: { type: String, required: true },
+        placeholder1: { type: String, required: true },
+        form_label1: { type: String, required: true },
+        name2: { type: String, required: true },
+        placeholder2: { type: String, required: true },
+        form_label2: { type: String, required: true },
     },
     data () {
         return {
