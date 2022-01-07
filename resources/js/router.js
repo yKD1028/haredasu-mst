@@ -12,6 +12,7 @@ import Form_sample from './components/form_sample.vue'
 import test_page from './components/pages/test.vue'
 import Reserve from './components/ReservePage.vue'
 import Confirmation from "./components/ConfirmationPage.vue"
+import CompletePage from "./components/CompletePage.vue"
 
 export default new Router({
   mode: 'history',
@@ -83,5 +84,10 @@ export default new Router({
         name: 'confirmation',
         component: Confirmation
     },
+    {
+        path: "/complete",
+        name: "complete",
+        component: CompletePage
+    }
   ]
 });

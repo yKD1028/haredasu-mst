@@ -51,18 +51,18 @@
                         <p>基本料金</p>
                         <p><span class="font_size">300,000</span>円</p>
                     </div>
-                    <div class="confirmationPage_main_others_price_contents">
+                    <!-- <div class="confirmationPage_main_others_price_contents">
                         <p>範囲料金</p>
                         <p><span class="font_size">{{}}</span>円</p>
-                    </div>
+                    </div> -->
                     <div class="confirmationPage_main_others_price_contents">
-                        <p>時間料金</p>
-                        <p><span class="font_size">{{}}</span>時間</p>
+                        <p>時間</p>
+                        <p><span class="font_size">{{totalTime}}</span></p>
                     </div>
                     <div class="confirmationPage_main_others_price_contents_border"></div>
                     <div class="confirmationPage_main_others_price_contents">
                         <p class="confirmationPage_main_others_price_contents_total">お支払い金額</p>
-                        <p><span class="font_size_totla">{{}}</span>円</p>
+                        <p><span class="font_size_totla">{{this.mapData.totalFee}}</span>円</p>
                     </div>
                 </div>
                 <div class="confirmationPage_main_others_payment">
@@ -106,15 +106,18 @@ export default {
                 draggable: false,
                 clickable: false,
 
+
             },
             cardNumber:"**** **** **** 0000",
             btnActive:false,
             mapData:{
                 locationName:JSON.parse(localStorage.getItem('map')).locationName,
                 time:JSON.parse(localStorage.getItem('map')).time,
-                range:JSON.parse(localStorage.getItem('map')).range+"m"
+                range:JSON.parse(localStorage.getItem('map')).range+"m",
+                totalFee:JSON.parse(localStorage.getItem('map')).totalFee,
 
-            }
+            },
+            totalTime:"",
         }
     },
     async mounted() {
@@ -146,9 +149,10 @@ export default {
                 fillColor: "#A58888",
             });
             document.getElementById("next").disabled = true;
-            document.getElementById("next").addEventListener("click",()=>{
-                console.log(document.getElementById("checkbox").checked);
-
+            document.getElementById("next").addEventListener("click",async()=>{
+                await console.log(document.getElementById("checkbox").checked);
+                await console.log("aa");
+                window.location = "/complete";
             })
             document.getElementById("checkbox").addEventListener("click",()=>{
                 if(document.getElementById("checkbox").checked){
@@ -157,8 +161,24 @@ export default {
                     this. btnActive=false;
                 }
             })
+            console.log(localStorage.getItem('map').totalTime);
 
-        }
+            for (let i= 0; i <= Number(JSON.parse(localStorage.getItem('map')).totalTime); i+=30) {
+                if(i/60 < 10){
+                    var hour = "0"+Math.floor(i/60);
+                }else{
+                    var hour = Math.floor(i/60);
+                }
+                if(i%60 == 0){
+                    var minit = "0"+i%60;
+                }else{
+                    var minit = i%60;
+                }
+            }
+            this.totalTime=hour+":"+minit;
+
+
+        },
     }
 }
 </script>
@@ -241,7 +261,7 @@ export default {
 
                 p:nth-child(2) {
                     margin-left:32px;
-
+                    font-size: 1rem;
                 }
             }
             .confirmationPage_main_information_contents_border{
@@ -269,6 +289,7 @@ export default {
                         user-select: none;
 
                         p{
+                            margin-top:3px ;
                             font-size: 0.9rem;
                         }
 
@@ -292,8 +313,8 @@ export default {
                     .checkmark:after {
                         content: "";
                         position: absolute;
-                        left: 5px;
-                        top: 1px;
+                        left: 6px;
+                        top: 3px;
                         width: 6px;
                         height: 10px;
                         border: solid #FFF;
@@ -375,19 +396,20 @@ export default {
             }
             .confirmationPage_main_others_button{
                 a{
+                    pointer-events: none;
                     div{
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    border: none;
-                    border-radius: 8px;
-                    width: 100%;
-                    height: 64px;
-                    color: #fff;
-                    font-size: 1.1rem;
-                    font-weight: 600;
-                }
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border: none;
+                        border-radius: 8px;
+                        width: 100%;
+                        height: 64px;
+                        color: #fff;
+                        font-size: 1.1rem;
+                        font-weight: 600;
 
+                    }
                 }
 
             }
@@ -398,7 +420,7 @@ export default {
 }
 .btnActive{
     background-color: #FAAE2B;
-    width: 10%;
+    pointer-events: auto;
 }
 
 </style>
