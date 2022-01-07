@@ -12,6 +12,13 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import router from './router';
 
+
+
+Vue.component('header-component',
+require('./components/components/loginedHeader.vue').default);
+/* loginedHeader.vue */
+
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -31,7 +38,6 @@ import router from './router';
  */
  window.Vue = Vue;
  Vue.use(VueRouter);
-
 const app = new Vue({
     el: '#app',
     router

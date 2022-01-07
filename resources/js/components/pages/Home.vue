@@ -1,8 +1,6 @@
 <template>
     <div class="home_wrap">
         <div class="home_wrap">
-            <Header></Header>
-            <!--<LoginedHeader></LoginedHeader>-->
             <Mainvisual></Mainvisual>
             <Situation></Situation>
             <Howto></Howto>
@@ -15,23 +13,19 @@
 
 <script>
     import Mainvisual from '../components/home_main.vue'
-    import Header from "../components/Header.vue"
     import Situation from '../components/situation.vue'
     import Question from '../components/home_question.vue'
     import Howto from '../components/home_howto.vue'
     import Business from '../components/home_business.vue'
     import Sonohi from '../components/home_sonohi.vue'
-    import LoginedHeader from '../components/loginedHeader.vue'
     export default{
         components:{
-            Header,
             Situation,
             Question,
             Howto,
             Business,
             Mainvisual,
             Sonohi,
-            LoginedHeader,
         },
         created() {
         //window変更を検知
