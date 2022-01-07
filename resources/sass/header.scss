@@ -2,6 +2,7 @@
     z-index: 99;
     header{
         position: fixed;
+        z-index: 99;
         top: 0;
         width: 100%;
         height: 80px;
@@ -14,7 +15,7 @@
         color: $color-black;
     }
     img{
-        width: 20vh;
+        width: 150px;
     }
      nav{
         margin: 0 0 0 auto;
@@ -32,11 +33,13 @@
         text-align: center;
         border-radius: 5px;
         background-color: $color-orange;
-        padding: 1.1em 1.3em;
+        padding: 15px 0px;
         font-weight: 700;
         letter-spacing: 0.01em;
+        height: 50px;
         a{
             color: $color-white;
+            padding: 1.5em 1.3em;
         }
     }
     .header-login{
@@ -44,6 +47,30 @@
         padding: 1.1em 1.3em;
         letter-spacing: 0.01em;
         font-weight: 700;
+        height: 50px;
+        a{
+            padding: 1.1em 1.3em;
+        }
+    }
+    .header-yoyaku{
+        text-align: center;
+        border-radius: 5px;
+        background-color: $color-orange;
+        padding: 15px 0px;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+        height: 50px;
+        margin-top: 15px;
+        a{
+            color: $color-white;
+            padding: 1.5em 1.3em;
+        }
+    }
+    .header-usericon{
+        img{
+            width: 80px;
+            margin-right: 15px;
+        }
     }
     margin-bottom: 80px;
 }

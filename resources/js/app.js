@@ -14,6 +14,13 @@ import router from './router';
 import Vuetify from 'vuetify';
 import VueTheMask from 'vue-the-mask';
 
+
+
+Vue.component('header-component',
+require('./components/components/loginedHeader.vue').default);
+/* loginedHeader.vue */
+
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
