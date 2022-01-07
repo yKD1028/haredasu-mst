@@ -200,7 +200,6 @@ export default {
     align-items: center;
     flex-direction: column;
     height: auto;
-    padding: 32px 0;
     width: auto;
 
     .confirmationPage_main_location{

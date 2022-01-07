@@ -87,7 +87,7 @@
                             </div>
                         </div>
                         <p>〜</p>
-                        <div>
+
                             <div class="time_ipselect_wrap">
                                 <input
                                     type="text"
@@ -114,7 +114,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+
                     </div>
 
                     <div class="reservePage_main_input_form_radius">
@@ -296,7 +296,6 @@ export default {
                 this.oldMapname=localStorage.locationName;
 
                 this.totalFee.latlng = localStorage.latlng;
-                console.log(localStorage)
 
                 document.getElementById("starttime").value=localStorage.startTime
                 document.getElementById("endtime").value=localStorage.endTime
@@ -382,6 +381,7 @@ export default {
                     map: this.Map,
                     icon: mypin,
                 });
+                this.Map.panTo(new this.google.maps.LatLng(data));
                 this.getMap(e);
                 this.localStorage();
             });
