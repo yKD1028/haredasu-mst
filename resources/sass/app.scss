@@ -17,6 +17,15 @@ $color-orange: #FAAE2B;
 //$color-gray: #767676;
 $color-gray : #00473E;
 
+$color-orange : #FAAE2B;
+$color-orange2:#FFAE73;
+$color-gray : #00473E;
+$color-gray2 : #F2F7F5;
+$color-blue : #84A6F4;
+$color-blue2:#AFC7FF;
+$color-red : #FF1A1A;
+$color-black : #4D4D4D;
+$color-black1 : #252525;
 $color-gray2 : #FAFAFA;
 //$color-gray2: F2F7F5;
 
@@ -42,5 +51,9 @@ body {
 @import './home.scss';
 @import './situation.scss';
 @import './question.scss';
+@import './howto.scss';
+@import './home_main.scss';
+@import './home_business.scss';
+@import './home_sonohi.scss';
 @import './button_sample.scss';
 @import './user_page.scss'
