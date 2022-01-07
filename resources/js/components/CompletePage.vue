@@ -27,23 +27,46 @@
                 </div>
                 <div class="completePage_main_contents_contents_wrap">
                     <p>場所</p>
-                    <p>{{}}</p>
+                    <p>{{locationName}}</p>
                 </div>
                 <div class="completePage_main_contents_contents_wrap">
                     <p>日時</p>
-                    <p>{{}}</p>
+                    <p>{{time}}</p>
                 </div>
                 <div class="completePage_main_contents_contents_wrap">
                     <p>範囲</p>
-                    <p>{{}}</p>
+                    <p>{{range}}m</p>
                 </div>
             </div>
             <div>
-                <button>トップに戻る</button>
+                <a href="#">
+                    <div id="next" calss="nextbtn">
+                        <span>トップに戻る</span>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    data(){
+        return{
+            locationName:"",
+            time:"",
+            range:"",
+        }
+    },
+    async mounted() {
+        var data = JSON.parse(localStorage.getItem('map'));
+        this.locationName = data.locationName
+        this.time = data.time
+        this.range = data.range
+        localStorage.removeItem("map")
+    },
+}
+</script>
 
 <style lang="scss">
 .completePage_main{
@@ -128,8 +151,10 @@
             .completePage_main_contents_contents_wrap{
                 padding: 8px 0;
                 display: flex;
+                align-items: center;
 
                 p:nth-child(1) {
+                    min-width: 45px;
 
                 }
                 p:nth-child(2) {
@@ -139,16 +164,22 @@
             }
         }
     }
-    button{
-         background-color: #FAAE2B;
-                    border: none;
-                    border-radius: 8px;
-                    width: 300px;
-                    height: 64px;
-                    color: #fff;
-                    font-size: 1.05rem;
-                    font-weight: 500;
-                }
+    a{
+        pointer-events: none;
+        div{
+            background-color:#FAAE2B ;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            border-radius: 8px;
+            width: 400px;
+            height: 64px;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+    }
 
 
 }
