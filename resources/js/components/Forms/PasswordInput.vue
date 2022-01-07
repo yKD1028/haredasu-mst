@@ -35,6 +35,39 @@ export default {
       errors: {},
     };
   },
+  watch: {
+    password(password) {
+      var pattern1 = /^[A-Za-z\d]*$/;
+      var pattern2 = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{2,}$/;
+      var err = true;
+      if (!password) {
+        this.$set(this.errors, "password", "パスワードを入力してください。");
+      } else if (!password.match(pattern1)) {
+        this.$set(
+          this.errors,
+          "password",
+          "パスワードには半角英数字しか利用できません。"
+        );
+      } else if (!password.match(pattern2)) {
+        this.$set(
+          this.errors,
+          "password",
+          "パスワードは半角英字と、数字の両方を含めてください。"
+        );
+      } else {
+        this.$delete(this.errors, "password");
+        err = false;
+      }
+
+      if (err) {
+        this.colorChange("form_err");
+      } else {
+        this.colorChange("form_focus");
+      }
+      this.$emit("err", err);
+      this.$emit("input", password);
+    },
+  },
   mounted() {
     this.password = this.value;
   },
@@ -68,39 +101,6 @@ export default {
         this.colorChange("form_err");
       }
       this.$emit("err", err);
-    },
-  },
-  watch: {
-    password(password) {
-      var pattern1 = /^[A-Za-z\d]*$/;
-      var pattern2 = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{2,}$/;
-      var err = true;
-      if (!password) {
-        this.$set(this.errors, "password", "パスワードを入力してください。");
-      } else if (!password.match(pattern1)) {
-        this.$set(
-          this.errors,
-          "password",
-          "パスワードには半角英数字しか利用できません。"
-        );
-      } else if (!password.match(pattern2)) {
-        this.$set(
-          this.errors,
-          "password",
-          "パスワードは半角英字と、数字の両方を含めてください。"
-        );
-      } else {
-        this.$delete(this.errors, "password");
-        err = false;
-      }
-
-      if (err) {
-        this.colorChange("form_err");
-      } else {
-        this.colorChange("form_focus");
-      }
-      this.$emit("err", err);
-      this.$emit("input", password);
     },
   },
 };

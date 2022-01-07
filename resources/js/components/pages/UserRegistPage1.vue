@@ -41,25 +41,6 @@ export default {
       isDisabled: true,
     };
   },
-  methods: {
-    submit() {
-        //url 書き換えてコントローラー指定
-      var url = "/login";
-      var params = {
-        email: this.email,
-      };
-      axios
-        .post(url, params).then((response) => {
-            //処理
-        });
-        // .then(function (response) {
-        //   //ログイン成功時
-        // })
-        // .catch(function (error) {
-        //   //ログイン失敗時
-        // });
-    },
-  },
   watch: {
     emailErr(emailErr) {
       if (!emailErr) {
@@ -67,6 +48,24 @@ export default {
       } else {
         this.isDisabled = true;
       }
+    },
+  },
+  methods: {
+    submit() {
+      //url 書き換えてコントローラー指定
+      var url = "/login";
+      var params = {
+        email: this.email,
+      };
+      axios.post(url, params).then((response) => {
+        //処理
+      });
+      // .then(function (response) {
+      //   //ログイン成功時
+      // })
+      // .catch(function (error) {
+      //   //ログイン失敗時
+      // });
     },
   },
 };

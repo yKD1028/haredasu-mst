@@ -7,22 +7,34 @@
           快適な晴れ体験のために<br />あなたのことを教えてください
         </p>
       </div>
-      <div class="form-block"></div>
-      <Name></Name>
-      <NameKana></NameKana>
-      <Tel></Tel>
-      <PassCheck
-        form_label1="パスワード"
-        name1="pass"
-        placeholder1="パスワード"
-        form_label2="確認用パスワード"
-        name2="pass_check"
-        placeholder2="確認用パスワード"
-      ></PassCheck>
-      <Zip></Zip>
-      <Address></Address>
-      <SubmitButton buttonName="登録"></SubmitButton>
-      <!-- @click="click" -->
+      <div class="form-block">
+        <Name
+          :value="name"
+          @input="name = $event"
+          @err="nameErr = $event"
+        ></Name>
+        <NameKana
+          :value="nameKana"
+          @input="nameKana = $event"
+          @err="nameKanaErr = $event"
+        ></NameKana>
+        <Tel></Tel>
+        <PassCheck
+          form_label1="パスワード"
+          name1="pass"
+          placeholder1="パスワード"
+          form_label2="確認用パスワード"
+          name2="pass_check"
+          placeholder2="確認用パスワード"
+        ></PassCheck>
+        <Zip></Zip>
+        <Address></Address>
+        <SubmitButton
+          :isDisabled="isDisabled"
+          @clickBtn="submit()"
+          buttonName="登録"
+        ></SubmitButton>
+      </div>
     </div>
   </div>
 </template>
@@ -46,20 +58,42 @@ export default {
   },
   data() {
     return {
-      searchText: "",
+      name: "",
+      nameErr: true,
+      nameKana: "",
+      nameKanaErr: true,
+      tel: "",
+      telErr: true,
+      password: "",
+      passErr: true,
+      passCheck: "",
+      passCheckErr: true,
+      zip: "",
+      zipErr: true,
+      address: "",
+      addressErr: true,
+      isDisabled: true,
     };
+  },
+  watch: {
+    nameErr(nameErr) {
+      if (!nameErr && !this.nameKanaErr) {
+        this.isDisabled = false;
+      } else {
+        this.isDisabled = true;
+      }
+    },
+    nameKanaErr(nameKanaErr){
+        if (!nameKanaErr && !this.nameErr) {
+        this.isDisabled = false;
+      } else {
+        this.isDisabled = true;
+      }
+    }
   },
   methods: {
     // click: function() {
     // }
-  },
-  computed: {
-
-  },
-  watch: {
-    //   searchText(searchText){
-    //       console.log(this.searchText);
-    //   }
   },
 };
 </script>
