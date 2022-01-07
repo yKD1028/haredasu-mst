@@ -13,18 +13,27 @@
         "axios": "^0.24.0",
         "bootstrap": "^4.0.0",
         "cross-env": "^7.0",
+        "deepmerge": "^4.2.2",
         "jquery": "^3.2",
         "laravel-mix": "^6.0.39",
         "lodash": "^4.17.19",
         "popper.js": "^1.12",
-        "resolve-url-loader": "^4.0.0",
-        "sass": "^1.20.1",
-        "sass-loader": "^8.0.0",
+        "resolve-url-loader": "^2.3.2",
+        "sass": "~1.32",
+        "sass-loader": "^8.0.2",
         "vue": "^2.5.17",
-        "vue-loader": "^15.9.8",
+        "vue-loader": "^17.0.0",
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "vue-router": "^3.5.3"
+        "date-fns": "^2.27.0",
+        "google-maps-api-loader": "^1.1.1",
+        "gsap": "^3.8.0",
+        "moment": "^2.29.1",
+        "v-calendar": "^2.3.4",
+        "vue-click-outside": "^1.1.0",
+        "vue-router": "^3.5.3",
+        "vue-the-mask": "^0.11.1",
+        "vuetify": "^2.6.1"
     }
 }

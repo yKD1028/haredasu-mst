@@ -1,44 +1,102 @@
-.form_pc{
-    border-radius: 11px;
-    border: 4px solid $color-gray;
-    box-sizing: border-box;
-    width: 400px;
-    height: 64px;
-    margin-bottom: 50px;
-    outline: none;
-    padding: 10px 20px;
-}
-.form_title{
-    display: inline-block;
+.form {
+    background-color: blanchedalmond;
     position: relative;
-    padding: 0 4px;
-    left: -384px;
-    top: -55px;
-    background-color: $color-white;
-    outline: none;
+    margin: 0 0 32px 0; /*topの10pxは後で消す。bottomのpxで次のformとの間隔を調整*/
+    // padding-bottom: 20px;
     color: $color-gray;
-}
-.form_error{
-    color: $color-red;
-    font-size: 14px;
-    line-height: 20px;
-    position: relative;
-    right: 285px;
-    bottom: 67px;
-}
-.form_pc:focus{
-    outline: none;
-    border: 4px solid $color-orange;
-    color: $color-orange;
-    .form_title{
-        color: $color-orange;
+
+    font-family: 'Noto Sans JP';
+    font-style: normal;
+
+    label {
+        position: absolute;
+        top: -10px; left: 16px;
+        padding: 0 4px;
+        font-size: 14px;
+        line-height: 20px;
+        background: linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, #fff 50%, #fff 100%);
+    }
+
+    input {
+        background-color: #fff;
+        box-sizing: border-box;
+        border: solid 4px $color-gray;
+        border-radius: 11px;
+        outline: none;
+        // width: 200px;
+        height: 64px;
+        font-size: 18px;
+        line-height: 26px;
+        padding-left: 16px;
+    }
+    input::-webkit-inner-spin-button,
+    input::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        -moz-appearance: textfield;
+    }
+
+    .err_msg {
+        position: absolute;
+        top: 64px;
+        font-size: 14px;
+        line-height: 20px;
+        color: $color-red;
     }
 }
 
-.form_pc:focus::placeholder{
-    color:transparent;
+.form_focus {
+    label {
+        color: $color-orange;
+    }
+    input {
+        border: solid 4px $color-orange;
+    }
 }
 
-.form_pc:valid{
-    color: $color-gray;
+.form_err {
+    label {
+        color: $color-red;
+    }
+    input {
+        border: solid 4px $color-red;
+    }
 }
+
+// .form_pc{
+//     border-radius: 11px;
+//     border: 4px solid $color-gray;
+//     box-sizing: border-box;
+//     width: 400px;
+//     height: 64px;
+//     margin-bottom: 50px;
+//     outline: none;
+//     padding: 10px 20px;
+// }
+// .form_title{
+//     display: inline-block;
+//     position: relative;
+//     padding: 0 4px;
+//     left: -384px;
+//     top: -55px;
+//     background-color: $color-white;
+//     outline: none;
+//     color: $color-gray;
+// }
+// .form_error{
+//     color: $color-red;
+//     font-size: 14px;
+//     line-height: 20px;
+//     position: relative;
+//     right: 285px;
+//     bottom: 67px;
+// }
+// }
+
+// .form_pc:focus::placeholder{
+//     color:transparent;
+// }
+
+// .form_pc:valid{
+//     color: $color-gray;
+// }

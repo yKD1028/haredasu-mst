@@ -5,7 +5,7 @@
         <p>アカウントをお持ちですか？</p>
         <p>ログインして晴れを予約しましょう！</p>
         <FormEmail placeholder="haredas@gmail.com" name="email" form_title="メールアドレス"></FormEmail>
-        <FormPass placeholder="password" name="password" form_title="パスワード"></FormPass>
+        <FormPass placeholder="パスワード" name="password" form_title="パスワード"></FormPass>
         <div class="remenber_check">
             <input type="checkbox" id="remenber" name="remenber" v-model="formCheck">
             <label for="remenber">ログイン状態を保持する</label>
