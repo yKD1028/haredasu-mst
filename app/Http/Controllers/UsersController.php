@@ -73,6 +73,7 @@ class UsersController extends Controller
   public function hon_regist(Request $request)
   {
     $email = $request->email;
-    return view('test.hon_regist', ['email' => $email]);
+    // return view('test.hon_regist', ['email' => $email]);
+    return redirect('/user_page')->with('email', $email);
   }
 }

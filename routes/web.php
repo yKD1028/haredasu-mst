@@ -48,4 +48,4 @@ Route::get('/{any}', function () {
 // });
 Route::get('/reserve_page', 'ReserveController@reserve_page');
 Route::post('/api', 'GooglemapController@index');
-Route::get('/hon_regist', 'UsersController@hon_regist')->name('hon_regist');
+Route::get('/user_resist2', 'UsersController@hon_regist')->name('hon_regist');

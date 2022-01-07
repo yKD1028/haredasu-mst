@@ -11,13 +11,7 @@
 <body>
   <p>テスト送信</p>
   <p>{{$email}}</p>
-  <form action="{{url('/hon_regist')}}" method="POST" target="_blank">
-    @csrf
-    <input type="text" name="email" value="{{$email}}">
-    <button type="submit">本登録</button>
-  </form>
-  {{url('/hon_regist?email='.$email)}}
-  <a href="{{url('/hon_regist?email='.$email)}}">ここを押して</a>
+  <a href="{{url('/user_resist2?email='.$email)}}">ここを押して</a>
 </body>
 
 </html>

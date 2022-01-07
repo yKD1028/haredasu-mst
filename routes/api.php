@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
   return $request->user();
 });
+//auth
+Auth::routes();
 //予約処理のroute
 Route::get('/reserve_page', 'ReserveController@reserve_page');
 Route::post('/reserve', 'ReserveController@reserve');
