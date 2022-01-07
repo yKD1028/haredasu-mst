@@ -247,7 +247,6 @@ export default {
             startTimeSum:0,
             endTimeSum:30,
             oldMapname:"",
-
             anyMapData:"",
             anyMapDatas:[],
             anyMapDatasrange:[]
@@ -413,7 +412,7 @@ export default {
                 })
             });
 
-            var groundOverlay = new google.maps.GroundOverlay(
+            new google.maps.GroundOverlay(
                 amagumo,
                 new google.maps.LatLngBounds(
                     new google.maps.LatLng( 35.685577, 139.694858 ) ,
@@ -799,6 +798,7 @@ export default {
             await axios.get("/api/reserve_page").then((response) => {
                 this.anyMapData=response.data;
             });
+
            for (let i = 0; i < this.anyMapData.length; i++) {
                 var map =  new this.google.maps.Marker({
                     position: new this.google.maps.LatLng(this.anyMapData[i].latitude,this.anyMapData[i].longitude),
