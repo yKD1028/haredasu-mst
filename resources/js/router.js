@@ -1,12 +1,10 @@
 import Router from 'vue-router'
 import Home from './components/pages/Home.vue'
 import About from './components/pages/About.vue'
-// import MailAuth from './components/pages/MailAuth.vue'
-import UserResist from './components/pages/UserResistPage.vue'
-import UserResist2 from './components/pages/UserResistPage2.vue'
-// import Regist from './components/pages/Regist.vue'
-// import Login from './components/pages/Login.vue'
-// import ChangePass from './components/pages/ChangePassword.vue'
+import UserRegist1 from './components/pages/UserRegistPage1.vue'
+import UserRegist2 from './components/pages/UserRegistPage2.vue'
+import Login from './components/pages/Login.vue'
+import ChangePass from './components/pages/ChangePassword.vue'
 import UserPage from './components/pages/UserPage/UserPage.vue'
 import Form_sample from './components/form_sample.vue'
 import test_page from './components/pages/test.vue'
@@ -27,43 +25,31 @@ export default new Router({
         name: 'about',
         component: About
     },
-    // {
-    //     path: '/mail_auth',
-    //     name: 'mail_auth',
-    //     component: MailAuth
-    // },
     {
-        path: '/user_resist1',
-        name: '新規登録(サンプル1)',
-        component: UserResist,
+        path: '/login',
+        name: 'login',
+        component: Login,
     },
     {
-      path: '/user_resist2',
+        path: '/change_pass',
+        name: 'changePass',
+        component: ChangePass,
+    },
+    {
+        path: '/user_regist1',
+        name: '新規登録(サンプル1)',
+        component: UserRegist1,
+    },
+    {
+      path: '/user_regist2',
       name: '新規登録(サンプル2)',
-      component: UserResist2,
+      component: UserRegist2,
     },
     {
         path: '/user_page',
         name: 'ユーザーページ',
         component: UserPage,
     },
-
-    // {
-    //     path: '/regist',
-    //     name: '新規登録',
-    //     component: Regist
-    // },
-    // {
-    //     path: '/login',
-    //     name: 'ログイン',
-    //     component: Login
-    // },
-    // {
-    //     path: '/change_pass',
-    //     name: 'パスワード変更',
-    //     component: ChangePass
-    // },
-
     {
         path: '/form_sample',
         name: 'form_sample',

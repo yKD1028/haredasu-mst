@@ -1,14 +1,24 @@
 <template>
-    <div class="form" :class="formChange">
-        <label for="email">メールアドレス</label>
-        <input type="text" name="" id="email" placeholder="haredas@gmail.com" v-model="email" v-on:focus="onFocus" v-on:blur="onBlur">
-        <div class="err_msg">{{ errors.email }}</div>
-    </div>
+  <div class="form" :class="formChange">
+    <label for="email">メールアドレス</label>
+    <input
+      type="text"
+      id="email"
+      placeholder="haredas@gmail.com"
+      v-model="email"
+      v-on:focus="onFocus"
+      v-on:blur="onBlur"
+    />
+    <div class="err_msg">{{ errors.email }}</div>
+  </div>
 </template>
 
 <script>
 export default {
     props: {
+        value: {
+            type: String,
+        },
     },
     data () {
         return {
@@ -19,6 +29,9 @@ export default {
     },
     computed: {
     },
+        mounted() {
+        this.email = this.value;
+    },
     methods: {
         colorChange: function (color){
             this.formChange = color;
@@ -27,11 +40,14 @@ export default {
             if(this.errors.email === undefined){
                 this.colorChange('form_focus');
             }
+            this.$emit("err", false);
         },
         onBlur: function(){
             var pattern = /^[A-Za-z\d_.\-]{1,}@{1}[A-Za-z\d_\-]{1,}\.{1}[A-Za-z\d_.\-]{1,}$/;
+            var err = true;
             if(this.email.match(pattern)){
                 this.colorChange('');
+                var err = false;
             } else if(this.errors.email){
                 this.colorChange('form_err');
             }else if(!this.email) {
@@ -41,6 +57,7 @@ export default {
                 this.$set(this.errors, 'email', 'メールアドレスは「XX@XX.XX」の形式で入力してください。');
                 this.colorChange('form_err');
             }
+            this.$emit("err", err);
         },
     },
     watch: {
@@ -63,6 +80,8 @@ export default {
             }else {
                 this.colorChange('form_focus');
             }
+            this.$emit("err", err);
+            this.$emit("input", email);
         },
     }
 }
