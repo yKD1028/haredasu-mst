@@ -28,7 +28,11 @@
           placeholder2="確認用パスワード"
         ></PassCheck>
         <Zip></Zip>
-        <Address></Address>
+        <Address
+          :value="address"
+          @input="address = $event"
+          @err="addressErr = $event"
+        ></Address>
         <SubmitButton
           :isDisabled="isDisabled"
           @clickBtn="submit()"
@@ -77,21 +81,28 @@ export default {
   },
   watch: {
     nameErr(nameErr) {
-      if (!nameErr && !this.nameKanaErr && !this.telErr) {
+      if (!nameErr && !this.nameKanaErr && !this.telErr && !this.addressErr) {
         this.isDisabled = false;
       } else {
         this.isDisabled = true;
       }
     },
     nameKanaErr(nameKanaErr) {
-      if (!nameKanaErr && !this.nameErr && !this.telErr) {
+      if (!nameKanaErr && !this.nameErr && !this.telErr && !this.addressErr) {
         this.isDisabled = false;
       } else {
         this.isDisabled = true;
       }
     },
     telErr(telErr) {
-      if (!telErr && !this.nameErr && !this.nameKanaErr) {
+      if (!telErr && !this.nameErr && !this.nameKanaErr && !this.addressErr) {
+        this.isDisabled = false;
+      } else {
+        this.isDisabled = true;
+      }
+    },
+    addressErr(addressErr) {
+      if (!addressErr && !this.nameErr && !this.nameKanaErr && !this.telErr) {
         this.isDisabled = false;
       } else {
         this.isDisabled = true;
