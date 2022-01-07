@@ -297,6 +297,7 @@ export default {
                 this.oldMapname=localStorage.locationName;
 
                 this.totalFee.latlng = localStorage.latlng;
+                console.log(localStorage)
 
                 document.getElementById("starttime").value=localStorage.startTime
                 document.getElementById("endtime").value=localStorage.endTime
@@ -306,6 +307,7 @@ export default {
                 this.endTimeSum=Number(localStorage.endTimesum)
                 this.sumval=localStorage.totalFee
                 this.totalFee.latlng=localStorage.latlng
+                this.totalFee.radiusIndex=localStorage.rebgeSum
 
             }else{
 
@@ -346,8 +348,20 @@ export default {
                     }
                     document.getElementById("mapname").value = this.addressName;
                     this.oldMapname = this.addressName;
+                    this.localStorage();
                 });
             }
+
+            const day = format(new Date(), "yyyy-MM-dd");
+            var str = day;
+            var result = day.replace("-", "/");
+            while (result !== str) {
+                str = str.replace("-", "/");
+                result = result.replace("-", "/");
+            }
+            document.getElementById("date").value = result;
+            this.localStorage();
+            this.Calculation();
 
             //Mapがクリックされた時のハンドラ
             this.Map.addListener("click", (e) => {

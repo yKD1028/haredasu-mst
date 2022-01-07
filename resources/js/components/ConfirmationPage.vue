@@ -72,7 +72,7 @@
                 </div>
                 <div class="confirmationPage_main_others_button">
                     <a href="#">
-                        <div id="next" calss="nextbtn" v-bind:class="{ btnActive:btnActive }">
+                        <div id="next" class="nextbtn" v-bind:class="{ btnActive:btnActive ,btnnoActive:btnnoActive}">
                             <span>予約を確定する</span>
                         </div>
                     </a>
@@ -110,6 +110,7 @@ export default {
             },
             cardNumber:"**** **** **** 0000",
             btnActive:false,
+            btnnoActive:true,
             mapData:{
                 locationName:JSON.parse(localStorage.getItem('map')).locationName,
                 time:JSON.parse(localStorage.getItem('map')).time,
@@ -157,8 +158,12 @@ export default {
             document.getElementById("checkbox").addEventListener("click",()=>{
                 if(document.getElementById("checkbox").checked){
                     this. btnActive=true;
+
+                    this.btnnoActive=false;
                 }else{
                     this. btnActive=false;
+
+                    this.btnnoActive=true;
                 }
             })
             console.log(localStorage.getItem('map').totalTime);
@@ -397,7 +402,7 @@ export default {
             .confirmationPage_main_others_button{
                 a{
                     pointer-events: none;
-                    div{
+                    .nextbtn{
                         display: flex;
                         align-items: center;
                         justify-content: center;
@@ -420,7 +425,14 @@ export default {
 }
 .btnActive{
     background-color: #FAAE2B;
+    opacity: 1;
     pointer-events: auto;
+}
+
+.btnnoActive{
+    background-color: #FAAE2B;
+    opacity: 0.3;
+    pointer-events: none;
 }
 
 </style>
