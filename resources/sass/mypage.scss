@@ -1,0 +1,33 @@
+.mypage{
+    font-family: 'Noto Sans JP', sans-serif;
+    margin: 0 auto;
+    background-color: $color-white;
+    // border-radius: 100px;
+    width: 80%;
+    color: $color-black1;
+    background-color: $color-white;
+    .mypage_weather{
+        width: 964px;
+        margin: 0 auto;
+        h2{
+            font-weight: bold;
+            color: $color-gray;
+            font-size: 24px;
+            //文字の横並べ
+            display: inline-block;
+            vertical-align: bottom;
+        }
+        p{
+            color: $color-gray;
+            font-size: 18px;
+             //文字の横並べ
+            display: inline-block;
+            vertical-align: bottom;
+        }
+    }
+    //予約ボタンの中央寄せ
+    .reserve{
+        display: block;
+        margin: 0 auto;
+    }
+}

@@ -1,6 +1,7 @@
 import Router from 'vue-router'
 import Home from './components/pages/Home.vue'
 import About from './components/pages/About.vue'
+import Mypage from "./components/pages/Mypage.vue"
 import UserRegist1 from './components/pages/UserRegistPage1.vue'
 import UserRegist2 from './components/pages/UserRegistPage2.vue'
 import Login from './components/pages/Login.vue'
@@ -25,6 +26,11 @@ export default new Router({
         path: '/about',
         name: 'about',
         component: About
+    },
+    {
+        path: "/mypage",
+        name: "mypage",
+        component: Mypage
     },
     {
         path: '/login',
