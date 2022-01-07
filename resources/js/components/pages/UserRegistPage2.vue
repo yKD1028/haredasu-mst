@@ -18,7 +18,7 @@
           @input="nameKana = $event"
           @err="nameKanaErr = $event"
         ></NameKana>
-        <Tel></Tel>
+        <Tel :value="tel" @input="tel = $event" @err="telErr = $event"></Tel>
         <PassCheck
           form_label1="パスワード"
           name1="pass"
@@ -77,19 +77,26 @@ export default {
   },
   watch: {
     nameErr(nameErr) {
-      if (!nameErr && !this.nameKanaErr) {
+      if (!nameErr && !this.nameKanaErr && !this.telErr) {
         this.isDisabled = false;
       } else {
         this.isDisabled = true;
       }
     },
-    nameKanaErr(nameKanaErr){
-        if (!nameKanaErr && !this.nameErr) {
+    nameKanaErr(nameKanaErr) {
+      if (!nameKanaErr && !this.nameErr && !this.telErr) {
         this.isDisabled = false;
       } else {
         this.isDisabled = true;
       }
-    }
+    },
+    telErr(telErr) {
+      if (!telErr && !this.nameErr && !this.nameKanaErr) {
+        this.isDisabled = false;
+      } else {
+        this.isDisabled = true;
+      }
+    },
   },
   methods: {
     // click: function() {
