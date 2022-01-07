@@ -36,10 +36,6 @@ body {
     font-family: 'Noto Sans JP', sans-serif;
     font-style: normal;
     letter-spacing: 0.01em;
-    height: calc(100vh - 80px);
-}
-#app {
-    height: 100%;
 }
 
 
@@ -49,6 +45,7 @@ body {
 @import './home.scss';
 @import './situation.scss';
 @import './question.scss';
-@import './login.scss';
+@import './pages.scss';
+// @import './login.scss';
 // @import './form_page.scss';
 @import './user_page.scss';

@@ -1,13 +1,9 @@
-.page-wrap {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-}
 .login-wrap {
-    //上下中央表示されない
+    margin: 8% 0;
+}
+.pages-wrap {
     display: flex;
     flex-flow: column;
-    justify-content: center;
     align-items: center;
 
     .gray {
@@ -50,13 +46,6 @@
             line-height: 24px;
             display: flex;
             justify-content: space-between;
-            // input{
-            // }
-            // label{
-            // }
-            // a{
-
-            // }
         }
         .button {
             margin-bottom: 32px;

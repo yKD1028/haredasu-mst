@@ -3,7 +3,6 @@
     <label for="email">メールアドレス</label>
     <input
       type="text"
-      :name="name"
       id="email"
       placeholder="haredas@gmail.com"
       v-model="email"
@@ -17,10 +16,6 @@
 <script>
 export default {
     props: {
-        name: {
-            type: String,
-            required: true,
-        },
         value: {
             type: String,
         },
@@ -32,10 +27,10 @@ export default {
         errors: {}
         }
     },
-    mounted() {
-        this.email = this.value;
-    },
     computed: {
+    },
+        mounted() {
+        this.email = this.value;
     },
     methods: {
         colorChange: function (color){

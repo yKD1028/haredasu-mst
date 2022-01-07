@@ -1,30 +1,73 @@
 <template>
-    <div>
-        <Header></Header>
-        <div class="form-page-wrap">
-            <div class="title">はじめまして！</div>
-            <div class="introduction">メールアドレスで登録して<br>晴れ予約を開始しましょう！</div>
-            <form>
-                <Email></Email>
-                <SubmitButton buttonName="確認メールを送信"></SubmitButton>
-            </form>
-            <div class="link_wrap">
-                <div>または</div>
-                <div><a href="/login">ログイン</a></div>
-            </div>
+  <div class="pages-wrap regist1-wrap">
+    <div class="content-wrap">
+      <div class="title-block">
+        <p class="gray title">はじめまして！</p>
+        <p class="gray introduction">
+          メールアドレスで登録して<br />晴れ予約を開始しましょう！
+        </p>
+      </div>
+      <div class="form-block">
+        <Email
+          :value="email"
+          @input="email = $event"
+          @err="emailErr = $event"
+        />
+        <SubmitButton
+          :isDisabled="isDisabled"
+          @clickBtn="submit()"
+          buttonName="確認メールを送信"
+        ></SubmitButton>
+        <div class="others-block">
+          <p class="black">または</p>
+          <a class="blue" href="/login">ログイン</a>
         </div>
-
+      </div>
     </div>
+  </div>
 </template>
 <script>
-    import Header from "../components/Header.vue"
-    import Email from '../Forms/EmailInput.vue'
-    import SubmitButton from '../SubmitButton.vue'
-    export default{
-        components:{
-            Header,
-            Email,
-            SubmitButton,
-        },
-    }
+import Email from "../Forms/EmailInput.vue";
+import SubmitButton from "../SubmitButton.vue";
+export default {
+  components: {
+    Email,
+    SubmitButton,
+  },
+  data() {
+    return {
+      email: "",
+      emailErr: true,
+      isDisabled: true,
+    };
+  },
+  methods: {
+    submit() {
+        //url 書き換えてコントローラー指定
+      var url = "/login";
+      var params = {
+        email: this.email,
+      };
+      axios
+        .post(url, params).then((response) => {
+            //処理
+        });
+        // .then(function (response) {
+        //   //ログイン成功時
+        // })
+        // .catch(function (error) {
+        //   //ログイン失敗時
+        // });
+    },
+  },
+  watch: {
+    emailErr(emailErr) {
+      if (!emailErr) {
+        this.isDisabled = false;
+      } else {
+        this.isDisabled = true;
+      }
+    },
+  },
+};
 </script>
