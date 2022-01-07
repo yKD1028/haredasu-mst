@@ -27,7 +27,7 @@
           name2="pass_check"
           placeholder2="確認用パスワード"
         ></PassCheck>
-        <Zip></Zip>
+        <Zip :value="zip" @input="zip = $event" @err="zipErr = $event"></Zip>
         <Address
           :value="address"
           @input="address = $event"
@@ -81,28 +81,35 @@ export default {
   },
   watch: {
     nameErr(nameErr) {
-      if (!nameErr && !this.nameKanaErr && !this.telErr && !this.addressErr) {
+      if (!nameErr && !this.nameKanaErr && !this.telErr && !this.addressErr && !this.zipErr) {
         this.isDisabled = false;
       } else {
         this.isDisabled = true;
       }
     },
     nameKanaErr(nameKanaErr) {
-      if (!nameKanaErr && !this.nameErr && !this.telErr && !this.addressErr) {
+      if (!nameKanaErr && !this.nameErr && !this.telErr && !this.addressErr && !this.zipErr) {
         this.isDisabled = false;
       } else {
         this.isDisabled = true;
       }
     },
     telErr(telErr) {
-      if (!telErr && !this.nameErr && !this.nameKanaErr && !this.addressErr) {
+      if (!telErr && !this.nameErr && !this.nameKanaErr && !this.addressErr && !this.zipErr) {
+        this.isDisabled = false;
+      } else {
+        this.isDisabled = true;
+      }
+    },
+    zipErr(zipErr) {
+      if (!zipErr && !this.nameErr && !this.nameKanaErr && !this.telErr && !this.addressErr) {
         this.isDisabled = false;
       } else {
         this.isDisabled = true;
       }
     },
     addressErr(addressErr) {
-      if (!addressErr && !this.nameErr && !this.nameKanaErr && !this.telErr) {
+      if (!addressErr && !this.nameErr && !this.nameKanaErr && !this.telErr && !this.zipErr) {
         this.isDisabled = false;
       } else {
         this.isDisabled = true;
