@@ -15,8 +15,9 @@ import Vuetify from 'vuetify';
 import VueTheMask from 'vue-the-mask';
 
 
-
 Vue.component('header-component',
+require('./components/components/Header.vue').default);
+Vue.component('loginedheader-component',
 require('./components/components/loginedHeader.vue').default);
 /* loginedHeader.vue */
 
