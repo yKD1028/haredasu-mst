@@ -249,7 +249,8 @@ export default {
             oldMapname:"",
             anyMapData:"",
             anyMapDatas:[],
-            anyMapDatasrange:[]
+            anyMapDatasrange:[],
+            amagumoRoop:""
         };
     },
 
@@ -411,17 +412,6 @@ export default {
 
                 })
             });
-
-            new google.maps.GroundOverlay(
-                amagumo,
-                new google.maps.LatLngBounds(
-                    new google.maps.LatLng( 35.685577, 139.694858 ) ,
-                    new google.maps.LatLng( 35.694838, 139.707784 )
-                ) , {
-                    map: this.Map,
-                    opacity:0.8
-                }
-            )
         },
 
         //Mapの住所名取得
@@ -763,6 +753,7 @@ export default {
             this.endTimePicker = endindex;
             this.Calculation();
             this.localStorage();
+            this.moveAmagumo()
         },
 
         updateendTimePicker() {
@@ -784,6 +775,7 @@ export default {
             this.endtimePicker = false;
             this.Calculation();
             this.localStorage();
+            this.moveAmagumo()
         },
 
         starttime_judg() {
@@ -849,6 +841,25 @@ export default {
                 })
             );
         },
+        moveAmagumo(){
+            this.amagumoRoop = "";
+
+
+            var roop = new this.google.maps.GroundOverlay(
+                amagumo,
+                new this.google.maps.LatLngBounds(
+                    new this.google.maps.LatLng( 35.685577, 139.694858 ) ,
+                    new this.google.maps.LatLng( 35.694838, 139.707784 )
+                ) , {
+                    map: this.Map,
+                    opacity:0.8
+                }
+            )
+            // roop.setMap(null);
+            setTimeout(function(){
+                roop.setMap(null)
+            }, 1000);
+        }
     },
 };
 </script>
@@ -1058,7 +1069,7 @@ export default {
                     }
                     label {
                         display: block;
-                        padding: 20px 12.9px;
+                        padding: 20px 16.9px;
                         border-right: solid 3px #00473e;
                         color: #00473e;
                     }
