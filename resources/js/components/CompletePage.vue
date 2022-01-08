@@ -41,7 +41,7 @@
                 </div>
             </div>
             <div>
-                <a href="#">
+                <a href="/mainTop">
                     <div id="next" calss="nextbtn">
                         <span>トップに戻る</span>
                     </div>
