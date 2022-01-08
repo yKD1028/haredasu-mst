@@ -11,7 +11,7 @@
 <body>
   <p>テスト送信</p>
   <p>{{$email}}</p>
-  <a href="{{url('/user_resist2?email='.$email)}}">ここを押して</a>
+  <a href="{{url('/user_regist2?email='.$email)}}">ここを押して</a>
 </body>
 
 </html>
