@@ -33,7 +33,7 @@
     </div>
 </template>
 
-<script>
+<script >
 import GoogleMapsApiLoader from "google-maps-api-loader";
 import axios from "axios";
 import whether from "../../../public/data/whether.json";
