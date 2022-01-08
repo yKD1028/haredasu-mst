@@ -31,7 +31,7 @@ Route::get('/reserve_page', 'ReserveController@reserve_page');
 Route::post('/reserve', 'ReserveController@reserve');
 Route::post('/reserve_date', 'ReserveController@reserve_date');
 Route::get('/user_reserves', 'ReserveController@user_reserves');
-
+Route::post('/regist_mail', 'UsersController@regist_mail')->name('regist_mail');
 //クレカのroute
 Route::get('/pay_info', 'PaymentController@pay_info');
 Route::post('/pay_regist', 'PaymentController@pay_regist');
