@@ -23,12 +23,13 @@
           <p class="tab" :class="selected4" @click="changeScreen(4)">
             予約履歴
           </p>
+          <button class="button logout-button" @click="logout()">
+            ログアウト
+          </button>
         </div>
         <div class="screen">
           <!-- pagecomponent切替 -->
-          <UserInfo
-            v-if="screen == 1"
-          />
+          <UserInfo v-if="screen == 1" />
           <Password v-else-if="screen == 2" />
           <Payment v-else-if="screen == 3" />
           <RHistory v-else />
@@ -51,10 +52,6 @@ export default {
       selected2: "",
       selected3: "",
       selected4: "",
-      tel: "09000000000",
-      email: "email@a.a",
-      zip: "0000000",
-      address: "address",
     };
   },
   components: {
@@ -80,6 +77,33 @@ export default {
       } else {
         this.selected4 = "selected";
       }
+    },
+    logout() {
+      //console.log("submit success!");
+      var url = "/api/logout";
+      axios
+        .post(url)
+        .then(function (response) {
+          console.log(response.data.result);
+          //ログイン成功時
+          console.log("seikou");
+          if (response.data.result == true) {
+            window.location = "/";
+          }
+        })
+        .catch(function (error) {
+          //ログイン失敗時
+          console.log("seikoujanai");
+          var responseErrors = error.response.data.errors;
+          var errors = {};
+
+          for (var key in responseErrors) {
+            errors[key] = responseErrors[key][0];
+          }
+
+          self.errors = errors;
+          console.log(this.errors);
+        });
     },
   },
 };

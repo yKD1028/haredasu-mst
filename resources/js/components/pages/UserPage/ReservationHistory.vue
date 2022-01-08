@@ -163,7 +163,6 @@ export default {
       this.reserves = res.data;
     });
     console.log(this.reserves);
-    console.log("aaa");
   },
   methods: {
     openModal() {
