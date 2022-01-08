@@ -217,7 +217,7 @@ export default({
             var whetherHtml = ""
             var result = ""
             var data = ""
-            await axios.get("http://www.jma.go.jp/bosai/common/const/area.json").then((response) => {
+            await axios.get("/api/whetherCode").then((response) => {
                 for (var key in response.data.offices) {
                     if(response.data.offices[key].name == this.yourPinConfig.prefectures){
                         result=response.data.offices[key];
@@ -226,8 +226,8 @@ export default({
                 }
             });
             var whetherPoint = "";
-            var data = result.children[1].substr( 0, 2 );
-            await axios.post("https://www.jma.go.jp/bosai/forecast/data/forecast/"+data+"0000.json").then(data=>{
+            var num = {number:result.children[1].substr( 0, 2 )};
+            await axios.post("/api/whether", num).then((data)=>{
                 whetherPoint = data.data[1].timeSeries[0].areas[0].weatherCodes;
             })
             var data=whether
