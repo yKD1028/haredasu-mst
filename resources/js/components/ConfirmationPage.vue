@@ -150,11 +150,24 @@ export default {
                 fillColor: "#A58888",
             });
             document.getElementById("next").disabled = true;
+
+            //DB送るよう
             document.getElementById("next").addEventListener("click",async()=>{
                 await console.log(document.getElementById("checkbox").checked);
-                await console.log("aa");
-                window.location = "/complete";
-            })
+                const data =[
+                    JSON.parse(localStorage.getItem('map')).DBdate,
+                    JSON.parse(localStorage.getItem('map')).endTime,
+                    JSON.parse(localStorage.getItem('map')).startTime,
+                    JSON.parse(localStorage.getItem('map')).range,
+                    JSON.parse(localStorage.getItem('map')).locationName,
+                    JSON.parse(localStorage.getItem('map')).totalFee,
+                    JSON.parse(localStorage.getItem('map')).range,
+                ]
+                await  axios.post('/api/reserve',data).then((response) => {
+                    this.anyMapData=response.data;
+                });
+                    window.location = "/complete";
+                })
             document.getElementById("checkbox").addEventListener("click",()=>{
                 if(document.getElementById("checkbox").checked){
                     this. btnActive=true;
