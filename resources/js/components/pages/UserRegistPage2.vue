@@ -16,9 +16,14 @@
         />
         <Tel :value="tel" @input="tel = $event" @err="telErr = $event" />
         <PassCheck
+          :value1="passCheck1"
+          @input1="passCheck1 = $event"
+          @err1="passCheckErr1 = $event"
           form_label1="パスワード"
-          name1="pass"
           placeholder1="パスワード"
+          :value2="passCheck2"
+          @input2="passCheck2 = $event"
+          @err2="passCheckErr2 = $event"
           form_label2="確認用パスワード"
           name2="pass_check"
           placeholder2="確認用パスワード"
@@ -64,10 +69,10 @@ export default {
       nameKanaErr: true,
       tel: "",
       telErr: true,
-      password: "",
-      passErr: true,
-      passCheck: "",
-      passCheckErr: true,
+      passCheck1: "",
+      passCheckErr1: true,
+      passCheck2: "",
+      passCheckErr2: true,
       zip: "",
       zipErr: true,
       address: "",
@@ -81,6 +86,8 @@ export default {
         !nameErr &&
         !this.nameKanaErr &&
         !this.telErr &&
+        !this.passCheckErr1 &&
+        !this.passCheckErr2 &&
         !this.addressErr &&
         !this.zipErr
       ) {
@@ -94,6 +101,8 @@ export default {
         !nameKanaErr &&
         !this.nameErr &&
         !this.telErr &&
+        !this.passCheckErr1 &&
+        !this.passCheckErr2 &&
         !this.addressErr &&
         !this.zipErr
       ) {
@@ -107,6 +116,38 @@ export default {
         !telErr &&
         !this.nameErr &&
         !this.nameKanaErr &&
+        !this.passCheckErr1 &&
+        !this.passCheckErr2 &&
+        !this.addressErr &&
+        !this.zipErr
+      ) {
+        this.isDisabled = false;
+      } else {
+        this.isDisabled = true;
+      }
+    },
+    passCheckErr1(passCheckErr1) {
+      if (
+        !passCheckErr1 &&
+        !this.nameErr &&
+        !this.nameKanaErr &&
+        !this.telErr &&
+        !this.passCheckErr2 &&
+        !this.addressErr &&
+        !this.zipErr
+      ) {
+        this.isDisabled = false;
+      } else {
+        this.isDisabled = true;
+      }
+    },
+    passCheckErr2(passCheckErr2) {
+      if (
+        !passCheckErr2 &&
+        !this.nameErr &&
+        !this.nameKanaErr &&
+        !this.telErr &&
+        !this.passCheckErr1 &&
         !this.addressErr &&
         !this.zipErr
       ) {
@@ -121,6 +162,8 @@ export default {
         !this.nameErr &&
         !this.nameKanaErr &&
         !this.telErr &&
+        !this.passCheckErr1 &&
+        !this.passCheckErr2 &&
         !this.addressErr
       ) {
         this.isDisabled = false;
@@ -134,6 +177,8 @@ export default {
         !this.nameErr &&
         !this.nameKanaErr &&
         !this.telErr &&
+        !this.passCheckErr1 &&
+        !this.passCheckErr2 &&
         !this.zipErr
       ) {
         this.isDisabled = false;

@@ -65,7 +65,6 @@ export default {
       remember: false,
     };
   },
-
   methods: {
     submit() {
       //console.log("submit success!");

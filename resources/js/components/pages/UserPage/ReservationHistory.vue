@@ -239,12 +239,6 @@ export default {
         //処理
         //予約(Reserve)削除
       });
-      // .then(function (response) {
-      //   //ログイン成功時
-      // })
-      // .catch(function (error) {
-      //   //ログイン失敗時
-      // });
     },
   },
 };
