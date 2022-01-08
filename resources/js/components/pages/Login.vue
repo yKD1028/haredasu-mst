@@ -71,7 +71,7 @@ export default {
     methods: {
         submit() {
             //console.log("submit success!");
-            var url = "/login";
+            var url = "/api/login";
             var params = {
                 email: this.email,
                 password: this.password,
@@ -80,6 +80,7 @@ export default {
             axios
                 .post(url, params)
                 .then(function (response) {
+                    console.log(response.data);
                     //ログイン成功時
                     console.log("seikou");
                 })

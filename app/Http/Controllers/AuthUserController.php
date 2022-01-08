@@ -16,7 +16,6 @@ class AuthUserController extends Controller
   {
     $result = false;
     $message = '';
-    $user = [];
     $credentials = $request->only('email', 'password');
     if (Auth::attempt($credentials)) {
       $request->session()->regenerate();

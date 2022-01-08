@@ -20,8 +20,10 @@ use Illuminate\Support\Facades\Auth;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
   return $request->user();
 });
-//auth
-// Auth::routes();
+//ログインログアウト登録処理
+Route::post('/login', 'AuthUserController@login');
+Route::post('/logout', 'AuthUserController@logout');
+Route::post('/regist', 'AuthUserController@regist');
 //予約処理のroute
 Route::get('/reserve_page', 'ReserveController@reserve_page');
 Route::post('/reserve', 'ReserveController@reserve');
