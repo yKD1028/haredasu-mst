@@ -91,9 +91,9 @@ export default {
       //url 書き換えてコントローラー指定
       var url = "/";
       var params = {
-        tel: this.tel,
+        tel: this.tel.replace(/-/g, ""),
         email: this.email,
-        zip: this.zip,
+        zip: this.zip.replace(/-/g, ""),
         address: this.address,
       };
       axios.post(url, params).then((response) => {

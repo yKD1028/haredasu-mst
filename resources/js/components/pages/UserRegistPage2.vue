@@ -188,8 +188,22 @@ export default {
     },
   },
   methods: {
-    // click: function() {
-    // }
+    submit() {
+      //console.log("submit success!");
+      var url = "/";
+      var params = {
+        name: this.name,
+        nameKana: this.nameKana,
+        tel: this.tel.replace(/-/g, ""),
+        password: this.passCheck1,
+        zip: this.zip.replace(/-/g, ""),
+        address: this.address,
+        email: this.$route.query.email,
+      };
+      axios.post(url, params).then((response) => {
+        //処理
+      });
+    },
   },
 };
 </script>
