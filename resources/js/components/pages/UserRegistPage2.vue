@@ -8,17 +8,13 @@
         </p>
       </div>
       <div class="form-block">
-        <Name
-          :value="name"
-          @input="name = $event"
-          @err="nameErr = $event"
-        ></Name>
+        <Name :value="name" @input="name = $event" @err="nameErr = $event" />
         <NameKana
           :value="nameKana"
           @input="nameKana = $event"
           @err="nameKanaErr = $event"
-        ></NameKana>
-        <Tel :value="tel" @input="tel = $event" @err="telErr = $event"></Tel>
+        />
+        <Tel :value="tel" @input="tel = $event" @err="telErr = $event" />
         <PassCheck
           form_label1="パスワード"
           name1="pass"
@@ -26,18 +22,18 @@
           form_label2="確認用パスワード"
           name2="pass_check"
           placeholder2="確認用パスワード"
-        ></PassCheck>
-        <Zip :value="zip" @input="zip = $event" @err="zipErr = $event"></Zip>
+        />
+        <Zip :value="zip" @input="zip = $event" @err="zipErr = $event" />
         <Address
           :value="address"
           @input="address = $event"
           @err="addressErr = $event"
-        ></Address>
+        />
         <SubmitButton
           :isDisabled="isDisabled"
           @clickBtn="submit()"
           buttonName="登録"
-        ></SubmitButton>
+        />
       </div>
     </div>
   </div>
@@ -81,35 +77,65 @@ export default {
   },
   watch: {
     nameErr(nameErr) {
-      if (!nameErr && !this.nameKanaErr && !this.telErr && !this.addressErr && !this.zipErr) {
+      if (
+        !nameErr &&
+        !this.nameKanaErr &&
+        !this.telErr &&
+        !this.addressErr &&
+        !this.zipErr
+      ) {
         this.isDisabled = false;
       } else {
         this.isDisabled = true;
       }
     },
     nameKanaErr(nameKanaErr) {
-      if (!nameKanaErr && !this.nameErr && !this.telErr && !this.addressErr && !this.zipErr) {
+      if (
+        !nameKanaErr &&
+        !this.nameErr &&
+        !this.telErr &&
+        !this.addressErr &&
+        !this.zipErr
+      ) {
         this.isDisabled = false;
       } else {
         this.isDisabled = true;
       }
     },
     telErr(telErr) {
-      if (!telErr && !this.nameErr && !this.nameKanaErr && !this.addressErr && !this.zipErr) {
+      if (
+        !telErr &&
+        !this.nameErr &&
+        !this.nameKanaErr &&
+        !this.addressErr &&
+        !this.zipErr
+      ) {
         this.isDisabled = false;
       } else {
         this.isDisabled = true;
       }
     },
     zipErr(zipErr) {
-      if (!zipErr && !this.nameErr && !this.nameKanaErr && !this.telErr && !this.addressErr) {
+      if (
+        !zipErr &&
+        !this.nameErr &&
+        !this.nameKanaErr &&
+        !this.telErr &&
+        !this.addressErr
+      ) {
         this.isDisabled = false;
       } else {
         this.isDisabled = true;
       }
     },
     addressErr(addressErr) {
-      if (!addressErr && !this.nameErr && !this.nameKanaErr && !this.telErr && !this.zipErr) {
+      if (
+        !addressErr &&
+        !this.nameErr &&
+        !this.nameKanaErr &&
+        !this.telErr &&
+        !this.zipErr
+      ) {
         this.isDisabled = false;
       } else {
         this.isDisabled = true;

@@ -12,12 +12,6 @@
 @import '~vuetify/dist/vuetify.min.css';
 
 
-// $color-orange : #EB8E4B;
-$color-orange: #FAAE2B;
-
-//$color-gray: #767676;
-$color-gray : #00473E;
-
 $color-orange : #FAAE2B;
 $color-orange2:#FFAE73;
 $color-gray : #00473E;
@@ -55,4 +49,5 @@ body {
 @import './situation.scss';
 @import './question.scss';
 @import './pages.scss';
-@import './user_page.scss';
+// @import './user_page.scss';
+@import './user_pages.scss'
