@@ -1,7 +1,6 @@
 <template>
   <div class="user-page-wrap">
     <div class="content-wrap">
-      <!-- 縦に並ぶ -->
       <div class="title-block">
         <!-- tabsの選択に合わせて表示切替 -->
         <p v-if="screen == 0" class="title">ユーザー情報</p>
@@ -10,9 +9,7 @@
         <p v-else class="title">予約履歴</p>
       </div>
       <div class="main-block">
-        <!-- tabsとscreensは横並び -->
         <div class="tabs">
-          <!-- tate -->
           <!-- 選択時にクラス追加 -->
           <p class="tab" :class="selected1" @click="changeScreen(0)">
             ユーザー情報
@@ -29,14 +26,19 @@
         </div>
         <div class="screen">
           <!-- pagecomponent切替 -->
-          <UserInfo v-if="screen == 0" />
+          <UserInfo
+            :tel="tel"
+            :email="email"
+            :zip="zip"
+            :address="address"
+            v-if="screen == 0"
+          />
           <Password v-else-if="screen == 1" />
-          <Payment v-else-if="screen == 2"/>
+          <Payment v-else-if="screen == 2" />
           <RHistory v-else />
         </div>
       </div>
     </div>
-
   </div>
 </template>
 <script>
@@ -53,6 +55,10 @@ export default {
       selected1: "",
       selected2: "",
       selected3: "",
+      tel: "09000000000",
+      email: "email@a.a",
+      zip: "0000000",
+      address: "address",
     };
   },
   components: {

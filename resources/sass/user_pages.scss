@@ -31,9 +31,12 @@
                     font-weight: 500;
                 }
             }
-            // .screen {
-            //     //pagecomponent表示領域
-            // }
+            .screen {
+                //pagecomponent表示領域
+                //UserInfo,Password
+                .user-info-wrap{
+                }
+            }
         }
     }
 }
