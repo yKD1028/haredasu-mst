@@ -29,4 +29,21 @@ class GooglemapController extends Controller
 
     return $posts;
   }
+
+  public function wether(Request $request)
+  {
+    Log::info(‘ログ出力テスト’);
+    $client = new \GuzzleHttp\Client();
+    $url = "https://www.jma.go.jp/bosai/forecast/data/forecast/" + $request + "0000.json";
+    $method = "GET";
+
+    // 接続
+    $client = new Client();
+    $response = $client->request($method, $url);
+
+    $posts = $response->getBody();
+    $posts = json_decode($posts, true); //jsonに変換
+
+    return $posts;
+  }
 }

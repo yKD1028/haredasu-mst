@@ -11,6 +11,7 @@ import test_page from './components/pages/test.vue'
 import Reserve from './components/ReservePage.vue'
 import Confirmation from "./components/ConfirmationPage.vue"
 import CompletePage from "./components/CompletePage.vue"
+import mainTop from "./components/mainTop.vue"
 
 export default new Router({
   mode: 'history',
@@ -74,6 +75,11 @@ export default new Router({
         path: "/complete",
         name: "complete",
         component: CompletePage
+    },
+    {
+        path: "/maintop",
+        name: "maintop",
+        component: mainTop
     }
   ]
 });
