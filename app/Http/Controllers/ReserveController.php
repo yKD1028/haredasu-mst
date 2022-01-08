@@ -91,4 +91,13 @@ class ReserveController extends Controller
     //returnで返す
     return $user_reserves;
   }
+  //予約の削除
+  public function reserve_delete(Request $request)
+  {
+    $reserveId = Reserve::select('id')->where('id', $request->id)->value("id");
+    $reserv = Reserve::find($reserveId);
+    $reserv->delete();
+    $result = true;
+    return $result;
+  }
 }
