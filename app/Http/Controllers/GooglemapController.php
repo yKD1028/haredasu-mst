@@ -30,15 +30,30 @@ class GooglemapController extends Controller
     return $posts;
   }
 
-  public function wether(Request $request)
+  public function whetherCode()
   {
-    Log::info(‘ログ出力テスト’);
+    $url ="http://www.jma.go.jp/bosai/common/const/area.json";
+
+    // 接続
+    $data = Http::get($url);
+    $posts = json_decode($url, true); //jsonに変換
+
+    return $data;
+  }
+
+  public function whether(Request $request)
+  {
+
     $client = new \GuzzleHttp\Client();
-    $url ="https://www.jma.go.jp/bosai/forecast/data/forecast/"+$request+"0000.json";
+    $api_key = config("app.MIX_GOOGLE_MAPS_API");
+
+    $url = "https://www.jma.go.jp/bosai/forecast/data/forecast/".$request->number."0000.json";
     $method = "GET";
 
     // 接続
     $client = new Client();
+    // $client = Http::get($url);
+
     $response = $client->request($method, $url);
 
     $posts = $response->getBody();

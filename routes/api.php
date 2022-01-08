@@ -31,3 +31,6 @@ Route::post('/reserve_date', 'ReserveController@reserve_date');
 //クレカのroute
 Route::get('/pay_info', 'PaymentController@pay_info');
 Route::post('/pay_regist', 'PaymentController@pay_regist');
+
+Route::get('/whetherCode', 'GooglemapController@whetherCode');
+Route::post("/whether", 'GooglemapController@whether');
