@@ -12,6 +12,8 @@
   <p>{{$user->zip}}</p>
   <p>{{$user->address}}</p>
 
+
+  {{Auth::user()->id}}
   <div>
     <form action="/regist_user_info" method="post">
       @csrf
