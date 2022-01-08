@@ -259,6 +259,7 @@ export default {
         this.initializeMap(local);
         this.createTimePicker();
         this.getAnyPins();
+        this.moveAmagumo();
     },
 
     methods: {
@@ -792,7 +793,6 @@ export default {
             this.endtimePicker = false;
             this.Calculation();
             this.localStorage();
-            this.moveAmagumo();
         },
 
         starttime_judg() {
@@ -868,11 +868,14 @@ export default {
             );
         },
         moveAmagumo(){
+            var startLat=35.685577
+            var startLng=139.694858
+            var endLat=35.694838
+            var endLng=139.707784
+            var resstartLat=35.685577
+            var resstartLng=139.694858
             var roopamp = setInterval(()=>{
-                var startLat=35.685577
-                var startLng=139.694858
-                var endLat=35.694838
-                var endLng=139.707784
+
                 var roop = new this.google.maps.GroundOverlay(
                     amagumo,
                     new this.google.maps.LatLngBounds(
@@ -883,16 +886,19 @@ export default {
                         opacity:0.8
                     }
                 )
+                startLat+= 0.0009;
+                startLng+= 0.0015;
+                endLat=Number(startLat)+0.009261;
+                endLng=Number(startLng)+0.012926;
                 setTimeout(()=>{
                     roop.setMap(null)
                 }, 1000);
-                console.log(JSON.parse(localStorage.getItem("map")).totalTime/30);
-                console.log(this.amagumoRoop);
-                if(JSON.parse(localStorage.getItem("map")).totalTime/30 != this.amagumoRoop){
+                if(JSON.parse(localStorage.getItem("map")).totalTime/30 != this.amagumoRoop/30){
+                    this.amagumoRoop =Number(JSON.parse(localStorage.getItem("map")).totalTime);
                     console.log("roopout");
                     clearInterval(roopamp);
+                    this.moveAmagumo();
                 }
-
             }, 1000)
         }
     },

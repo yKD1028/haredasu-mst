@@ -34,5 +34,6 @@ Route::get('/user_reserves', 'ReserveController@user_reserves');
 //クレカのroute
 Route::get('/pay_info', 'PaymentController@pay_info');
 Route::post('/pay_regist', 'PaymentController@pay_regist');
-//メール送信
-Route::post('/regist_mail', 'UsersController@regist_mail')->name('regist_mail');
+
+Route::get('/whetherCode', 'GooglemapController@whetherCode');
+Route::post("/whether", 'GooglemapController@whether');
