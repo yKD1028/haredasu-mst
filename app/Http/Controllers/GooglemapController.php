@@ -34,7 +34,7 @@ class GooglemapController extends Controller
   {
     Log::info(‘ログ出力テスト’);
     $client = new \GuzzleHttp\Client();
-    $url ="https://www.jma.go.jp/bosai/forecast/data/forecast/"+$request+"0000.json";
+    $url = "https://www.jma.go.jp/bosai/forecast/data/forecast/" + $request + "0000.json";
     $method = "GET";
 
     // 接続

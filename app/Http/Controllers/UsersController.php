@@ -46,11 +46,13 @@ class UsersController extends Controller
     Mail::to($email)->send(new TestSendMail($email));
     return redirect()->back();
   }
-  //メール認証
-  public function hon_regist(Request $request)
+  //ログイン状態かの確認
+  public function login_check()
   {
-    $email = $request->email;
-    // return view('test.hon_regist', ['email' => $email]);
-    return redirect('/user_page')->with('email', $email);
+    if (Auth::user()) {
+      return $result = "true";
+    } else if (!Auth::user()) {
+      return $result = "false";
+    };
   }
 }

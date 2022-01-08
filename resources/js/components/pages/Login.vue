@@ -80,9 +80,12 @@ export default {
             axios
                 .post(url, params)
                 .then(function (response) {
-                    console.log(response.data);
+                    console.log(response.data.result);
                     //ログイン成功時
                     console.log("seikou");
+                    if (response.data.result == true) {
+                        window.location = "/maintop";
+                    }
                 })
                 .catch(function (error) {
                     //ログイン失敗時
