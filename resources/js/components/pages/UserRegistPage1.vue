@@ -52,12 +52,6 @@ export default {
                 //処理
                 console.log(response);
             });
-            // .then(function (response) {
-            //   //ログイン成功時
-            // })
-            // .catch(function (error) {
-            //   //ログイン失敗時
-            // });
         },
     },
     watch: {
