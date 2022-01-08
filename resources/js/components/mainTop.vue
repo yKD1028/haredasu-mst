@@ -234,7 +234,7 @@ export default({
             whetherHtml += "<div class='weeklyWhether'>"
             for(var i=0;i<7;i++){
                 var date = new Date();
-                whetherHtml += "<div class='weeklyWhetherBox'><div class='weeklyWhether_Date'>"+('0' + (date.getMonth() + 1)).slice(-2)+"/"+('0' + date.getDate()).slice(-2)+"</div>"
+                whetherHtml += "<div class='weeklyWhetherBox'><div class='weeklyWhether_Date'>"+('0' + (date.getMonth() + 1)).slice(-2)+"/"+('0' +( Number(date.getDate()) + i)).slice(-2)+"</div>"
                 for (var key in data) {
                     if(key === whetherPoint[i]){
                         whetherHtml+="<img 'weeklyWhether_Icon' src='https://www.jma.go.jp/bosai/forecast/img/"+data[key][2]+".svg'>"
