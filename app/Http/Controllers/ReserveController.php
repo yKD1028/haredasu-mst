@@ -95,8 +95,8 @@ class ReserveController extends Controller
   public function reserve_delete(Request $request)
   {
     $reserveId = Reserve::select('id')->where('id', $request->id)->value("id");
-    $reserv = Reserve::find($reserveId);
-    $reserv->delete();
+    $reserve = Reserve::find($reserveId);
+    $reserve->delete();
     $result = true;
     return $result;
   }

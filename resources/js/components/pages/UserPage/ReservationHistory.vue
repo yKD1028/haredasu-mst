@@ -3,16 +3,18 @@
         <div v-if="list == true" class="reserve-list-wrap">
             <!-- 予約履歴一覧の表示 -->
             <!-- 予約履歴件数文v-forで回す -->
-            <div v-for="reserve in reserves" :key="reserve.id" class="reserve">
+            <div
+                v-for="(reserve, index) in reserves"
+                :key="reserve.id"
+                class="reserve"
+            >
                 <p>{{ reserve.address }}</p>
                 <p>
                     {{ reserve.date }} {{ reserve.start_time }}-{{
                         reserve.end_time
                     }}
                 </p>
-                <button class="button" @click="showDetail(reserve.id)">
-                    詳細
-                </button>
+                <button class="button" @click="showDetail(index)">詳細</button>
             </div>
         </div>
         <div v-else class="reserve-detail-wrap">
@@ -168,6 +170,7 @@ export default {
                 clickable: false,
             },
             reserves: [],
+            counter: 0,
         };
     },
     computed: {},

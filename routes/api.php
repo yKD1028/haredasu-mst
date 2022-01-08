@@ -32,6 +32,7 @@ Route::post('/reserve', 'ReserveController@reserve');
 Route::post('/reserve_date', 'ReserveController@reserve_date');
 Route::get('/user_reserves', 'ReserveController@user_reserves');
 Route::post('/reserve_delete', 'ReserveController@reserve_delete');
+
 Route::post('/regist_mail', 'UsersController@regist_mail')->name('regist_mail');
 //クレカのroute
 Route::get('/pay_info', 'PaymentController@pay_info');
