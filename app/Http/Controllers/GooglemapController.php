@@ -45,7 +45,6 @@ class GooglemapController extends Controller
   {
 
     $client = new \GuzzleHttp\Client();
-    $api_key = config("app.MIX_GOOGLE_MAPS_API");
 
     $url = "https://www.jma.go.jp/bosai/forecast/data/forecast/".$request->number."0000.json";
     $method = "GET";
