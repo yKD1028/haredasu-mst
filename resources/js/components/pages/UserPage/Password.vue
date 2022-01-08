@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="password-wrap">
     <Password
       :value="password"
       @input="password = $event"
