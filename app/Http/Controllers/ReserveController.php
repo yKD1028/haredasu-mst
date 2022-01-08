@@ -31,20 +31,6 @@ class ReserveController extends Controller
         'drone' => $request['drone'],
         'cost' => $request['cost'],
       ]);
-
-      //支払い情報
-      $customer = \Payjp\Customer::retrieve($user['payjp_customer_id']);
-      // 使用するカードを設定
-      $customer->default_card = $request->get('payjp_card_id');
-      $customer->save();
-      //  支払い処理
-      // 新規支払い情報作成
-      \Payjp\Charge::create([
-        "customer" => $customer->id,
-        "amount" => $request['cost'],
-        "currency" => 'jpy',
-      ]);
-
       DB::commit();
       //return
       return;
