@@ -71,11 +71,11 @@ export default {
       this.selected2 = "";
       this.selected3 = "";
       this.selected4 = "";
-      if (num == 0) {
+      if (num == 1) {
         this.selected1 = "selected";
-      } else if (num == 1) {
-        this.selected2 = "selected";
       } else if (num == 2) {
+        this.selected2 = "selected";
+      } else if (num == 3) {
         this.selected3 = "selected";
       } else {
         this.selected4 = "selected";
