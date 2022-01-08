@@ -14,29 +14,49 @@ class ReserveController extends Controller
   {
     DB::beginTransaction();
     try {
+      $cost = str_replace(',', '', $request['cost']);
+
+      //ドローン数計算
+      $drone = 0;
+      if ($request['area'] == 1000) {
+        $drone = 700;
+      };
+      if ($request['area'] == 750) {
+        $drone = 500;
+      };
+      if ($request['area'] == 500) {
+        $drone = 350;
+      };
+      if ($request['area'] == 300) {
+        $drone = 200;
+      };
+      if ($request['area'] == 150) {
+        $drone = 100;
+      };
       // ログインユーザー取得
       $user = auth()->user();
       //useridの取得
       $uid = Auth::id();
       //DBに送信
-      $params = Reserve::create([
-        'user_id' => $uid,
-        'latitude' => $request['latirude'],
-        'longitude' => $request['longitude'],
+      $params = Reserve::insert([
+        'user_id' => Auth::id(),
+        'latitude' => $request['latlng']['lat'],
+        'longitude' => $request['latlng']['lng'],
         'address' => $request['address'],
         'date' => $request['date'],
         'start_time' => $request['start_time'],
         'end_time' => $request['end_time'],
         'area' => $request['area'],
-        'drone' => $request['drone'],
-        'cost' => $request['cost'],
+        'drone' => $drone,
+        'cost' => $cost,
+        'status' => '0',
       ]);
       DB::commit();
       //return
-      return;
+      return $params;
     } catch (\Exception $e) {
       DB::rollback();
-
+      return $msg = "失敗";
       if (strpos($e, 'has already been used') !== false) {
         return $msg = "失敗";
       }
