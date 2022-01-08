@@ -3,38 +3,34 @@
     <div class="content-wrap">
       <div class="title-block">
         <!-- tabsの選択に合わせて表示切替 -->
-        <p v-if="screen == 0" class="title">ユーザー情報</p>
-        <p v-else-if="screen == 1" class="title">パスワード</p>
-        <p v-else-if="screen == 2" class="title">支払い情報</p>
+        <p v-if="screen == 1" class="title">ユーザー情報</p>
+        <p v-else-if="screen == 2" class="title">パスワード</p>
+        <p v-else-if="screen == 3" class="title">支払い情報</p>
         <p v-else class="title">予約履歴</p>
       </div>
       <div class="main-block">
         <div class="tabs">
           <!-- 選択時にクラス追加 -->
-          <p class="tab" :class="selected1" @click="changeScreen(0)">
+          <p class="tab" :class="selected1" @click="changeScreen(1)">
             ユーザー情報
           </p>
-          <p class="tab" :class="selected2" @click="changeScreen(1)">
+          <p class="tab" :class="selected2" @click="changeScreen(2)">
             パスワード
           </p>
-          <p class="tab" :class="selected3" @click="changeScreen(2)">
+          <p class="tab" :class="selected3" @click="changeScreen(3)">
             支払い情報
           </p>
-          <p class="tab" :class="selected4" @click="changeScreen(3)">
+          <p class="tab" :class="selected4" @click="changeScreen(4)">
             予約履歴
           </p>
         </div>
         <div class="screen">
           <!-- pagecomponent切替 -->
           <UserInfo
-            :tel="tel"
-            :email="email"
-            :zip="zip"
-            :address="address"
-            v-if="screen == 0"
+            v-if="screen == 1"
           />
-          <Password v-else-if="screen == 1" />
-          <Payment v-else-if="screen == 2" />
+          <Password v-else-if="screen == 2" />
+          <Payment v-else-if="screen == 3" />
           <RHistory v-else />
         </div>
       </div>
@@ -50,11 +46,11 @@ import RHistory from "./ReservationHistory.vue";
 export default {
   data() {
     return {
-      screen: 0,
-      selected0: "selected",
-      selected1: "",
+      screen: 1,
+      selected1: "selected",
       selected2: "",
       selected3: "",
+      selected4: "",
       tel: "09000000000",
       email: "email@a.a",
       zip: "0000000",
@@ -71,18 +67,18 @@ export default {
   methods: {
     changeScreen(num) {
       this.screen = num;
-      this.selected0 = "";
       this.selected1 = "";
       this.selected2 = "";
       this.selected3 = "";
+      this.selected4 = "";
       if (num == 0) {
-        this.selected0 = "selected";
-      } else if (num == 1) {
         this.selected1 = "selected";
-      } else if (num == 2) {
+      } else if (num == 1) {
         this.selected2 = "selected";
-      } else {
+      } else if (num == 2) {
         this.selected3 = "selected";
+      } else {
+        this.selected4 = "selected";
       }
     },
   },
