@@ -15,6 +15,7 @@ class AuthUserController extends Controller
    */
   public function login(Request $request)
   {
+
     $result = false;
     $message = '';
     $credentials = $request->only('email', 'password');

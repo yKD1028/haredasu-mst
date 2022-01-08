@@ -37,3 +37,4 @@ Route::post('/pay_regist', 'PaymentController@pay_regist');
 
 Route::get('/whetherCode', 'GooglemapController@whetherCode');
 Route::post("/whether", 'GooglemapController@whether');
+Route::post('/regist_mail', 'UsersController@regist_mail')->name('regist_mail');

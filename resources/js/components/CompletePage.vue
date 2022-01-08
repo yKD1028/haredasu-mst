@@ -159,7 +159,6 @@ export default {
         }
     }
     a {
-        pointer-events: none;
         div {
             background-color: #faae2b;
             display: flex;

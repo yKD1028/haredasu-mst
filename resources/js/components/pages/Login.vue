@@ -80,7 +80,7 @@ export default {
             axios
                 .post(url, params)
                 .then(function (response) {
-                    console.log(response.data.result);
+                    console.log(response.data);
                     //ログイン成功時
                     console.log("seikou");
                     if (response.data.result == true) {
