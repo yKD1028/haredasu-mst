@@ -31,7 +31,7 @@ class TestSendMail extends Mailable
   {
     return $this
       //メールの件名
-      ->subject('Test Mail')
+      ->subject('[新規登録]ハレダスのユーザ登録画面へのご案内')
       //メールとして表示したいビューファイル
       ->view('test.mail')
       ->with(['email' => $this->email]);
