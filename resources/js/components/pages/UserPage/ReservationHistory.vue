@@ -3,18 +3,25 @@
         <div v-if="list == true" class="reserve-list-wrap">
             <!-- 予約履歴一覧の表示 -->
             <!-- 予約履歴件数文v-forで回す -->
-            <div
-                v-for="(reserve, index) in reserves"
-                :key="reserve.id"
-                class="reserve"
-            >
-                <p>{{ reserve.address }}</p>
-                <p>
-                    {{ reserve.date }} {{ reserve.start_time }}-{{
-                        reserve.end_time
-                    }}
-                </p>
-                <button class="button" @click="showDetail(index)">詳細</button>
+            <div v-if="reserves.length">
+                <div
+                    v-for="(reserve, index) in reserves"
+                    :key="reserve.id"
+                    class="reserve"
+                >
+                    <p>{{ reserve.address }}</p>
+                    <p>
+                        {{ reserve.date }} {{ reserve.start_time }}-{{
+                            reserve.end_time
+                        }}
+                    </p>
+                    <button class="button" @click="showDetail(index)">
+                        詳細
+                    </button>
+                </div>
+            </div>
+            <div v-else>
+                <p>予約情報はありません</p>
             </div>
         </div>
         <div v-else class="reserve-detail-wrap">
@@ -195,6 +202,7 @@ export default {
         showDetail(reserveId) {
             this.list = false;
             this.reserveId = reserveId;
+            console.log(this.reserveId);
             const lat = this.reserves[reserveId].latitude;
             const lng = this.reserves[reserveId].longitude;
             this.$nextTick(function () {
@@ -221,9 +229,10 @@ export default {
             //url 書き換えてコントローラー指定
             var url = "/api/reserve_delete";
             var params = {
-                id: this.reserveId,
+                id: this.reserves[this.reserveId].id,
             };
             console.log(this.reserveId);
+            console.log(this.reserves[this.reserveId].id);
             axios.post(url, params).then((response) => {
                 //処理
                 console.log(response.data);
