@@ -88,43 +88,39 @@
                         </div>
                         <p>〜</p>
 
-                            <div class="time_ipselect_wrap">
-                                <input
-                                    type="text"
-                                    class="weight"
-                                    id="endtime"
-                                    value="00:30"
-                                    readonly="readonly"
-                                    @click="endtime_judg"
-                                />
-                                <div
-                                    class="time_ipselect_picker"
-                                    v-if="endtimePicker"
-                                    v-click-outside="hide_endtime"
-                                >
-                                    <div class="touka"></div>
-                                    <div class="touka2"></div>
-                                    <div class="time_ipselect">
-                                        <form
-                                            name="timepicker"
-                                            @change="updateendTimePicker"
-                                        >
-                                            <span v-html="endTimePicker"></span>
-                                        </form>
-                                    </div>
+                        <div class="time_ipselect_wrap">
+                            <input
+                                type="text"
+                                class="weight"
+                                id="endtime"
+                                value="00:30"
+                                readonly="readonly"
+                                @click="endtime_judg"
+                            />
+                            <div
+                                class="time_ipselect_picker"
+                                v-if="endtimePicker"
+                                v-click-outside="hide_endtime"
+                            >
+                                <div class="touka"></div>
+                                <div class="touka2"></div>
+                                <div class="time_ipselect">
+                                    <form
+                                        name="timepicker"
+                                        @change="updateendTimePicker"
+                                    >
+                                        <span v-html="endTimePicker"></span>
+                                    </form>
                                 </div>
                             </div>
-
+                        </div>
                     </div>
 
                     <div class="reservePage_main_input_form_radius">
                         <p>範囲</p>
                         <form name="range" @change="changeRange">
                             <div
-                                class="
-                                    reservePage_main_input_form_radius_wrap
-                                    weight
-                                "
+                                class="reservePage_main_input_form_radius_wrap weight"
                             >
                                 <input
                                     type="radio"
@@ -187,17 +183,16 @@
 <script>
 import GoogleMapsApiLoader from "google-maps-api-loader";
 import Vue from "vue";
-import mypin from "../../../public/assets/mypin.png"
-import amagumo from "../../../public/images/amagumo.png"
+import mypin from "../../../public/assets/mypin.png";
+import amagumo from "../../../public/images/amagumo.png";
 import VCalendar from "v-calendar";
 import axios from "axios";
 import { compareAsc, format } from "date-fns";
 import gsap from "gsap";
-import Vuetify from 'vuetify'
-import ClickOutside from 'vue-click-outside'
-import atherpin from "../../../public/assets/atherpin.png"
-import Header from "./components/Header.vue"
-
+import Vuetify from "vuetify";
+import ClickOutside from "vue-click-outside";
+import atherpin from "../../../public/assets/atherpin.png";
+import Header from "./components/Header.vue";
 
 Vue.use(VCalendar);
 Vue.use(Vuetify);
@@ -240,17 +235,17 @@ export default {
                 address: "",
                 sumDrone: 0,
             },
-            startTimePicker:"",
-            endTimePicker:"",
-            timePicker:false,
-            endtimePicker:false,
-            startTimeSum:0,
-            endTimeSum:30,
-            oldMapname:"",
-            anyMapData:"",
-            anyMapDatas:[],
-            anyMapDatasrange:[],
-            amagumoRoop:""
+            startTimePicker: "",
+            endTimePicker: "",
+            timePicker: false,
+            endtimePicker: false,
+            startTimeSum: 0,
+            endTimeSum: 30,
+            oldMapname: "",
+            anyMapData: "",
+            anyMapDatas: [],
+            anyMapDatasrange: [],
+            amagumoRoop: "",
         };
     },
 
@@ -293,23 +288,23 @@ export default {
                 });
 
                 //初期住所の名前取得(localStorage有)
-                document.getElementById("mapname").value=localStorage.locationName;
-                this.oldMapname=localStorage.locationName;
+                document.getElementById("mapname").value =
+                    localStorage.locationName;
+                this.oldMapname = localStorage.locationName;
 
                 this.totalFee.latlng = localStorage.latlng;
 
-                document.getElementById("starttime").value=localStorage.startTime
-                document.getElementById("endtime").value=localStorage.endTime
-                document.getElementById("date").value=localStorage.date
-                document.range.radius[localStorage.rebgeSum -1].checked = true
-                this.startTimeSum=Number(localStorage.startTimesum)
-                this.endTimeSum=Number(localStorage.endTimesum)
-                this.sumval=localStorage.totalFee
-                this.totalFee.latlng=localStorage.latlng
-                this.totalFee.radiusIndex=localStorage.rebgeSum
-
-            }else{
-
+                document.getElementById("starttime").value =
+                    localStorage.startTime;
+                document.getElementById("endtime").value = localStorage.endTime;
+                document.getElementById("date").value = localStorage.date;
+                document.range.radius[localStorage.rebgeSum - 1].checked = true;
+                this.startTimeSum = Number(localStorage.startTimesum);
+                this.endTimeSum = Number(localStorage.endTimesum);
+                this.sumval = localStorage.totalFee;
+                this.totalFee.latlng = localStorage.latlng;
+                this.totalFee.radiusIndex = localStorage.rebgeSum;
+            } else {
                 //中心のピン詳細(localStorage無)
                 this.marker = new this.google.maps.Marker({
                     position: new this.google.maps.LatLng(
@@ -388,30 +383,43 @@ export default {
             });
 
             //検索
-            document.getElementById("mapname").addEventListener('keypress',()=>{
-                new this.google.maps.Geocoder().geocode({
-                    address:document.getElementById("mapname").value
-                },(results)=>{
-                    this.marker.setMap(null)
-                    this.nowMappin.setMap(null);
-                    this.marker = new this.google.maps.Marker({
-                        position: new this.google.maps.LatLng(results[0].geometry.location),
-                        map: this.Map,
-                        icon: mypin,
-                    });
-                    this.nowMappin = new this.google.maps.Circle({
-                        center: new this.google.maps.LatLng(results[0].geometry.location),
-                        map: this.Map,
-                        radius: Number(document.range.radius.value),
-                        strokeColor: "#A5888800",
-                        fillColor: "#A58888",
-                    });
-                    this.totalFee.latlng =results[0].geometry.location;
-                    this.Map.panTo(new this.google.maps.LatLng(results[0].geometry.location));
-                    document.getElementById("mapname").value=results[0].formatted_address;
-
-                })
-            });
+            document
+                .getElementById("mapname")
+                .addEventListener("keypress", () => {
+                    new this.google.maps.Geocoder().geocode(
+                        {
+                            address: document.getElementById("mapname").value,
+                        },
+                        (results) => {
+                            this.marker.setMap(null);
+                            this.nowMappin.setMap(null);
+                            this.marker = new this.google.maps.Marker({
+                                position: new this.google.maps.LatLng(
+                                    results[0].geometry.location
+                                ),
+                                map: this.Map,
+                                icon: mypin,
+                            });
+                            this.nowMappin = new this.google.maps.Circle({
+                                center: new this.google.maps.LatLng(
+                                    results[0].geometry.location
+                                ),
+                                map: this.Map,
+                                radius: Number(document.range.radius.value),
+                                strokeColor: "#A5888800",
+                                fillColor: "#A58888",
+                            });
+                            this.totalFee.latlng = results[0].geometry.location;
+                            this.Map.panTo(
+                                new this.google.maps.LatLng(
+                                    results[0].geometry.location
+                                )
+                            );
+                            document.getElementById("mapname").value =
+                                results[0].formatted_address;
+                        }
+                    );
+                });
         },
 
         //Mapの住所名取得
@@ -447,44 +455,52 @@ export default {
             this.calendarPicker = false;
             this.localStorage();
             const data = {
-                day : day
-            }
-            await axios.post('/api/reserve_date',data).then((response) => {
-                    this.anyMapData=response.data;
+                day: day,
+            };
+            await axios.post("/api/reserve_date", data).then((response) => {
+                this.anyMapData = response.data;
             });
-            for(var i=0;i<this.anyMapDatas.length;i++){
+            for (var i = 0; i < this.anyMapDatas.length; i++) {
                 this.anyMapDatas[i].setMap(null);
                 this.anyMapDatasrange[i].setMap(null);
             }
 
-             this.anyMapDatas=[];
-             this.anyMapDatasrange=[];
+            this.anyMapDatas = [];
+            this.anyMapDatasrange = [];
 
-             for (let i = 0; i < this.anyMapData.length; i++) {
-                var map =  new this.google.maps.Marker({
-                    position: new this.google.maps.LatLng(this.anyMapData[i].latitude,this.anyMapData[i].longitude),
+            for (let i = 0; i < this.anyMapData.length; i++) {
+                var map = new this.google.maps.Marker({
+                    position: new this.google.maps.LatLng(
+                        this.anyMapData[i].latitude,
+                        this.anyMapData[i].longitude
+                    ),
                     map: this.Map,
-                    icon: atherpin
+                    icon: atherpin,
                 });
-                this.anyMapDatas.push(map)
+                this.anyMapDatas.push(map);
 
                 var range = new this.google.maps.Circle({
-                    center: new this.google.maps.LatLng(this.anyMapData[i].latitude,this.anyMapData[i].longitude),
+                    center: new this.google.maps.LatLng(
+                        this.anyMapData[i].latitude,
+                        this.anyMapData[i].longitude
+                    ),
                     map: this.Map,
                     radius: Number(this.anyMapData[i].area),
                     strokeColor: "#eaf07900",
                     fillColor: "#A58888",
                 });
 
-                this.anyMapDatasrange.push(range)
+                this.anyMapDatasrange.push(range);
 
                 var pop = new this.google.maps.InfoWindow({
-                    content:  this.anyMapData[i].start_time.slice(0,-3)+" ~ "+this.anyMapData[i].end_time.slice(0,-3),
-                    disableAutoPan: true
+                    content:
+                        this.anyMapData[i].start_time.slice(0, -3) +
+                        " ~ " +
+                        this.anyMapData[i].end_time.slice(0, -3),
+                    disableAutoPan: true,
                 });
                 pop.open(this.Map, this.anyMapDatas[i]); // 吹き出しの表示
             }
-
         },
 
         //範囲選択値の更新
@@ -753,7 +769,7 @@ export default {
             this.endTimePicker = endindex;
             this.Calculation();
             this.localStorage();
-            this.moveAmagumo()
+            this.moveAmagumo();
         },
 
         updateendTimePicker() {
@@ -775,7 +791,7 @@ export default {
             this.endtimePicker = false;
             this.Calculation();
             this.localStorage();
-            this.moveAmagumo()
+            this.moveAmagumo();
         },
 
         starttime_judg() {
@@ -788,30 +804,38 @@ export default {
 
         async getAnyPins() {
             await axios.get("/api/reserve_page").then((response) => {
-                this.anyMapData=response.data;
+                this.anyMapData = response.data;
             });
 
-           for (let i = 0; i < this.anyMapData.length; i++) {
-                var map =  new this.google.maps.Marker({
-                    position: new this.google.maps.LatLng(this.anyMapData[i].latitude,this.anyMapData[i].longitude),
+            for (let i = 0; i < this.anyMapData.length; i++) {
+                var map = new this.google.maps.Marker({
+                    position: new this.google.maps.LatLng(
+                        this.anyMapData[i].latitude,
+                        this.anyMapData[i].longitude
+                    ),
                     map: this.Map,
                     icon: atherpin,
                 });
                 this.anyMapDatas.push(map);
 
                 var range = new this.google.maps.Circle({
-                center: new this.google.maps.LatLng(this.anyMapData[i].latitude,this.anyMapData[i].longitude),
-                map: this.Map,
-                radius: Number(this.anyMapData[i].area),
-                strokeColor: "#eaf07900",
-                fillColor: "#A58888",
-
+                    center: new this.google.maps.LatLng(
+                        this.anyMapData[i].latitude,
+                        this.anyMapData[i].longitude
+                    ),
+                    map: this.Map,
+                    radius: Number(this.anyMapData[i].area),
+                    strokeColor: "#eaf07900",
+                    fillColor: "#A58888",
                 });
 
-                this.anyMapDatasrange.push(range)
+                this.anyMapDatasrange.push(range);
                 var pop = new this.google.maps.InfoWindow({
-                    content:  this.anyMapData[i].start_time.slice(0,-3)+" ~ "+this.anyMapData[i].end_time.slice(0,-3),
-                    disableAutoPan: true
+                    content:
+                        this.anyMapData[i].start_time.slice(0, -3) +
+                        " ~ " +
+                        this.anyMapData[i].end_time.slice(0, -3),
+                    disableAutoPan: true,
                 });
                 pop.open(this.Map, this.anyMapDatas[i]); // 吹き出しの表示
             }
@@ -841,25 +865,25 @@ export default {
                 })
             );
         },
-        moveAmagumo(){
+        moveAmagumo() {
             this.amagumoRoop = "";
-
 
             var roop = new this.google.maps.GroundOverlay(
                 amagumo,
                 new this.google.maps.LatLngBounds(
-                    new this.google.maps.LatLng( 35.685577, 139.694858 ) ,
-                    new this.google.maps.LatLng( 35.694838, 139.707784 )
-                ) , {
+                    new this.google.maps.LatLng(35.685577, 139.694858),
+                    new this.google.maps.LatLng(35.694838, 139.707784)
+                ),
+                {
                     map: this.Map,
-                    opacity:0.8
+                    opacity: 0.8,
                 }
-            )
+            );
             // roop.setMap(null);
-            setTimeout(function(){
-                roop.setMap(null)
+            setTimeout(function () {
+                roop.setMap(null);
             }, 1000);
-        }
+        },
     },
 };
 </script>

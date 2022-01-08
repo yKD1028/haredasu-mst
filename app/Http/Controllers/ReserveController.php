@@ -50,8 +50,6 @@ class ReserveController extends Controller
     //日付に応じたデータの取得
     $reserves = Reserve::where('date',  $toDay)->get();
     //returnで返す
-    $user = Auth::User();
-    return $user;
     return  $reserves;
   }
   //日付選択時に予約取得
