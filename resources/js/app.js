@@ -32,19 +32,11 @@ require('./components/components/loginedHeader.vue').default);
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('header-component', require('./components/HeaderComponent.vue').default);
-
-Vue.component('resister-page', require('./components/pages/UserResistPage.vue').default);
-
-Vue.component('resister-page2', require('./components/pages/UserResistPage2.vue').default);
-
 Vue.component('reserve-page', require('./components/ReservePage.vue').default);
 
 Vue.component('complete-page', require('./components/CompletePage.vue').default);
 
 Vue.component('confirmation-page', require('./components/ConfirmationPage.vue').default);
-
-Vue.component('sample-page', require('./components/SamplePage.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

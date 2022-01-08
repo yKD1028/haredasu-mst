@@ -12,13 +12,6 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Route::get('/vue', function () {
-//   return view('app');
-// });
-// Route::get('/', function () {
-//   return view('welcome');
-// });
-
 
 // Auth::routes();
 // middlewareで遷移先の制限
