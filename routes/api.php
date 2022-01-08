@@ -28,6 +28,8 @@ Route::post('/regist', 'AuthUserController@regist');
 Route::get('/reserve_page', 'ReserveController@reserve_page');
 Route::post('/reserve', 'ReserveController@reserve');
 Route::post('/reserve_date', 'ReserveController@reserve_date');
+Route::get('/user_reserves', 'ReserveController@user_reserves');
+
 //クレカのroute
 Route::get('/pay_info', 'PaymentController@pay_info');
 Route::post('/pay_regist', 'PaymentController@pay_regist');

@@ -85,7 +85,11 @@ class ReserveController extends Controller
   public function user_reserves()
   {
     //useridの取得
+    $uid = Auth::id();
+    $user = Auth::user();
     //useridに基づいた予約データの取得
+    $user_reserves = $user->reserves()->get();
     //returnで返す
+    return response()->json(['uid' => $uid, 'user_reserves' => $user_reserves]);
   }
 }

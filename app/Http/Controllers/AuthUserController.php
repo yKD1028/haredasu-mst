@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthUserController extends Controller
 {
@@ -36,5 +37,20 @@ class AuthUserController extends Controller
     $request->session()->invalidate();
     $request->session()->regenerateToken();
     return response()->json(['result' => $result, 'message' => $message]);
+  }
+  // ユーザ登録
+  public function registe(Request $request)
+  {
+    User::create([
+      'name' =>  $request->name,
+      'name_kana' => $request->name_kana,
+      'email' => $request->email,
+      'password' => Hash::make($request->password),
+      'tell' => $request->tell,
+      'zip' => $request->zip,
+      'address' => $request->address,
+    ]);
+    $result = true;
+    return $result;
   }
 }
