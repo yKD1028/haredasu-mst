@@ -30,18 +30,6 @@ export default {
     SubmitButton,
   },
   props: {
-    tel: {
-      type: String,
-    },
-    email: {
-      type: String,
-    },
-    zip: {
-      type: String,
-    },
-    address: {
-      type: String,
-    },
   },
   data() {
     return {

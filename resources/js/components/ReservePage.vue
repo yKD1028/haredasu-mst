@@ -874,6 +874,7 @@ export default {
             var endLng=139.707784
             var resstartLat=35.685577
             var resstartLng=139.694858
+            var num = 0;
             var roopamp = setInterval(()=>{
 
                 var roop = new this.google.maps.GroundOverlay(
@@ -893,9 +894,16 @@ export default {
                 setTimeout(()=>{
                     roop.setMap(null)
                 }, 1000);
+                num++
+                if(num == this.amagumoRoop/30 +1){
+                    num=0
+                    startLat=resstartLat
+                    startLng=resstartLng
+                    endLat=Number(startLat)+0.009261;
+                    endLng=Number(startLng)+0.012926;
+                }
                 if(JSON.parse(localStorage.getItem("map")).totalTime/30 != this.amagumoRoop/30){
                     this.amagumoRoop =Number(JSON.parse(localStorage.getItem("map")).totalTime);
-                    console.log("roopout");
                     clearInterval(roopamp);
                     this.moveAmagumo();
                 }
