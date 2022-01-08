@@ -10,7 +10,11 @@
 </head>
 <body>
     <div id="app">
+        @if(Auth::check())
+        <loginedheader-component></loginedheader-component>
+        @else
         <header-component></header-component>
+        @endif
         <router-view/>
     </div>
 

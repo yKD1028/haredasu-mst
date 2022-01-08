@@ -20,17 +20,16 @@ use Illuminate\Support\Facades\Auth;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
   return $request->user();
 });
-Route::group(['middleware' => 'auth:sanctum'], function () {
-  Route::post('/logout', 'AuthUserController@logout');
-  Route::post('/reserve_delete', 'ReserveController@reserve_delete');
-  Route::post('/reserve', 'ReserveController@reserve');
-});
+
 //ログインログアウト登録処理
+Route::post('/logout', 'AuthUserController@logout');
 Route::post('/login', 'AuthUserController@login');
 Route::post('/regist', 'AuthUserController@regist');
 Route::post('/regist_mail', 'UsersController@regist_mail')->name('regist_mail');
 Route::get('/login_check', 'UsersController@login_check');
 //予約処理のroute
+Route::post('/reserve_delete', 'ReserveController@reserve_delete');
+Route::post('/reserve', 'ReserveController@reserve');
 Route::get('/reserve_page', 'ReserveController@reserve_page');
 Route::post('/reserve_date', 'ReserveController@reserve_date');
 Route::get('/user_reserves', 'ReserveController@user_reserves');
