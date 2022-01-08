@@ -39,11 +39,11 @@ class AuthUserController extends Controller
     return response()->json(['result' => $result, 'message' => $message]);
   }
   // ユーザ登録
-  public function registe(Request $request)
+  public function regist(Request $request)
   {
     User::create([
       'name' =>  $request->name,
-      'name_kana' => $request->name_kana,
+      'name_kana' => $request->nameKana,
       'email' => $request->email,
       'password' => Hash::make($request->password),
       'tell' => $request->tell,
@@ -51,6 +51,7 @@ class AuthUserController extends Controller
       'address' => $request->address,
     ]);
     $result = true;
-    return $result;
+    $message = "成功";
+    return response()->json(['result' => $result, 'message' => $message]);
   }
 }
