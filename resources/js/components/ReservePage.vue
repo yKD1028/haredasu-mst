@@ -235,17 +235,19 @@ export default {
                 address: "",
                 sumDrone: 0,
             },
-            startTimePicker: "",
-            endTimePicker: "",
-            timePicker: false,
-            endtimePicker: false,
-            startTimeSum: 0,
-            endTimeSum: 30,
-            oldMapname: "",
-            anyMapData: "",
-            anyMapDatas: [],
-            anyMapDatasrange: [],
-            amagumoRoop: "",
+            startTimePicker:"",
+            endTimePicker:"",
+            timePicker:false,
+            endtimePicker:false,
+            startTimeSum:0,
+            endTimeSum:30,
+            oldMapname:"",
+            anyMapData:"",
+            anyMapDatas:[],
+            anyMapDatasrange:[],
+            amagumoRoop:30,
+            oldRoop:0,
+            DBdate:""
         };
     },
 
@@ -265,7 +267,6 @@ export default {
                 this.$refs.googleMap,
                 this.mapConfig
             );
-
             if (localStorage !== null) {
                 //中心のピン詳細(localStorage有)
                 this.marker = new this.google.maps.Marker({
@@ -273,7 +274,6 @@ export default {
                     map: this.Map,
                     icon: mypin,
                 });
-
                 this.Map.panTo(
                     new this.google.maps.LatLng(localStorage.latlng)
                 );
@@ -294,17 +294,18 @@ export default {
 
                 this.totalFee.latlng = localStorage.latlng;
 
-                document.getElementById("starttime").value =
-                    localStorage.startTime;
-                document.getElementById("endtime").value = localStorage.endTime;
-                document.getElementById("date").value = localStorage.date;
-                document.range.radius[localStorage.rebgeSum - 1].checked = true;
-                this.startTimeSum = Number(localStorage.startTimesum);
-                this.endTimeSum = Number(localStorage.endTimesum);
-                this.sumval = localStorage.totalFee;
-                this.totalFee.latlng = localStorage.latlng;
-                this.totalFee.radiusIndex = localStorage.rebgeSum;
-            } else {
+                document.getElementById("starttime").value=localStorage.startTime
+                document.getElementById("endtime").value=localStorage.endTime
+                document.getElementById("date").value=localStorage.date
+                document.range.radius[localStorage.rebgeSum -1].checked = true
+                this.startTimeSum=Number(localStorage.startTimesum)
+                this.endTimeSum=Number(localStorage.endTimesum)
+                this.sumval=localStorage.totalFee
+                this.totalFee.latlng=localStorage.latlng
+                this.totalFee.radiusIndex=localStorage.rebgeSum
+                this.amagumoRoop = localStorage.totalTime/30
+
+            }else{
                 //中心のピン詳細(localStorage無)
                 this.marker = new this.google.maps.Marker({
                     position: new this.google.maps.LatLng(
@@ -455,10 +456,11 @@ export default {
             this.calendarPicker = false;
             this.localStorage();
             const data = {
-                day: day,
-            };
-            await axios.post("/api/reserve_date", data).then((response) => {
-                this.anyMapData = response.data;
+                day : day
+            }
+            this.DBdate=format(date, "yyyy-MM-dd");
+            await axios.post('/api/reserve_date',data).then((response) => {
+                    this.anyMapData=response.data;
             });
             for (var i = 0; i < this.anyMapDatas.length; i++) {
                 this.anyMapDatas[i].setMap(null);
@@ -769,7 +771,6 @@ export default {
             this.endTimePicker = endindex;
             this.Calculation();
             this.localStorage();
-            this.moveAmagumo();
         },
 
         updateendTimePicker() {
@@ -862,28 +863,38 @@ export default {
                     latlng: this.totalFee.latlng,
                     totalTime: this.endTimeSum - this.startTimeSum,
                     totalFee: this.sumval,
+                    DBdate:this.DBdate,
                 })
             );
         },
-        moveAmagumo() {
-            this.amagumoRoop = "";
-
-            var roop = new this.google.maps.GroundOverlay(
-                amagumo,
-                new this.google.maps.LatLngBounds(
-                    new this.google.maps.LatLng(35.685577, 139.694858),
-                    new this.google.maps.LatLng(35.694838, 139.707784)
-                ),
-                {
-                    map: this.Map,
-                    opacity: 0.8,
+        moveAmagumo(){
+            var roopamp = setInterval(()=>{
+                var startLat=35.685577
+                var startLng=139.694858
+                var endLat=35.694838
+                var endLng=139.707784
+                var roop = new this.google.maps.GroundOverlay(
+                    amagumo,
+                    new this.google.maps.LatLngBounds(
+                        new this.google.maps.LatLng( startLat, startLng ) ,
+                        new this.google.maps.LatLng( endLat, endLng )
+                    ) , {
+                        map: this.Map,
+                        opacity:0.8
+                    }
+                )
+                setTimeout(()=>{
+                    roop.setMap(null)
+                }, 1000);
+                console.log(JSON.parse(localStorage.getItem("map")).totalTime/30);
+                console.log(this.amagumoRoop);
+                if(JSON.parse(localStorage.getItem("map")).totalTime/30 != this.amagumoRoop){
+                    console.log("roopout");
+                    clearInterval(roopamp);
                 }
-            );
-            // roop.setMap(null);
-            setTimeout(function () {
-                roop.setMap(null);
-            }, 1000);
-        },
+
+            }, 1000)
+        }
     },
 };
 </script>
@@ -1087,6 +1098,7 @@ export default {
                     justify-content: center;
                     align-items: center;
                     overflow: hidden;
+                    margin-top: 8px;
 
                     input[type="radio"] {
                         display: none;

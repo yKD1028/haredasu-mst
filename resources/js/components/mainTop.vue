@@ -265,6 +265,7 @@ export default({
                     latlng: this.yourPinConfig.center,
                     totalTime:0,
                     totalFee:0,
+                    DBdate:"0000-00-00"
                 })
             );
         },
