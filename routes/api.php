@@ -24,6 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/login', 'AuthUserController@login');
 Route::post('/logout', 'AuthUserController@logout');
 Route::post('/regist', 'AuthUserController@regist');
+Route::post('/regist_mail', 'UsersController@regist_mail')->name('regist_mail');
 Route::get('/login_check', 'UsersController@login_check');
 //予約処理のroute
 Route::get('/reserve_page', 'ReserveController@reserve_page');
