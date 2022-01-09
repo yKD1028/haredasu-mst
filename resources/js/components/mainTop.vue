@@ -1,6 +1,5 @@
 <template>
     <div>
-        <Header></Header>
         <div class="maintop_wrap">
             <div id="map" ref="googleMap" />
             <div class="searchBox">
