@@ -200,8 +200,8 @@ export default {
 
                 //this.reservesのdate,start_time,end_timeの表示形式変更
                 this.reserves[i].date = this.reserves[i].date.replace(/-/g, "/");
-                this.reserves[i].start_time = start.getHours() + ":" + ('0' + end.getMinutes()).slice(-2);
-                this.reserves[i].end_time = end.getHours() + ":" + ('0' + end.getMinutes()).slice(-2);
+                this.reserves[i].start_time = ('0' + start.getHours()).slice(-2) + ":" + ('0' + start.getMinutes()).slice(-2);
+                this.reserves[i].end_time = ('0' + end.getHours()).slice(-2) + ":" + ('0' + end.getMinutes()).slice(-2);
 
                 //詳細ボタン押した時に現在時刻と比較するためのstart_time作成
                 this.reserves[i].start_time_calc = start;

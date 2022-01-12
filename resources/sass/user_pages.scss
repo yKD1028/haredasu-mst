@@ -70,6 +70,14 @@
                             line-height: 26px;
                             width: max-content;
                         }
+                        p:nth-child(1){
+                            //////
+                            width: 250px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            //////
+                        }
                     }
                 }
                 .reserve-detail-wrap {
