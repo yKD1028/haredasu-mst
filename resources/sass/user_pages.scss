@@ -28,6 +28,9 @@
                         margin-bottom: 0;
                     }
                 }
+                .tab:hover{
+                    cursor: pointer;
+                }
                 //tabsに上書きで選択時のフォント変化用
                 .selected {
                     font-weight: 500;
