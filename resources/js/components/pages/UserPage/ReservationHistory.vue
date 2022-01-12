@@ -79,12 +79,13 @@
           </div> -->
                 </div>
             </div>
-            <div class="btn-wrap">
+            <div class="btn-wrap" :class="btnWrap">
                 <button class="button submit-button" @click="list = true">
                     戻る
                 </button>
                 <button
                     class="button submit-button danger"
+                    v-show="reserves[reserveId].cancel == true"
                     @click="openModal()"
                 >
                     キャンセル
@@ -157,6 +158,7 @@ export default {
             reserveId: Number,
             list: true,
             modal: false,
+            btnWrap: "",
 
             google: null,
             Map: "",
@@ -191,13 +193,20 @@ export default {
                 //start_timeとend_timeをDate型で変数に格納
                 const start = new Date(this.reserves[i].date + "T" + this.reserves[i].start_time);
                 const end = new Date(this.reserves[i].date + "T" + this.reserves[i].end_time);
+
                 //start_timeとend_timeの時差求めて変数に格納
-                const total = start.getTime() - end.getTime();
+                let total = start.getTime() - end.getTime();
                 total = Math.abs(total) / (60*60* 1000);
+
                 //this.reservesのdate,start_time,end_timeの表示形式変更
                 this.reserves[i].date = this.reserves[i].date.replace(/-/g, "/");
                 this.reserves[i].start_time = start.getHours() + ":" + ('0' + end.getMinutes()).slice(-2);
                 this.reserves[i].end_time = end.getHours() + ":" + ('0' + end.getMinutes()).slice(-2);
+
+                //詳細ボタン押した時に現在時刻と比較するためのstart_time作成
+                this.reserves[i].start_time_calc = start;
+                this.reserves[i].cancel = false;
+
                 //this.reservesに、start_timeとend_timeの時差total追加
                 this.reserves[i].total = total;
             }
@@ -216,6 +225,29 @@ export default {
             this.list = false;
             this.reserveId = reserveId;
             console.log(this.reserveId);
+
+            ///////////////////////////
+            //詳細ボタン押された時の時間取得、数値に変換
+            let now = new Date();
+            now = now.getFullYear() + "" +  (now.getMonth() + 1) + "" +  now.getDate();
+            now = Number(now);
+
+            //予約開始時刻を数値に変換
+            let start = new Date(this.reserves[reserveId].start_time_calc);
+            start = start.getFullYear() + "" +  (start.getMonth() + 1) + "" +  start.getDate();
+            start = Number(start);
+
+            //現在時刻と予約開始時刻比較
+            const diff = start - now;
+            if(diff >= 1){
+                this.reserves[reserveId].cancel = true;
+                this.btnWrap = "double";
+            }else{
+                this.reserves[reserveId].cancel = false;
+                this.btnWrap = "single";
+            }
+            ///////////////////////////
+
             const lat = this.reserves[reserveId].latitude;
             const lng = this.reserves[reserveId].longitude;
             this.$nextTick(function () {

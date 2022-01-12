@@ -169,7 +169,6 @@
                     .btn-wrap {
                         width: 100%;
                         display: flex;
-                        justify-content: space-between;
                         .danger {
                             background-color: $color-red;
                             color: $color-white;
@@ -179,6 +178,12 @@
                                 2px 2px 6px rgba(0, 0, 0, 0.25)
                             );
                         }
+                    }
+                    .single{
+                        justify-content: center;
+                    }
+                    .double{
+                        justify-content: space-between;
                     }
                     .modal {
                         &.modal-overlay {
