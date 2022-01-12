@@ -5,6 +5,7 @@
     .content-wrap {
         .title-block {
             .title {
+                color: $color-gray;
                 font-weight: bold;
                 font-size: 36px;
                 line-height: 52px;
@@ -18,6 +19,7 @@
             .tabs {
                 width: max-content;
                 .tab {
+                    color: $color-gray;
                     width: max-content;
                     font-size: 18px;
                     line-height: 26px;
@@ -41,9 +43,12 @@
               flex-grow: 1;
                 //pagecomponent表示領域
                 //UserInfo,Password
-                .user-info-wrap, .password-wrap{
+                .user-info-wrap, .password-wrap, .payment-wrap{
                     width: max-content;
                     margin: 0 auto;
+                }
+                .payment-wrap{
+                    color: $color-gray;
                 }
             }
         }
@@ -60,6 +65,7 @@
                     //予約一覧のとき表示されるwrap
                     margin-left: 30px;
                     .reserve {
+                        color: $color-gray;
                         display: flex;
                         align-items: center;
                         justify-content: space-between;
