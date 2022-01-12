@@ -60,8 +60,7 @@
                         </div>
                         <div class="cost-contents">
                             <p>利用時間</p>
-                            <p>2時間</p>
-                            <!-- 本来はstarttimeとendTimeの差の時間を入れる -->
+                            <p>{{ reserves[reserveId].total }}時間</p>
                         </div>
                         <div class="cost-border"></div>
                         <div class="cost-contents total">
@@ -188,6 +187,20 @@ export default {
         var url = "/api/user_reserves";
         axios.get(url).then((res) => {
             this.reserves = res.data;
+            for(let i = 0; i < this.reserves.length; i++){
+                //start_timeとend_timeをDate型で変数に格納
+                const start = new Date(this.reserves[i].date + "T" + this.reserves[i].start_time);
+                const end = new Date(this.reserves[i].date + "T" + this.reserves[i].end_time);
+                //start_timeとend_timeの時差求めて変数に格納
+                const total = start.getTime() - end.getTime();
+                total = Math.abs(total) / (60*60* 1000);
+                //this.reservesのdate,start_time,end_timeの表示形式変更
+                this.reserves[i].date = this.reserves[i].date.replace(/-/g, "/");
+                this.reserves[i].start_time = start.getHours() + ":" + ('0' + end.getMinutes()).slice(-2);
+                this.reserves[i].end_time = end.getHours() + ":" + ('0' + end.getMinutes()).slice(-2);
+                //this.reservesに、start_timeとend_timeの時差total追加
+                this.reserves[i].total = total;
+            }
         });
         console.log(this.reserves);
         console.log("aaa");
