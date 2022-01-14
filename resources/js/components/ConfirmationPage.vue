@@ -36,16 +36,9 @@
                     class="confirmationPage_main_information_contents_border"
                 ></div>
                 <div class="confirmationPage_main_information_contents_alert">
-<<<<<<< HEAD
                     <p>
                         予約日当日のキャンセルは受け付けておりませんのでご了承ください。
                     </p>
-=======
-                    <!-- <p>
-                        前日以降でのキャンセルの場合、キャンセル料としてお支払い料金の100%を申し受けます。
-                    </p> -->
-                    <p>予約日当日のキャンセルは受け付けておりませんのでご了承ください。</p>
->>>>>>> 59de7efd2616c1202dff77839c56ac12e7333155
                     <div
                         class="confirmationPage_main_information_contents_alert_checkbox"
                     >
