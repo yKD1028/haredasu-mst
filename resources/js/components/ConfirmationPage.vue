@@ -37,7 +37,7 @@
                 ></div>
                 <div class="confirmationPage_main_information_contents_alert">
                     <p>
-                        前日以降でのキャンセルの場合、キャンセル料としてお支払い料金の100%を申し受けます。
+                        予約日当日のキャンセルは受け付けておりませんのでご了承ください。
                     </p>
                     <div
                         class="confirmationPage_main_information_contents_alert_checkbox"
