@@ -28,6 +28,7 @@
   <p>この度は、「ハレダス」にお申し込み頂きまして</p>
   <p>誠にありがとうございます。</p>
   <p>下記ボタンを押しアカウントの本登録を完了させて下さい。</p>
+  <p>{{url('/user_regist2?email='.$email)}}</p>
   <a href="{{url('/user_regist2?email='.$email)}}" class="btn_item">ここを押して</a>
 </body>
 
